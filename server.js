@@ -1,5 +1,6 @@
 const path = require("path");
 
+
 // Require the fastify framework and instantiate it
 const fastify = require("fastify")({
   // set this to true for detailed logging:
@@ -21,6 +22,14 @@ fastify.register(require("point-of-view"), {
     handlebars: require("handlebars")
   }
 });
+
+fastify.register(require('fastify-cors'), { 
+  origin:'*'
+})
+
+fastify.register(require('fastify-socket.io'), {
+  // put your options here
+})
 
 // Our main GET home page route, pulls from src/pages/index.hbs
 fastify.get("/", function(request, reply) {
