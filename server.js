@@ -7,6 +7,8 @@ const fastify = require("fastify")({
   logger: false
 });
 
+const io = require('socket.io')(fastify.server);
+
 // Setup our static files
 fastify.register(require("fastify-static"), {
   root: path.join(__dirname, "public"),
@@ -31,6 +33,8 @@ fastify.register(require('fastify-cors'), {
 fastify.register(require('fastify-socket.io'), {
   // put your options here
 })
+
+
 
 // Our main GET home page route, pulls from src/pages/index.hbs
 fastify.get("/", function(request, reply) {
