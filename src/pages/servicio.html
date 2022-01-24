@@ -34,14 +34,15 @@
     </nav>
     <div class="container">
       <h1>
-          Para Clientes
-      </h1>      
+        Para Choferes
+      </h1>
       <h1 id="conjs" onclick="miClick()">
         Esto es nuevo
       </h1>
     </div>
     <script>
       var socket = io();
+      
       document.getElementById('conjs').innerHTML="Esto es con JavaScript"
       function miClick(){
         document.getElementById('conjs').innerHTML="Se hizo Click"

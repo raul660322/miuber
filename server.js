@@ -50,6 +50,11 @@ fastify.get("/", function(request, reply) {
   reply.view("/src/pages/index.html");
 });
 
+fastify.get("/servicio.html", function(request, reply) {
+
+  reply.view("/src/pages/servicio.html");
+});
+
 // A POST route to handle form submissions
 fastify.post("/", function(request, reply) {
   let params = {
