@@ -16,6 +16,9 @@
     <h1>
       {{ greeting }}
     </h1>
+    <h1 id="conjs">
+      Esto es nuevo
+    </h1>
     <p>
       This starter gives you everything you need to start working on a new
       project using Node. If you're looking for something a little more 
@@ -24,6 +27,8 @@
         >~glitch-hello-node</a
       >.
     </p>
-        
+    <script>
+      document.getElementById('conjs').innerHtml="Esto es con JavaScript"
+    </script>    
   </body>
 </html>
