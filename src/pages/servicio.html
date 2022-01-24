@@ -40,6 +40,7 @@
         Esto es nuevo
       </h1>
       <br>
+      <p id="demo"></p>
       <br>
       <div>
         <button onclick="comenzar()">Comenzar</button>
@@ -49,16 +50,26 @@
 
     <script>
       var socket = io();
-      
+      var x = document.getElementById("demo");
+
+      function comenzar() {
+        if (navigator.geolocation) {
+          navigator.geolocation.watchPosition(showPosition);
+        } else { 
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+
+      function showPosition(position) {
+          x.innerHTML="Latitude: " + position.coords.latitude + 
+          "<br>Longitude: " + position.coords.longitude;
+      }     
       document.getElementById('conjs').innerHTML="Esto es con JavaScript"
       function miClick(){
         document.getElementById('conjs').innerHTML="Se hizo Click"
             socket.emit('chat message', "Se hizo Click");
         }
     
-        function comenzar() {
-
-        }
 
         function detener() {
 
