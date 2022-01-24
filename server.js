@@ -32,7 +32,10 @@ fastify.register(require('fastify-cors'), {
 
 
 io.on('connection', (socket) => {
-    console.log('......', 'Conectado!');
+     console.log('......', 'Conectado!');
+     socket.on('chat message', (msg) => {
+       console.log('message: ' + msg); 
+     });
  
 })
 

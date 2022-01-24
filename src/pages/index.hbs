@@ -33,7 +33,8 @@
       document.getElementById('conjs').innerHTML="Esto es con JavaScript"
       function miClick(){
         document.getElementById('conjs').innerHTML="Se hizo Click"
-      }
+            socket.emit('chat message', "Se hizo Click");
+        }
     </script>    
   </body>
 </html>
