@@ -36,7 +36,9 @@ io.on('connection', (socket) => {
      socket.on('chat message', (msg) => {
        console.log('message: ' + msg); 
      });
- 
+       socket.on('posicion', (pos) => {
+         console.log('coordenadas: ',pos); 
+       })
 })
 
 // Our main GET home page route, pulls from src/pages/index.hbs

@@ -44,7 +44,7 @@
       <br>
       <div>
         <button onclick="comenzar()">Comenzar</button>
-        <button onclick="detener">Detener</button>
+        <button onclick="detener()">Detener</button>
       </div>
     </div>
 
@@ -64,9 +64,10 @@
           x.innerHTML="Latitude: " + position.coords.latitude + 
           "<br>Longitude: " + position.coords.longitude;
         //Enviar posición al servidor
-          socket.emit('posicion', position.coords;
+          socket.emit('posicion', position.coords);
       }     
       document.getElementById('conjs').innerHTML="Esto es con JavaScript"
+      
       function miClick(){
         document.getElementById('conjs').innerHTML="Se hizo Click"
             socket.emit('chat message', "Se hizo Click");
@@ -74,7 +75,7 @@
     
 
       function detener() {
-        clearWatch()
+        clearWatch();
       }     
     </script>    
   </body>
