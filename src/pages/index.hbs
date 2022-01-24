@@ -8,7 +8,8 @@
     <title>Hello Node!</title>
 
     <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css" />   
+    <link rel="stylesheet" href="/style.css" />  
+    <script src="/sopket.io/socket.io.js"></script>
   </head>
   <body>
     
@@ -28,6 +29,7 @@
       >.
     </p>
     <script>
+      var socket = io();
       document.getElementById('conjs').innerHTML="Esto es con JavaScript"
       function miClick(){
         document.getElementById('conjs').innerHTML="Se hizo Click"

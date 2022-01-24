@@ -34,7 +34,13 @@ fastify.register(require('fastify-socket.io'), {
   // put your options here
 })
 
+io.on('connection', (socket) => {
+    console.log('......', 'Conectado!');
+    socket.on('find-driver', ({points}) => {
+        console.log('......', points);
 
+    })
+})
 
 // Our main GET home page route, pulls from src/pages/index.hbs
 fastify.get("/", function(request, reply) {
