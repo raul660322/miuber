@@ -23,10 +23,11 @@ fastify.register(require("point-of-view"), {
   }
 });
 
+//Allow requests from anywhere
 fastify.register(require('fastify-cors'), { 
   origin:'*'
 })
-
+//Registrar el socket
 fastify.register(require('fastify-socket.io'), {
   // put your options here
 })
