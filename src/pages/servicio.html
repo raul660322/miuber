@@ -63,6 +63,8 @@
       function showPosition(position) {
           x.innerHTML="Latitude: " + position.coords.latitude + 
           "<br>Longitude: " + position.coords.longitude;
+        //Enviar posición al servidor
+          socket.emit('posicion', position.coords;
       }     
       document.getElementById('conjs').innerHTML="Esto es con JavaScript"
       function miClick(){
@@ -71,9 +73,9 @@
         }
     
 
-        function detener() {
-
-        }     
+      function detener() {
+        clearWatch()
+      }     
     </script>    
   </body>
 </html>
