@@ -46,7 +46,8 @@ fastify.get("/", function(request, reply) {
     greeting: "Hello Nodeee!"
   };
   // request.query.paramName <-- a querystring example
-  reply.view("/src/pages/index.hbs", params);
+  //reply.view("/src/pages/index.hbs", params);
+  reply.view("/src/pages/index.html");
 });
 
 // A POST route to handle form submissions
