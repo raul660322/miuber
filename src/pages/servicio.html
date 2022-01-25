@@ -64,7 +64,10 @@
           x.innerHTML="Latitude: " + position.coords.latitude + 
           "<br>Longitude: " + position.coords.longitude;
         //Enviar posición al servidor
-          socket.emit('posicion', position.coords);
+          socket.emit('posicion', {
+            'lat':position.coords.latitude,
+            'long':position.coords.longitude
+          });
           
       }     
       document.getElementById('conjs').innerHTML="Esto es con JavaScript"
