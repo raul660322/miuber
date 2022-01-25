@@ -64,9 +64,16 @@ fastify.get("/", function(request, reply) {
   reply.view("/src/pages/index.html");
 });
 
+//Abrir página del chofer
 fastify.get("/servicio.html", function(request, reply) {
 
   reply.view("/src/pages/servicio.html");
+});
+
+//Abrir página del protocolo
+fastify.get("/protocolo.html", function(request, reply) {
+
+  reply.view("/src/pages/protocolo.html");
 });
 
 // A POST route to handle form submissions

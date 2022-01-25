@@ -43,7 +43,6 @@
       <p id="pp"></p>
       <div>
         Motos:
-        <a href onclick="papa()">Raul</a>
         <ul id="messages"></ul>
       </div>
       
@@ -65,6 +64,7 @@
           var item = document.createElement('li'); 
           seleccion = document.createElement('a')
           seleccion.textContent = carro.nombre; 
+          seleccion.setAttribute("href", "protocolo.html");
           item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
