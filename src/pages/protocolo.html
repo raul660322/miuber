@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Protocolo</title>
+    <script src="/socket.io/socket.io.js"></script>
   </head>
 </html> 
 
@@ -21,10 +22,12 @@
     <p id="longitud"></p>
   </div>
   <br>
+  <button onclick="ocupar()">Ocupar</button>
   <a class="nav-link" href="/">Retornar</a>
   
   <script>
     const miUrl=window.location.href;
+    var socket = io();
     document.getElementById('pp').innerHTML=miUrl;
     var url = new URL(miUrl);
     var nombre = url.searchParams.get("carro");
@@ -33,5 +36,10 @@
     document.getElementById('chofer').innerHTML="Nombre: " + nombre;
     document.getElementById('latitud').innerHTML="Latitud: " + latitud;
     document.getElementById('longitud').innerHTML="Longitud: " + longitud;
+    
+    function ocupar(){
+      socket.emit('ocupar', nombre);
+      location.href="/"
+    }
   </script>
 </body>

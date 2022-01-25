@@ -53,12 +53,9 @@ io.on('connection', (socket) => {
      })
      socket.on('ocupar',(carro)=>{
        console.log('ocupando: ',carro); 
-       const index = losCarros.findIndex(c=>c.nombre==pos.nombre)
-       if (index === -1) {
-         losCarros.push(pos)
-       } else {
-         losCarros[index].lat=pos.lat
-         losCarros[index].long=pos.long
+       const index = losCarros.findIndex(c=>c.nombre==carro)
+       if (index != -1) {
+         losCarros.splice(index,1);
        }          
      }); 
 })
