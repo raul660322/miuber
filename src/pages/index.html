@@ -64,7 +64,7 @@
           var item = document.createElement('li'); 
           seleccion = document.createElement('a')
           seleccion.textContent = carro.nombre; 
-          seleccion.setAttribute("href", "protocolo.html");
+          seleccion.setAttribute("href", "protocolo.html"+"?carro="+carro.nombre);
           item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
