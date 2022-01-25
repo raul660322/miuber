@@ -51,6 +51,16 @@ io.on('connection', (socket) => {
        //Enviar choferes al cliente
        io.emit('carros', losCarros);  
      })
+     socket.on('ocupar',(carro)=>{
+       console.log('ocupando: ',carro); 
+       const index = losCarros.findIndex(c=>c.nombre==pos.nombre)
+       if (index === -1) {
+         losCarros.push(pos)
+       } else {
+         losCarros[index].lat=pos.lat
+         losCarros[index].long=pos.long
+       }          
+     }); 
 })
 
 // Our main GET home page route, pulls from src/pages/index.hbs
