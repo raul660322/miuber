@@ -56,7 +56,7 @@
         }
       socket.on('carros', (msg) =>{    
         var item = document.createElement('li');    
-        item.textContent = msg;    
+        item.textContent = msg.nombre;    
         messages.appendChild(item);    
         window.scrollTo(0, document.body.scrollHeight);  
       });

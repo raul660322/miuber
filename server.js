@@ -38,6 +38,8 @@ io.on('connection', (socket) => {
      });
      socket.on('posicion', (pos) => {
        console.log('coordenadas: ',pos); 
+               //Enviar choferes al cliente
+          io.emit('carros', pos);  
      })
 })
 
