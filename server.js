@@ -41,10 +41,15 @@ io.on('connection', (socket) => {
        console.log('coordenadas: ',pos); 
        
        //Obtener choferes
-       var elCarro = losCarros.find()
-           
+       var elCarro = losCarros.find(carro=>{carro.nombre==pos.nombre})
+       if (elCarro != undefined) {
+         losCarros.push(pos)
+       } else {
+         elCarro.lat=pos.lat
+         elCarro.lon=pos.lon
+       }   
        //Enviar choferes al cliente
-       io.emit('carros', pos);  
+       io.emit('carros', losCarros);  
      })
 })
 

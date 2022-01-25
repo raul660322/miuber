@@ -57,7 +57,10 @@
             socket.emit('chat message', "Se hizo Click");
         }
       
-      socket.on('carros', (msg) =>{    
+      socket.on('carros', (listaDeCarros) =>{ 
+        messages.textContext=''
+        for ()
+        
         var item = document.createElement('li');    
         item.textContent = msg.nombre;    
         messages.appendChild(item);    
