@@ -40,6 +40,11 @@
         Esto es nuevo
       </h1>
       <br>
+      <div class="form-group">
+        <label for nombre>Nombre:</label>
+        <input type="text" id="nombre">
+      </div>
+      <br>
       <p id="demo"></p>
       <br>
       <div>
@@ -65,7 +70,8 @@
           x.innerHTML="Latitude: " + position.coords.latitude + 
           "<br>Longitude: " + position.coords.longitude;
         //Enviar posición al servidor
-          socket.emit('posicion', {
+          const elNombre=document.getElementById("nombre").value
+          socket.emit('posicion', {'nombre':elNombre,
             'lat':position.coords.latitude,
             'long':position.coords.longitude
           });
