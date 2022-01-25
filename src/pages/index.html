@@ -39,14 +39,27 @@
       <h1 id="conjs" onclick="miClick()">
         Esto es nuevo
       </h1>
+      <br>
+      <div>
+        Motos:
+        <ul id="messages"></ul>
+      </div>
+      
     </div>
     <script>
       var socket = io();
+      var messages = document.getElementById('messages');
       document.getElementById('conjs').innerHTML="Esto es con JavaScript"
       function miClick(){
         document.getElementById('conjs').innerHTML="Se hizo Click"
             socket.emit('chat message', "Se hizo Click");
         }
+      socket.on('carros', (msg) =>{    
+        var item = document.createElement('li');    
+        item.textContent = msg;    
+        messages.appendChild(item);    
+        window.scrollTo(0, document.body.scrollHeight);  
+      });
     </script>    
   </body>
 </html>
