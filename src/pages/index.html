@@ -40,6 +40,7 @@
         Esto es nuevo
       </h1>
       <br>
+      <p id="pp"></p>
       <div>
         Motos:
         <a href onclick="papa()">Raul</a>
@@ -63,12 +64,13 @@
         for (var carro of listaDeCarros){
           var item = document.createElement('li'); 
           seleccion = document.createElement('a')
-          seleccion.textContent = carro.nombre + " href='#'"; 
+          seleccion.textContent = carro.nombre; 
           item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
         window.scrollTo(0, document.body.scrollHeight); 
       });
+      document.getElementById('pp').innerHTML=window.location.href
     </script>    
   </body>
 </html>
