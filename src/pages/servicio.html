@@ -65,6 +65,7 @@
           "<br>Longitude: " + position.coords.longitude;
         //Enviar posición al servidor
           socket.emit('posicion', position.coords);
+          
       }     
       document.getElementById('conjs').innerHTML="Esto es con JavaScript"
       
