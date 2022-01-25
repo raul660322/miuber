@@ -51,10 +51,11 @@
     <script>
       var socket = io();
       var x = document.getElementById("demo");
+      var watchId;
 
       function comenzar() {
         if (navigator.geolocation) {
-          navigator.geolocation.watchPosition(showPosition);
+          watchId = navigator.geolocation.watchPosition(showPosition);
         } else { 
           x.innerHTML = "Geolocation is not supported by this browser.";
         }
@@ -79,7 +80,7 @@
     
 
       function detener() {
-        clearWatch();
+        clearWatch(watchId);
       }     
     </script>    
   </body>
