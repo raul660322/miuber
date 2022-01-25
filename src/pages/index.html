@@ -49,11 +49,14 @@
     <script>
       var socket = io();
       var messages = document.getElementById('messages');
+      
       document.getElementById('conjs').innerHTML="Esto es con JavaScript"
+      
       function miClick(){
         document.getElementById('conjs').innerHTML="Se hizo Click"
             socket.emit('chat message', "Se hizo Click");
         }
+      
       socket.on('carros', (msg) =>{    
         var item = document.createElement('li');    
         item.textContent = msg.nombre;    

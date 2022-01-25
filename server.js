@@ -1,4 +1,5 @@
 const path = require("path");
+var losCarros = [];
 
 
 // Require the fastify framework and instantiate it
@@ -38,8 +39,12 @@ io.on('connection', (socket) => {
      });
      socket.on('posicion', (pos) => {
        console.log('coordenadas: ',pos); 
-               //Enviar choferes al cliente
-          io.emit('carros', pos);  
+       
+       //Obtener choferes
+       var elCarro = losCarros.find()
+           
+       //Enviar choferes al cliente
+       io.emit('carros', pos);  
      })
 })
 
