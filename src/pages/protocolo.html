@@ -17,6 +17,8 @@
   <div>
     Datos del chofer:
     <p id="chofer"></p>
+    <p id="latitud"></p>
+    <p id="longitud"></p>
   </div>
   <br>
   <a class="nav-link" href="/">Retornar</a>
@@ -26,6 +28,10 @@
     document.getElementById('pp').innerHTML=miUrl;
     var url = new URL(miUrl);
     var nombre = url.searchParams.get("carro");
-    document.getElementById('chofer').innerHTML="Nombre: "+ nombre;
+    var latitud = url.searchParams.get("lat");
+    var longitud = url.searchParams.get("long");
+    document.getElementById('chofer').innerHTML="Nombre: " + nombre;
+    document.getElementById('latitud').innerHTML="Latitud: " + latitud;
+    document.getElementById('longitud').innerHTML="Longitud: " + longitud;
   </script>
 </body>
