@@ -46,7 +46,7 @@ io.on('connection', (socket) => {
          losCarros.push(pos)
        } else {
          elCarro.lat=pos.lat
-         elCarro.lon=pos.lon
+         elCarro.long=pos.long
        }   
        //Enviar choferes al cliente
        io.emit('carros', losCarros);  

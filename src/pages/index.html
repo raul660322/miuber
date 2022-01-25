@@ -59,12 +59,12 @@
       
       socket.on('carros', (listaDeCarros) =>{ 
         messages.textContext=''
-        for ()
-        
-        var item = document.createElement('li');    
-        item.textContent = msg.nombre;    
-        messages.appendChild(item);    
-        window.scrollTo(0, document.body.scrollHeight);  
+        for (var carro of listaDeCarros){
+          var item = document.createElement('li');    
+          item.textContent = carro.nombre;    
+          messages.appendChild(item);    
+        }  
+        window.scrollTo(0, document.body.scrollHeight); 
       });
     </script>    
   </body>
