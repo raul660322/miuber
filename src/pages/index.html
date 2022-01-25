@@ -42,6 +42,7 @@
       <br>
       <div>
         Motos:
+        <a onclick="papa()">Raul</a>
         <ul id="messages"></ul>
       </div>
       
@@ -60,8 +61,10 @@
       socket.on('carros', (listaDeCarros) =>{ 
         messages.innerHTML=''
         for (var carro of listaDeCarros){
-          var item = document.createElement('li');    
-          item.textContent = carro.nombre;    
+          var item = document.createElement('li'); 
+          seleccion = document.createElement('a')
+          seleccion.textContent = carro.nombre + " href='#'"; 
+          item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
         window.scrollTo(0, document.body.scrollHeight); 
