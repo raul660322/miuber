@@ -58,7 +58,7 @@
         }
       
       socket.on('carros', (listaDeCarros) =>{ 
-        messages.textContext=''
+        messages.innerHTML=''
         for (var carro of listaDeCarros){
           var item = document.createElement('li');    
           item.textContent = carro.nombre;    
