@@ -99,7 +99,7 @@
         var elNombre = document.getElementById("nombre").value
         misPcs = pcs.filter(pc=>pc.chofer==elNombre)
         clientes.innerHTML=''
-        for (var pc of pcs){
+        for (var pc of misPcs){
           var item = document.createElement('li'); 
           seleccion = document.createElement('a')
           seleccion.textContent = pc.cliente; 
