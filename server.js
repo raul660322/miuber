@@ -1,6 +1,6 @@
 const path = require("path");
 var losCarros = [];
-var preContratos = []
+var preContratos = [];
 
 // Require the fastify framework and instantiate it
 const fastify = require("fastify")({
