@@ -94,12 +94,12 @@
         navigator.geolocation.clearWatch(watchId);
       }  
       
-      socket.on('misclientes', (listaDeClientes) =>{ 
+      socket.on('pre-contratos', (pcs) =>{ 
         clientes.innerHTML=''
-        for (var cliente of listaDeClientes){
+        for (var pc of pcs){
           var item = document.createElement('li'); 
           seleccion = document.createElement('a')
-          seleccion.textContent = cliente.nombre; 
+          seleccion.textContent = pc.cliente; 
           seleccion.setAttribute("href", "protochof.html"+"?cliente="+cliente.nombre
                                 +"&lat="+cliente.lat+"&long="+cliente.long);
           item.appendChild(seleccion);

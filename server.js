@@ -1,6 +1,6 @@
 const path = require("path");
 var losCarros = [];
-var losContratos = []
+var preContratos = []
 
 // Require the fastify framework and instantiate it
 const fastify = require("fastify")({
@@ -58,9 +58,10 @@ io.on('connection', (socket) => {
          losCarros.splice(index,1);
        }          
      }); 
-     socket.on('cliente-chofer',(contrato)=>{
-       console.log('cliente-chofer: ',contrato); 
-       losContratos.
+     socket.on('cliente-chofer',(pc)=>{
+       console.log('cliente-chofer: ',pc); 
+       preContratos.push(pc);
+       io.emit('pre-contratos', preContratos);
      }); 
 })
 
