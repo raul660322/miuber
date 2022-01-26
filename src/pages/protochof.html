@@ -49,40 +49,7 @@
       var latCli="";
       var longCli="";
       
-      customData = {
-        'type': 'geojson',
-        'data': {
-        'type': 'FeatureCollection',
-        'features': [
-          {
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                -81.57004773616791,
-                23.049012496449016
-              ]
-            },
-            "type": "Feature",
-            'place_name': "El Chiqui",
-            'place_type':[""],
-            'center':[
-              -81.57004773616791,
-              23.049012496449016
-            ],
-            "properties": {
-              "marker-color": "#7e7e7e",
-              "marker-size": "medium",
-              "description": "El Chiqui",
-              "marker-symbol": "restaurant",
-              "title": "El Chiqui",
-              "name": "El Chiqui",
-              'icon': 'restaurant-noodle-15',
-              'text': "Aquí vivían Idalmis y Adriel",
-            }
-          }
-        ]
-        } 
-      }
+
       
       function comenzar() {
         if (navigator.geolocation) {
@@ -106,20 +73,46 @@
           style: 'mapbox://styles/mapbox/streets-v11'
         });
         
-        mapa.on('load', () => {
-          console.log('Por aqui')
-          mapa.addSource('places', this.customData);   
-          // Add a layer showing the places.
-          mapa.addLayer({
-            'id': 'places',
-            'type': 'fill',
-            'source': 'places',
-            'layout': { },
-            "paint": {
-              "fill-color": "#ffffff"
+        var customData = {
+          'type': 'geojson',
+          'data': {
+          'type': 'FeatureCollection',
+          'features': [
+            {
+              "geometry": {
+                "type": "Point",
+                "coordinates": [
+                  longitud,
+                  latitud
+                ]
+              },
+              "type": "Feature",
+              'place_name': "El Chiqui",
+              'place_type':[""],
+              'center':[
+                longitud,
+                latitud
+              ],
+              "properties": {
+                "marker-color": "#7e7e7e",
+                "marker-size": "medium",
+                "description": nCliente,
+                "marker-symbol": "restaurant",
+                "title": "El Chiqui",
+                "name": "El Chiqui",
+                'icon': 'restaurant-noodle-15',
+                'text': "Aquí vivían Idalmis y Adriel",
+              }
             }
-             });  
-          mapa.addLayer({
+          ]
+          } 
+        }
+        
+        map.on('load', () => {
+          console.log('Por aqui')
+          mapa.addSource('lugares', customData);   
+          // Add a layer showing the places.
+          map.addLayer({
           'id': 'lugares',
           'type': 'symbol',
           'source': 'places',
