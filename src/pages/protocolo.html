@@ -5,74 +5,75 @@
     <link rel="icon" href="https://glitch.com/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Protocolo</title>
+    <title>Protocolo Cliente</title>
     <script src="/socket.io/socket.io.js"></script>
   </head>
-</html> 
+ 
 
-<body>
-  <h2>Protocolo para ocupar vehículo</h2>
-  <br>
-  <p id="pp"></p>
-  <br>
-  <div>
-    Coordenadas del Cliente
-    <p id="demo"></p>
-  </div>
-  <div>
-    Datos del chofer:
-    <p id="chofer"></p>
-    <p id="cliente"></p>
-    <p id="latitud"></p>
-    <p id="longitud"></p>
-  </div>
-  <br>
-  <button onclick="pedirChofer()">Pedir</button>
-  <button onclick="ocupar()">Ocupar</button>
-  <a class="nav-link" href="/">Retornar</a>
-  
-  <script>
-    const miUrl=window.location.href;
-    var socket = io();
-    var x = document.getElementById("demo");
-    var watchId;
-    document.getElementById('pp').innerHTML=miUrl;
-    var url = new URL(miUrl);
-    var nombre = url.searchParams.get("carro");
-    var latitud = url.searchParams.get("lat");
-    var longitud = url.searchParams.get("long");
-    var nCliente = url.searchParams.get("cli")
-    document.getElementById('chofer').innerHTML="Chofer: " + nombre;
-    document.getElementById('latitud').innerHTML="Latitud: " + latitud;
-    document.getElementById('longitud').innerHTML="Longitud: " + longitud;
-    document.getElementById('cliente').innerHTML="Cliente: " + nCliente;
-    var latCli="";
-    var longCli="";
-    //Enviar al servidor notificación de posible contrato cliente-chofer
-    function pedirChofer(){
-      socket.emit('cliente-chofer', {chofer:nombre, cliente:ncliente, lat:latCli, long:longCli});
-    }
-    
-    function ocupar(){
-      socket.emit('ocupar', nombre);
-      location.href="/"
-    }
+  <body>
+    <h2>Protocolo para ocupar vehículo</h2>
+    <br>
+    <p id="pp"></p>
+    <br>
+    <div>
+      Mis coordenadas
+      <p id="demo"></p>
+    </div>
+    <div>
+      Datos del chofer:
+      <p id="chofer"></p>
+      <p id="cliente"></p>
+      <p id="latitud"></p>
+      <p id="longitud"></p>
+    </div>
+    <br>
+    <button onclick="pedirChofer()">Pedir</button>
+    <button onclick="ocupar()">Ocupar</button>
+    <a class="nav-link" href="/">Retornar</a>
 
-    function comenzar() {
-      if (navigator.geolocation) {
-        watchId = navigator.geolocation.watchPosition(showPosition);
-      } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
+    <script>
+      const miUrl=window.location.href;
+      var socket = io();
+      var x = document.getElementById("demo");
+      var watchId;
+      document.getElementById('pp').innerHTML=miUrl;
+      var url = new URL(miUrl);
+      var nombre = url.searchParams.get("carro");
+      var latitud = url.searchParams.get("lat");
+      var longitud = url.searchParams.get("long");
+      var nCliente = url.searchParams.get("cli")
+      document.getElementById('chofer').innerHTML="Chofer: " + nombre;
+      document.getElementById('latitud').innerHTML="Latitud: " + latitud;
+      document.getElementById('longitud').innerHTML="Longitud: " + longitud;
+      document.getElementById('cliente').innerHTML="Cliente: " + nCliente;
+      var latCli="";
+      var longCli="";
+      //Enviar al servidor notificación de posible contrato cliente-chofer
+      function pedirChofer(){
+        socket.emit('cliente-chofer', {chofer:nombre, cliente:ncliente, lat:latCli, long:longCli});
       }
-    }
 
-    function showPosition(position) {
-        x.innerHTML="Latitude: " + position.coords.latitude + 
-        "<br>Longitude: " + position.coords.longitude;
-        latCli = position.coords.latitude;
-        longCli = position.coords.longitude;
-    }    
-    //Comenzar geolocalización del cliente
-    comenzar();
-  </script>
-</body>
+      function ocupar(){
+        socket.emit('ocupar', nombre);
+        location.href="/"
+      }
+
+      function comenzar() {
+        if (navigator.geolocation) {
+          watchId = navigator.geolocation.watchPosition(showPosition);
+        } else { 
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+
+      function showPosition(position) {
+          x.innerHTML="Latitude: " + position.coords.latitude + 
+          "<br>Longitude: " + position.coords.longitude;
+          latCli = position.coords.latitude;
+          longCli = position.coords.longitude;
+      }    
+      //Comenzar geolocalización del cliente
+      comenzar();
+    </script>
+  </body>
+</html>  

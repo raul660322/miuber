@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Protocolo Chofer</title>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h2>Protocolo del chofer</h2>
+    <br>
+    <p id="pp"></p>
+    <br>
+    <div>
+      Mis coordenadas
+      <p id="demo"></p>
+    </div>
+    <div>
+      Datos del cliente:
+      <p id="chofer"></p>
+      <p id="cliente"></p>
+      <p id="latitud"></p>
+      <p id="longitud"></p>
+    </div>
+    <br>
+    <a class="nav-link" href="servicio.html">Retornar</a>    
+    <script>
+      const miUrl=window.location.href;
+      var socket = io();
+      var x = document.getElementById("demo");
+      var watchId;
+      document.getElementById('pp').innerHTML=miUrl;
+      var url = new URL(miUrl);
+      var nombre = url.searchParams.get("carro");
+      var latitud = url.searchParams.get("lat");
+      var longitud = url.searchParams.get("long");
+      var nCliente = url.searchParams.get("cli")
+      document.getElementById('chofer').innerHTML="Chofer: " + nombre;
+      document.getElementById('latitud').innerHTML="Latitud: " + latitud;
+      document.getElementById('longitud').innerHTML="Longitud: " + longitud;
+      document.getElementById('cliente').innerHTML="Cliente: " + nCliente;
+      var latCli="";
+      var longCli="";
+      
+      function comenzar() {
+        if (navigator.geolocation) {
+          watchId = navigator.geolocation.watchPosition(showPosition);
+        } else { 
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+
+      function showPosition(position) {
+          x.innerHTML="Latitude: " + position.coords.latitude + 
+          "<br>Longitude: " + position.coords.longitude;
+          latCli = position.coords.latitude;
+          longCli = position.coords.longitude;
+      }    
+      //Comenzar geolocalización del cliente
+      comenzar();
+    </script>
+  </body>
+</html> 
