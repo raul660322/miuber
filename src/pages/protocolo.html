@@ -35,10 +35,10 @@
     var latitud = url.searchParams.get("lat");
     var longitud = url.searchParams.get("long");
     var nCliente = url.searchParams.get("cli")
-    document.getElementById('chofer').innerHTML="Nombre: " + nombre;
+    document.getElementById('chofer').innerHTML="Chofer: " + nombre;
     document.getElementById('latitud').innerHTML="Latitud: " + latitud;
     document.getElementById('longitud').innerHTML="Longitud: " + longitud;
-    
+    document.getElementById('cliente').innerHTML="Cliente: " + nCliente;
     //Enviar al servidor notificación de posible contrato cliente-chofer
     socket.emit('cliente-chofer', {chofer:nombre, cliente:ncliente});
     
