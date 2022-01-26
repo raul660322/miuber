@@ -61,6 +61,7 @@
       var clientes = document.getElementById('clientes');
       var x = document.getElementById("demo");
       var watchId;
+      const elNombre=document.getElementById("nombre").value
 
       function comenzar() {
         if (navigator.geolocation) {
@@ -73,8 +74,7 @@
       function showPosition(position) {
           x.innerHTML="Latitude: " + position.coords.latitude + 
           "<br>Longitude: " + position.coords.longitude;
-        //Enviar posición al servidor
-          const elNombre=document.getElementById("nombre").value
+          //Enviar posición al servidor
           socket.emit('posicion', {'nombre':elNombre,
             'lat':position.coords.latitude,
             'long':position.coords.longitude
@@ -95,13 +95,14 @@
       }  
       
       socket.on('pre-contratos', (pcs) =>{ 
+        misPcs = pcs.filter(pc=>pc.chofer==elNombre)
         clientes.innerHTML=''
-        for (var pc of pcs){
+        for (var pc of misPcs){
           var item = document.createElement('li'); 
           seleccion = document.createElement('a')
           seleccion.textContent = pc.cliente; 
-          seleccion.setAttribute("href", "protochof.html"+"?cliente="+cliente.nombre
-                                +"&lat="+cliente.lat+"&long="+cliente.long);
+          seleccion.setAttribute("href", "protochof.html"+"?cliente="+pc.cliente
+                                +"&lat="+pc.lat+"&long="+pc.long+"&chofer="+elNombre);
           item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
