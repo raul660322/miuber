@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Protocolo Chofer</title>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css" rel="stylesheet" />
     <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
@@ -25,6 +27,8 @@
       <p id="longitud"></p>
     </div>
     <br>
+    <div id="map" style="width: 400px; height: 300px;"></div>
+    <button onclick = "verMapa()">Ver en mapa</button>
     <a class="nav-link" href="servicio.html">Retornar</a> 
     
     <script>
@@ -59,6 +63,14 @@
           latCli = position.coords.latitude;
           longCli = position.coords.longitude;
       }    
+      
+      function verMapa(){
+        mapboxgl.accessToken = 'pk.eyJ1IjoicmF1bHNhbmNoZXpwZXJlejY2IiwiYSI6ImNreW9rZ3ZlbzAxMmMyd3AybmxtOXN5bXkifQ.FOexLz_l9hDR7nwEouFR_A';
+        var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v11'
+        });
+      }
       //Comenzar geolocalización del chofer
       comenzar();
     </script>
