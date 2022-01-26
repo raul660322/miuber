@@ -37,6 +37,9 @@
     document.getElementById('latitud').innerHTML="Latitud: " + latitud;
     document.getElementById('longitud').innerHTML="Longitud: " + longitud;
     
+    //Enviar al servidor notificación de posible contrato cliente-chofer
+    //Para que e
+    
     function ocupar(){
       socket.emit('ocupar', nombre);
       location.href="/"

@@ -49,14 +49,16 @@
         <button onclick="comenzar()">Comenzar</button>
         <button onclick="detener()">Detener</button>
       </div>
+      <br>
       <div>
         Clientes:
-        <ul id="messages"></ul>
+        <ul id="clientes"></ul>
       </div>      
     </div>
 
     <script>
       var socket = io();
+      var clientes = document.getElementById('clientes');
       var x = document.getElementById("demo");
       var watchId;
 
@@ -90,7 +92,22 @@
 
       function detener() {
         navigator.geolocation.clearWatch(watchId);
-      }     
+      }  
+      
+      socket.on('misclientes', (listaDeClientes) =>{ 
+        clientes.innerHTML=''
+        for (var cliente of listaDeClientes){
+          var item = document.createElement('li'); 
+          seleccion = document.createElement('a')
+          seleccion.textContent = cliente.nombre; 
+          seleccion.setAttribute("href", "protochof.html"+"?cliente="+cliente.nombre
+                                +"&lat="+cliente.lat+"&long="+cliente.long);
+          item.appendChild(seleccion);
+          messages.appendChild(item);    
+        }  
+        window.scrollTo(0, document.body.scrollHeight); 
+      });
+      
     </script>    
   </body>
 </html>
