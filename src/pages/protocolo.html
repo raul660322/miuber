@@ -39,12 +39,37 @@
     document.getElementById('latitud').innerHTML="Latitud: " + latitud;
     document.getElementById('longitud').innerHTML="Longitud: " + longitud;
     document.getElementById('cliente').innerHTML="Cliente: " + nCliente;
+
     //Enviar al servidor notificación de posible contrato cliente-chofer
-    socket.emit('cliente-chofer', {chofer:nombre, cliente:ncliente});
+    function pedirChofer(){
+      socket.emit('cliente-chofer', {chofer:nombre, cliente:ncliente});
+    }
     
     function ocupar(){
       socket.emit('ocupar', nombre);
       location.href="/"
     }
+    
+    
+    var x = document.getElementById("demo");
+    var watchId;
+
+    function comenzar() {
+      if (navigator.geolocation) {
+        watchId = navigator.geolocation.watchPosition(showPosition);
+      } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+
+    function showPosition(position) {
+        x.innerHTML="Latitude: " + position.coords.latitude + 
+        "<br>Longitude: " + position.coords.longitude;
+        //Enviar posición al servidor
+        socket.emit('posicion', {'nombre':elNombre,
+          'lat':position.coords.latitude,
+          'long':position.coords.longitude
+        });
+       }     
   </script>
 </body>
