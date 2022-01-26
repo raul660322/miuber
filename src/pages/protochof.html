@@ -25,7 +25,8 @@
       <p id="longitud"></p>
     </div>
     <br>
-    <a class="nav-link" href="servicio.html">Retornar</a>    
+    <a class="nav-link" href="servicio.html">Retornar</a> 
+    
     <script>
       const miUrl=window.location.href;
       var socket = io();
@@ -33,10 +34,10 @@
       var watchId;
       document.getElementById('pp').innerHTML=miUrl;
       var url = new URL(miUrl);
-      var nombre = url.searchParams.get("carro");
+      var nombre = url.searchParams.get("chofer");
       var latitud = url.searchParams.get("lat");
       var longitud = url.searchParams.get("long");
-      var nCliente = url.searchParams.get("cli")
+      var nCliente = url.searchParams.get("cliente")
       document.getElementById('chofer').innerHTML="Chofer: " + nombre;
       document.getElementById('latitud').innerHTML="Latitud: " + latitud;
       document.getElementById('longitud').innerHTML="Longitud: " + longitud;
@@ -58,7 +59,7 @@
           latCli = position.coords.latitude;
           longCli = position.coords.longitude;
       }    
-      //Comenzar geolocalización del cliente
+      //Comenzar geolocalización del chofer
       comenzar();
     </script>
   </body>
