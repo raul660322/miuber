@@ -16,6 +16,10 @@
   <p id="pp"></p>
   <br>
   <div>
+    Coordenadas del Cliente
+    <p id="demo"></p>
+  </div>
+  <div>
     Datos del chofer:
     <p id="chofer"></p>
     <p id="cliente"></p>
@@ -23,12 +27,15 @@
     <p id="longitud"></p>
   </div>
   <br>
+  <button onclick="pedirChofer()">Pedir</button>
   <button onclick="ocupar()">Ocupar</button>
   <a class="nav-link" href="/">Retornar</a>
   
   <script>
     const miUrl=window.location.href;
     var socket = io();
+    var x = document.getElementById("demo");
+    var watchId;
     document.getElementById('pp').innerHTML=miUrl;
     var url = new URL(miUrl);
     var nombre = url.searchParams.get("carro");
@@ -39,20 +46,17 @@
     document.getElementById('latitud').innerHTML="Latitud: " + latitud;
     document.getElementById('longitud').innerHTML="Longitud: " + longitud;
     document.getElementById('cliente').innerHTML="Cliente: " + nCliente;
-
+    var latCli="";
+    var longCli="";
     //Enviar al servidor notificación de posible contrato cliente-chofer
     function pedirChofer(){
-      socket.emit('cliente-chofer', {chofer:nombre, cliente:ncliente});
+      socket.emit('cliente-chofer', {chofer:nombre, cliente:ncliente, lat:latCli, long:longCli});
     }
     
     function ocupar(){
       socket.emit('ocupar', nombre);
       location.href="/"
     }
-    
-    
-    var x = document.getElementById("demo");
-    var watchId;
 
     function comenzar() {
       if (navigator.geolocation) {
@@ -65,11 +69,10 @@
     function showPosition(position) {
         x.innerHTML="Latitude: " + position.coords.latitude + 
         "<br>Longitude: " + position.coords.longitude;
-        //Enviar posición al servidor
-        socket.emit('posicion', {'nombre':elNombre,
-          'lat':position.coords.latitude,
-          'long':position.coords.longitude
-        });
-       }     
+        latCli = position.coords.latitude;
+        longCli = position.coords.longitude;
+    }    
+    //Comenzar geolocalización del cliente
+    comenzar();
   </script>
 </body>
