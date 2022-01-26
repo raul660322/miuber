@@ -96,10 +96,10 @@
       }  
       
       socket.on('pre-contratos', (pcs) =>{ 
+        var elNombre = document.getElementById("nombre").value
         misPcs = pcs.filter(pc=>pc.chofer==elNombre)
         clientes.innerHTML=''
-        var elNombre = document.getElementById("nombre").value
-        for (var pc of misPcs){
+        for (var pc of pcs){
           var item = document.createElement('li'); 
           seleccion = document.createElement('a')
           seleccion.textContent = pc.cliente; 
