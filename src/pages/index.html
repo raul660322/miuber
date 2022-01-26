@@ -35,10 +35,13 @@
     <div class="container">
       <h1>
           Para Clientes
-      </h1>      
-      <h1 id="conjs" onclick="miClick()">
-        Esto es nuevo
-      </h1>
+      </h1> 
+      
+      <div class="form-group">
+        <label for nombre>Nombre:</label>
+        <input type="text" id="nombrecliente">
+      </div>
+
       <br>
       <p id="pp"></p>
       <div>
@@ -50,13 +53,7 @@
     <script>
       var socket = io();
       var messages = document.getElementById('messages');
-      
-      document.getElementById('conjs').innerHTML="Esto es con JavaScript"
-      
-      function miClick(){
-        document.getElementById('conjs').innerHTML="Se hizo Click"
-            socket.emit('chat message', "Se hizo Click");
-        }
+      var nCliente = document.getElementById('nombrecliente')
       
       socket.on('carros', (listaDeCarros) =>{ 
         messages.innerHTML=''
@@ -65,13 +62,15 @@
           seleccion = document.createElement('a')
           seleccion.textContent = carro.nombre; 
           seleccion.setAttribute("href", "protocolo.html"+"?carro="+carro.nombre
-                                +"&lat="+carro.lat+"&long="+carro.long);
+                                +"&lat="+carro.lat+"&long="+carro.long+"&cli="+nCliente.value);
           item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
         window.scrollTo(0, document.body.scrollHeight); 
       });
+      
       document.getElementById('pp').innerHTML=window.location.href
+      
     </script>    
   </body>
 </html>
