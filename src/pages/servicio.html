@@ -27,7 +27,7 @@
           <div class="navbar-nav">
             <a class="nav-link active" aria-current="page" href="#">Inicio</a>
             <a class="nav-link" href="/">Cliente</a>
-            <a class="nav-link" href="servicio.html">Servicio</a>
+            <a class="nav-link" href="servicio.html">Chofer</a>
            </div>
         </div>
       </div>
@@ -36,9 +36,7 @@
       <h1>
         Para Choferes
       </h1>
-      <h1 id="conjs" onclick="miClick()">
-        Esto es nuevo
-      </h1>
+
       <br>
       <div class="form-group">
         <label for nombre>Nombre:</label>
@@ -46,11 +44,15 @@
       </div>
       <br>
       <p id="demo"></p>
-      <br>
+      
       <div>
         <button onclick="comenzar()">Comenzar</button>
         <button onclick="detener()">Detener</button>
       </div>
+      <div>
+        Clientes:
+        <ul id="messages"></ul>
+      </div>      
     </div>
 
     <script>
@@ -78,12 +80,12 @@
         
 
          }     
-      document.getElementById('conjs').innerHTML="Esto es con JavaScript"
+      //document.getElementById('conjs').innerHTML="Esto es con JavaScript"
       
-      function miClick(){
-        document.getElementById('conjs').innerHTML="Se hizo Click"
-            socket.emit('chat message', "Se hizo Click");
-        }
+      //function miClick(){
+      // document.getElementById('conjs').innerHTML="Se hizo Click"
+      //      socket.emit('chat message', "Se hizo Click");
+      //  }
     
 
       function detener() {
