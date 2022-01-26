@@ -88,6 +88,12 @@ fastify.get("/protocolo.html", function(request, reply) {
   reply.view("/src/pages/protocolo.html");
 });
 
+//Abrir página del protocolo del chofer
+fastify.get("/protochof.html", function(request, reply) {
+
+  reply.view("/src/pages/protochof.html");
+});
+
 // A POST route to handle form submissions
 fastify.post("/", function(request, reply) {
   let params = {
