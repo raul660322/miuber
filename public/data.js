@@ -1,10 +1,23 @@
 var zonas = [
-  {"nombre":"Pre Universitario","lat":1,"long":1},
-  {"nombre":"Parque de la Libertad","lat":1,"long":1},
+  {"nombre":"Pre Universitario","lat":23.0452484,"long":-81.5707942},
+  {"nombre":"Parque de la Libertad","lat":23.0452484,"long":-81.5707942},
   {"nombre":"Plaza","lat":1,"long":1},
   {"nombre":"Teatro Sauto","lat":1,"long":1},
   {"nombre":"Hospital Pediátrico","lat":1,"long":1},
   {"nombre":"Hospital Faustino","lat":1,"long":1},
-  {"nombre":"Ho","lat":1,"long":1}
-  
+  {"nombre":"Hospital Militar","lat":1,"long":1},
+  {"nombre":"Hospital Materno","lat":1,"long":1},
+  {"nombre":"Terminal de Omnibus","lat":1,"long":1},
+  {"nombre":"Terminal Ferrocarril","lat":1,"long":1},
+  {"nombre":"Peñas Altas","lat":1,"long":1},
+  {"nombre":"Sirenita","lat":1,"long":1},
+  {"nombre":"Beisbolito","lat":1,"long":1},
+  {"nombre":"Parque Maceo","lat":1,"long":1},
+  {"nombre":"Hospital Materno","lat":1,"long":1},
+  {"nombre":"Guicuría","lat":1,"long":1},
+  {"nombre":"Reparto Camilo","lat":1,"long":1},
+  {"nombre":"Reparto Iglesias","lat":1,"long":1},
+  {"nombre":"Pastorita","lat":1,"long":1},
+  {"nombre":"Universidad","lat":1,"long":1},
+  {"nombre":"Canímar","lat":1,"long":1},
 ]
