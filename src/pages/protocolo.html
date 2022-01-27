@@ -48,8 +48,9 @@
       document.getElementById('cliente').innerHTML="Cliente: " + nCliente;
       var latCli="";
       var longCli="";
-      //Enviar al servidor notificación de posible contrato cliente-chofer
       
+      setCookie('nombrecliente', nCliente, 9000) //Guardar nombre del cliente
+      //Enviar al servidor notificación de posible contrato cliente-chofer
       function pedirChofer(){
         socket.emit('cliente-chofer', {chofer:nombre, cliente:nCliente, lat:latCli, long:longCli});
       }

@@ -55,6 +55,9 @@
       var messages = document.getElementById('messages');
       var nCliente = document.getElementById('nombrecliente')
       
+      //Verificar nombre guardado
+      document.getElementById("nombre").value = getCookie('nombrecliente')
+      
       socket.on('carros', (listaDeCarros) =>{ 
         messages.innerHTML=''
         for (var carro of listaDeCarros){
