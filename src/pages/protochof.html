@@ -70,7 +70,9 @@
         mapboxgl.accessToken = 'pk.eyJ1IjoicmF1bHNhbmNoZXpwZXJlejY2IiwiYSI6ImNreW9rZ3ZlbzAxMmMyd3AybmxtOXN5bXkifQ.FOexLz_l9hDR7nwEouFR_A';
         var map = new mapboxgl.Map({
           container: 'map',
-          style: 'mapbox://styles/mapbox/streets-v11'
+          style: 'mapbox://styles/mapbox/streets-v11',
+          center: [-81.5665845, 23.047131], // starting position Matanzas
+          zoom: 14 // starting zoom  
         });
         
         var customData = {
@@ -111,7 +113,7 @@
         
         map.on('load', () => {
           console.log('Por aqui')
-          mapa.addSource('lugares', customData);   
+          map.addSource('lugares', customData);   
           // Add a layer showing the places.
           map.addLayer({
           'id': 'lugares',
