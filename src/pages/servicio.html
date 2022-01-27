@@ -73,6 +73,9 @@
       estado = getCookie('estadochofer')
       document.getElementById("estado").innerHTML = estado
       document.getElementById("estado").style.color = (estado=="Disponible")?"green":"red"
+      if (estado=="Disponible"){
+        comenzar();
+      }
       
       function comenzar() {
         var elNombre = document.getElementById("nombre").value
@@ -97,7 +100,7 @@
           estado = "Disponible"
           document.getElementById("estado").innerHTML = estado
           document.getElementById("estado").style.color = (estado=="Disponible")?"green":"red"
-
+          setCookie('estadochofer',estado,24)
          }     
       //document.getElementById('conjs').innerHTML="Esto es con JavaScript"
       
@@ -113,6 +116,7 @@
         document.getElementById("estado").innerHTML = estado
         document.getElementById("estado").style.color = (estado=="Disponible")?"green":"red"
         var elNombre = document.getElementById("nombre").value
+        setCookie('estadochofer',estado,24)
         socket.emit('ocupar', elNombre); //Quitar de la lista de choferes disponibles
       }  
       
