@@ -27,8 +27,9 @@
       <p id="longitud"></p>
     </div>
     <br>
-    <div id="map" style="width: 400px; height: 300px;"></div>
+    <div id="map" style="width: 400px; height: 300px; display:none"></div>
     <button onclick = "verMapa()">Ver en mapa</button>
+    <button onclick = "verMapa()">Ocultar mapa</button>
     <a class="nav-link" href="servicio.html">Retornar</a> 
     
     <script>
@@ -76,17 +77,15 @@
         });
         
         // Create a default Marker and add it to the map.
-        const marker1 = new mapboxgl.Marker()
+        const marker1 = new mapboxgl.Marker({ color: 'black', rotation: 45 })
         .setLngLat([longitud, latitud])
         .addTo(map);
         
         map.flyTo({
-          center: [
-          longitud,
-          latitud
-          ],
+          center: [longitud, latitud],
           essential: true // this animation is considered essential with respect to prefers-reduced-motion
           });
+        document.getElementById("map").style.display='block'
       }        
       //Comenzar geolocalización del chofer
       comenzar();
