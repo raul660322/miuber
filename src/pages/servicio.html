@@ -62,9 +62,12 @@
       var x = document.getElementById("demo");
       var watchId;
       
-
+      //Verificar nombre guardado
+      document.getElementById("nombre").value = getCookie('nombrechofer')
+      
       function comenzar() {
-        setCookie('cname', cvalue, 9000)
+        var elNombre = document.getElementById("nombre").value
+        setCookie('nombrechofer', elNombre, 9000) //Guardar nombre del chofer
         if (navigator.geolocation) {
           watchId = navigator.geolocation.watchPosition(showPosition);
         } else { 
