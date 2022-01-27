@@ -74,7 +74,20 @@
           center: [-81.5665845, 23.047131], // starting position Matanzas
           zoom: 14 // starting zoom  
         });
-              
+        
+        // Create a default Marker and add it to the map.
+        const marker1 = new mapboxgl.Marker()
+        .setLngLat([longitud, latitud])
+        .addTo(map);
+        
+        map.flyTo({
+          center: [
+          longitud,
+          latitud
+          ],
+          essential: true // this animation is considered essential with respect to prefers-reduced-motion
+          });
+      }        
       //Comenzar geolocalización del chofer
       comenzar();
     </script>
