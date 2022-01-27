@@ -56,6 +56,8 @@ io.on('connection', (socket) => {
        const index = losCarros.findIndex(c=>c.nombre==carro)
        if (index != -1) {
          losCarros.splice(index,1);
+        //Enviar nueva lista de choferes al cliente
+         io.emit('carros', losCarros);  
        }          
      }); 
      socket.on('cliente-chofer',(pc)=>{
