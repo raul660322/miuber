@@ -74,6 +74,10 @@
           center: [-81.5665845, 23.047131], // starting position Matanzas
           zoom: 14 // starting zoom  
         });
+        var latitud = url.searchParams.get("lat");
+        var longitud = url.searchParams.get("long");
+        var nCliente = url.searchParams.get("cliente")
+
         
         var customData = {
           'type': 'geojson',
@@ -112,7 +116,7 @@
         
         
         map.on('load', () => {
-          console.log('Por aqui')
+          console.log('Por aqui', latitud, longitud, nCliente)
           map.addSource('lugares', customData);   
           // Add a layer showing the places.
           map.addLayer({
