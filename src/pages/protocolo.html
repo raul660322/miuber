@@ -43,17 +43,19 @@
       var latitud = url.searchParams.get("lat");
       var longitud = url.searchParams.get("long");
       var nCliente = url.searchParams.get("cli")
+      var elDestino = url.searchParams.get("dest")
       document.getElementById('chofer').innerHTML="Chofer: " + nombre;
       document.getElementById('latitud').innerHTML="Latitud: " + latitud;
       document.getElementById('longitud').innerHTML="Longitud: " + longitud;
-      document.getElementById('cliente').innerHTML="Cliente: " + nCliente;
+      document.getElementById('cliente').innerHTML="Cliente: " + nCliente + " Destino: " + elDestino;
       var latCli="";
       var longCli="";
       
       setCookie('nombrecliente', nCliente, 9000) //Guardar nombre del cliente
       //Enviar al servidor notificación de posible contrato cliente-chofer
       function pedirChofer(){
-        socket.emit('cliente-chofer', {chofer:nombre, cliente:nCliente, lat:latCli, long:longCli});
+        socket.emit('cliente-chofer',
+          {chofer:nombre, cliente:nCliente, lat:latCli, long:longCli, dest:elDestino});
       }
 
       function ocupar(){

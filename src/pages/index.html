@@ -72,7 +72,7 @@
           seleccion = document.createElement('a')
           seleccion.textContent = carro.nombre; 
           seleccion.setAttribute("href", "protocolo.html"+"?carro="+carro.nombre
-                                +"&lat="+carro.lat+"&long="+carro.long+"&cli="+nCliente.value);
+                                +"&lat="+carro.lat+"&long="+carro.long+"&cli="+nCliente.value+"&dest="+misZonas.value);
           item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
