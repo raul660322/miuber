@@ -49,7 +49,7 @@
         <strong id="estado"></strong>
       </div>
       <div>
-        <button onclick="comenzar()">Comenzar</button>
+        <button onclick="comenzar()">Activar</button>
         <button onclick="detener()">Detener</button>
       </div>
       <br>
@@ -71,13 +71,14 @@
       
       //Verificar estado
       document.getElementById("estado").innerHTML = estado
-      document.getElementById("estado").style.color = (estado=="disponible")?"green":"red"
+      document.getElementById("estado").style.color = (estado=="Disponible")?"green":"red"
       
       function comenzar() {
         var elNombre = document.getElementById("nombre").value
         setCookie('nombrechofer', elNombre, 9000) //Guardar nombre del chofer
         if (navigator.geolocation) {
           watchId = navigator.geolocation.watchPosition(showPosition);
+
         } else { 
           x.innerHTML = "Geolocation is not supported by this browser.";
         }
@@ -92,7 +93,9 @@
             'lat':position.coords.latitude,
             'long':position.coords.longitude
           });
-        
+          estado = "Disponible"
+          document.getElementById("estado").innerHTML = estado
+          document.getElementById("estado").style.color = (estado=="Disponible")?"green":"red"
 
          }     
       //document.getElementById('conjs').innerHTML="Esto es con JavaScript"
@@ -105,6 +108,11 @@
 
       function detener() {
         navigator.geolocation.clearWatch(watchId);
+        estado = "No disponible"
+        document.getElementById("estado").innerHTML = estado
+        document.getElementById("estado").style.color = (estado=="Disponible")?"green":"red"
+        var elNombre = document.getElementById("nombre").value
+        socket.emit('ocupar', elNombre); //Quitar de la lista de choferes disponibles
       }  
       
       socket.on('pre-contratos', (pcs) =>{ 
