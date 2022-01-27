@@ -127,9 +127,10 @@
         for (var pc of misPcs){
           var item = document.createElement('li'); 
           seleccion = document.createElement('a')
-          seleccion.textContent = pc.cliente; 
+          seleccion.textContent = pc.cliente + " - "+pc.dest; 
           seleccion.setAttribute("href", "protochof.html"+"?cliente="+pc.cliente
-                                +"&lat="+pc.lat+"&long="+pc.long+"&chofer="+elNombre);
+                                +"&lat="+pc.lat+"&long="+pc.long
+                                +"&chofer="+elNombre + "&dest=" + pc.dest);
           item.appendChild(seleccion);
           clientes.appendChild(item);    
         }  
