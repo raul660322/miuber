@@ -70,6 +70,7 @@
       document.getElementById("nombre").value = getCookie('nombrechofer')
       
       //Verificar estado
+      estado = getCookie('estadochofer')
       document.getElementById("estado").innerHTML = estado
       document.getElementById("estado").style.color = (estado=="Disponible")?"green":"red"
       
