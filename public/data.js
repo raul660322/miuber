@@ -14,9 +14,9 @@ var zonas = [
   {"nombre":"Beisbolito","lat":23.0355483,"long":-81.5617884},
   {"nombre":"Parque Maceo","lat":23.0329095,"long":-81.5818297},
   {"nombre":"Guicuría","lat":23.0515581,"long":-81.5715114},
-  {"nombre":"Reparto Camilo","lat":23.0280439,"long":1},
-  {"nombre":"Reparto Iglesias","lat":1,"long":1},
-  {"nombre":"Pastorita","lat":1,"long":1},
-  {"nombre":"Universidad","lat":1,"long":1},
-  {"nombre":"Canímar","lat":1,"long":1}
+  {"nombre":"Reparto Camilo","lat":23.0280439,"long":-81.5821114},
+  {"nombre":"Reparto Iglesias","lat":23.0349739,"long":-81.5391696},
+  {"nombre":"Pastorita","lat":23.040789,"long":-81.523577},
+  {"nombre":"Universidad","lat":23.0378253,"long":-81.5126972},
+  {"nombre":"Canímar","lat":23.0396432,"long":-81.4997837}
 ]

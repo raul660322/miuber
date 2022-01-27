@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <script src="code.js"></script>
+    <script src="data.js"></script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -41,6 +42,12 @@
         <label for nombre>Nombre:</label>
         <input type="text" id="nombrecliente">
       </div>
+      <div class="form-group">
+        <label for destino>Destino  :</label>
+        <select id="destino">
+          
+        </select>
+      </div>
 
       <br>
       <p id="pp"></p>
@@ -54,7 +61,7 @@
       var socket = io();
       var messages = document.getElementById('messages');
       var nCliente = document.getElementById('nombrecliente')
-      
+      var misZonas = document.getElementById('destino')
       //Verificar nombre guardado
       document.getElementById("nombrecliente").value = getCookie('nombrecliente')
       
@@ -74,6 +81,10 @@
       
       document.getElementById('pp').innerHTML=window.location.href
       
+      //Poblar lista de zonas
+      for (var zona of zonas){
+        var item = doc
+      }
     </script>    
   </body>
 </html>
