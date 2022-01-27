@@ -74,67 +74,7 @@
           center: [-81.5665845, 23.047131], // starting position Matanzas
           zoom: 14 // starting zoom  
         });
-        var latitud = url.searchParams.get("lat");
-        var longitud = url.searchParams.get("long");
-        var nCliente = url.searchParams.get("cliente")
-
-        
-        var customData = {
-          'type': 'geojson',
-          'data': {
-          'type': 'FeatureCollection',
-          'features': [
-            {
-              "geometry": {
-                "type": "Point",
-                "coordinates": [
-                  longitud,
-                  latitud
-                ]
-              },
-              "type": "Feature",
-              'place_name': "El Chiqui",
-              'place_type':[""],
-              'center':[
-                longitud,
-                latitud
-              ],
-              "properties": {
-                "marker-color": "#7e7e7e",
-                "marker-size": "medium",
-                "description": nCliente,
-                "marker-symbol": "restaurant",
-                "title": "El Chiqui",
-                "name": "El Chiqui",
-                'icon': 'restaurant-noodle-15',
-                'text': "Aquí vivían Idalmis y Adriel",
-              }
-            }
-          ]
-          } 
-        }
-        
-        
-        map.on('load', () => {
-          console.log('Por aqui', latitud, longitud, nCliente)
-          map.addSource('lugares', customData);   
-          // Add a layer showing the places.
-          map.addLayer({
-          'id': 'lugares',
-          'type': 'symbol',
-          'source': 'places',
-          'layout': {
-            'icon-image': '{icon}',
-            'icon-allow-overlap': true,
-            'text-field':'{description}',
-            'text-anchor':'top-left',
-            'text-size':10,
-            'text-allow-overlap':true
-            }          
-          });        
-        });
-      }  
-             
+              
       //Comenzar geolocalización del chofer
       comenzar();
     </script>
