@@ -40,11 +40,11 @@
       
       <div class="form-group">
         <label for nombre>Nombre:</label>
-        <input type="text" id="nombrecliente">
+        <input type="text" id="nombrecliente"  class="form-control">
       </div>
       <div class="form-group">
         <label for destino>Destino  :</label>
-        <select id="destino">
+        <select id="destino" class="form-control">
           
         </select>
       </div>
@@ -83,7 +83,10 @@
       
       //Poblar lista de zonas
       for (var zona of zonas){
-        var item = doc
+        var item = document.createElement('option');
+        item.text=zona.nombre;
+        item.value=zona.nombre;
+        misZonas.appendChild(item)
       }
     </script>    
   </body>
