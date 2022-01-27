@@ -44,7 +44,10 @@
       </div>
       <br>
       <p id="demo"></p>
-      
+      <div>
+        <strong>Estado: </strong>
+        <strong id="estado"></strong>
+      </div>
       <div>
         <button onclick="comenzar()">Comenzar</button>
         <button onclick="detener()">Detener</button>
@@ -61,10 +64,14 @@
       var clientes = document.getElementById('clientes');
       var x = document.getElementById("demo");
       var watchId;
-      var etado
+      var estado = "No disponible"
       
       //Verificar nombre guardado
       document.getElementById("nombre").value = getCookie('nombrechofer')
+      
+      //Verificar estado
+      document.getElementById("estado").innerHTML = estado
+      document.getElementById("estado").style.color = (estado=="disponible")?"green":"red"
       
       function comenzar() {
         var elNombre = document.getElementById("nombre").value
