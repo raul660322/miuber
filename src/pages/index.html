@@ -62,7 +62,7 @@
       var messages = document.getElementById('messages');
       var nCliente = document.getElementById('nombrecliente')
       var misZonas = document.getElementById('destino');
-      var laZona = misZonas.value
+       
       //Verificar nombre guardado
       document.getElementById("nombrecliente").value = getCookie('nombrecliente')
       
@@ -74,7 +74,7 @@
           seleccion = document.createElement('a')
           seleccion.textContent = carro.nombre; 
           seleccion.setAttribute("href", "protocolo.html"+"?carro="+carro.nombre
-                                +"&lat="+carro.lat+"&long="+carro.long+"&cli="+nCli          
+                                +"&lat="+carro.lat+"&long="+carro.long+"&cli="+nCliente.value+"&dest="+laZona);         
           item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
@@ -92,9 +92,16 @@
         var item = document.createElement('option');
         item.text=zona.nombre;
         item.value=zona.nombre;
-        misZonas.appendChild(item)
+        misZonas.appendChild(item);
       }
       
+      var actualZona = getCookie('zonacliente');
+      
+      if (actualZona){
+          var laZona = actualZona;
+      } else {
+          var laZona = misZonas.options[0].value;
+      }
     </script>    
   </body>
 </html>
