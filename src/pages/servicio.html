@@ -62,7 +62,7 @@
 
     <script>
       var socket = io();
-      socket.emit('conectado','chofer')
+      
       var clientes = document.getElementById('clientes');
       var x = document.getElementById("demo");
       var watchId;
@@ -70,7 +70,7 @@
       
       //Verificar nombre guardado
       document.getElementById("nombre").value = getCookie('nombrechofer')
-      
+      socket.emit('conectado','rol':'chofer','nombre':getCookie('nombrechofer'))
       //Verificar estado
       estado = getCookie('estadochofer')
       document.getElementById("estado").innerHTML = estado
@@ -124,24 +124,26 @@
       }  
       
       socket.on('pre-contratos', (pcs) =>{ 
-        var elNombre = document.getElementById("nombre").value
-        misPcs = pcs.pre.filter(pc=>pc.chofer==elNombre)
-        clientes.innerHTML=''
-        if (misPcs){
-            window.navigator.vibrate([1000]);
-            play1();
-        }
-        for (var pc of misPcs){
-          var item = document.createElement('li'); 
-          seleccion = document.createElement('a')
-          seleccion.textContent = pc.cliente + " - "+pc.dest; 
-          seleccion.setAttribute("href", "protochof.html"+"?cliente="+pc.cliente
-                                +"&lat="+pc.lat+"&long="+pc.long
-                                +"&chofer="+elNombre + "&dest=" + pc.dest);
-          item.appendChild(seleccion);
-          clientes.appendChild(item);    
-        }  
-        window.scrollTo(0, document.body.scrollHeight); 
+          var elNombre = document.getElementById("nombre").value
+          if (pcs.chofer==elNombre){
+              misPcs = pcs.pre.filter(pc=>pc.chofer==elNombre)
+              clientes.innerHTML=''
+              if (misPcs){
+                  window.navigator.vibrate([1000]);
+                  play1();
+              }
+              for (var pc of misPcs){
+                var item = document.createElement('li'); 
+                seleccion = document.createElement('a')
+                seleccion.textContent = pc.cliente + " - "+pc.dest; 
+                seleccion.setAttribute("href", "protochof.html"+"?cliente="+pc.cliente
+                                      +"&lat="+pc.lat+"&long="+pc.long
+                                      +"&chofer="+elNombre + "&dest=" + pc.dest);
+                item.appendChild(seleccion);
+                clientes.appendChild(item);    
+              }  
+              window.scrollTo(0, document.body.scrollHeight); 
+          }  
       });
       function play1() {
           const audio = new Audio("https://cdn.glitch.global/f094be99-42ec-4e88-9374-0cfe649a4926/p.mp3?v=1643390130877");

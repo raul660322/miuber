@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
        } else {
          if (rol=='chofer'){
            console.log('Conectado un chofer')
-           io.emit('pre-contratos', preContratos); 
+           io.emit('pre-contratos', {"chofer":pc.chofer,"pre":preContratos}); 
          }
        }
      }) 
