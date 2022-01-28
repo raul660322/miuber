@@ -44,7 +44,7 @@
       </div>
       <div class="form-group">
         <label for destino>Destino  :</label>
-        <select id="destino" class="form-control">
+        <select id="destino" class="form-control" onchange="zonaSelected()">
           
         </select>
       </div>
@@ -62,13 +62,12 @@
       var messages = document.getElementById('messages');
       var nCliente = document.getElementById('nombrecliente')
       var misZonas = document.getElementById('destino');
+      var zona = misZonas.value
       //Verificar nombre guardado
       document.getElementById("nombrecliente").value = getCookie('nombrecliente')
       
       socket.on('carros', (listaDeCarros) =>{ 
         messages.innerHTML=''
-        var idx = misZonas.selectedIndex; 
-        var zona = misZonas.options[idx].value; 
         console.log("La zona: ", zona)
         for (var carro of listaDeCarros){
           var item = document.createElement('li'); 
@@ -84,6 +83,10 @@
       
       document.getElementById('pp').innerHTML=window.location.href
       
+      function zonaSelected(){
+        var idx = misZonas.selectedIndex; 
+        var zona = misZonas.options[idx].value; 
+      }
       //Poblar lista de zonas
       for (var zona of zonas){
         var item = document.createElement('option');
@@ -91,6 +94,7 @@
         item.value=zona.nombre;
         misZonas.appendChild(item)
       }
+      
     </script>    
   </body>
 </html>
