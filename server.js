@@ -36,6 +36,7 @@ io.on('connection', (socket) => {
      console.log('......', 'Conectado!');
      io.emit('carros', losCarros);
      io.emit('pre-contratos', preContratos); 
+     socket. 
      socket.on('chat message', (msg) => {
        console.log('message: ' + msg); 
      });

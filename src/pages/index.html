@@ -59,6 +59,7 @@
     </div>
     <script>
       var socket = io();
+      socket.emit('conectado','cliente')
       var messages = document.getElementById('messages');
       var nCliente = document.getElementById('nombrecliente')
       var misZonas = document.getElementById('destino');
