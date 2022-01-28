@@ -62,20 +62,19 @@
       var messages = document.getElementById('messages');
       var nCliente = document.getElementById('nombrecliente')
       var misZonas = document.getElementById('destino');
-      var zona = misZonas.value
+      var laZona = misZonas.value
       //Verificar nombre guardado
       document.getElementById("nombrecliente").value = getCookie('nombrecliente')
       
       socket.on('carros', (listaDeCarros) =>{ 
         messages.innerHTML=''
-        console.log("La zona: ", zona)
+        console.log("La zona: ", laZona)
         for (var carro of listaDeCarros){
           var item = document.createElement('li'); 
           seleccion = document.createElement('a')
           seleccion.textContent = carro.nombre; 
           seleccion.setAttribute("href", "protocolo.html"+"?carro="+carro.nombre
-                                +"&lat="+carro.lat+"&long="+carro.long+"&cli="+nCliente.value+"&dest=" + zona.nombre);
-          item.appendChild(seleccion);
+                                +"&lat="+carro.lat+"&long="+carro.long+"&cli="+nCli          item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
         window.scrollTo(0, document.body.scrollHeight); 
@@ -85,7 +84,7 @@
       
       function zonaSelected(){
         var idx = misZonas.selectedIndex; 
-        zona = misZonas.options[idx].value; 
+        laZona = misZonas.options[idx].value; 
       }
       //Poblar lista de zonas
       for (var zona of zonas){
