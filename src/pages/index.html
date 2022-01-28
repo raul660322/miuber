@@ -68,6 +68,12 @@
       document.getElementById("nombrecliente").value = getCookie('nombrecliente')
       
       socket.on('carros', (listaDeCarros) =>{ 
+        populateCarros(listaDeCarros);
+      });
+      
+      document.getElementById('pp').innerHTML=window.location.href
+      
+      function populateCarros(){
         messages.innerHTML=''
         console.log("La zona: ", laZona)
         for (var carro of listaDeCarros){
@@ -79,10 +85,8 @@
           item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
-        window.scrollTo(0, document.body.scrollHeight); 
-      });
-      
-      document.getElementById('pp').innerHTML=window.location.href
+        window.scrollTo(0, document.body.scrollHeight);         
+      }
       
       function zonaSelected(){
         var idx = misZonas.selectedIndex; 
