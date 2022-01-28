@@ -70,7 +70,7 @@
       
       //Verificar nombre guardado
       document.getElementById("nombre").value = getCookie('nombrechofer')
-      socket.emit('conectado','rol':'chofer','nombre':getCookie('nombrechofer'))
+      socket.emit('conectado',{'rol':'chofer','nombre':getCookie('nombrechofer')})
       //Verificar estado
       estado = getCookie('estadochofer')
       document.getElementById("estado").innerHTML = estado

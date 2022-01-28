@@ -35,13 +35,13 @@ fastify.register(require('fastify-cors'), {
 io.on('connection', (socket) => {
      console.log('......', 'Conectado!');
      socket.on('conectado',rol=>{
-       if (rol=='cliente'){
-         console.log('Conectado un cliente')
+       if (rol.rol=='cliente'){
+         console.log('Conectado un cliente',rol.nombre)
          io.emit('carros', losCarros);
        } else {
-         if (rol=='chofer'){
-           console.log('Conectado un chofer')
-           io.emit('pre-contratos', {"chofer":pc.chofer,"pre":preContratos}); 
+         if (rol.rol=='chofer'){
+           console.log('Conectado un chofer',rol.nombre)
+           io.emit('pre-contratos', {"chofer":rol.nombre,"pre":preContratos}); 
          }
        }
      }) 

@@ -66,7 +66,7 @@
       var losCarros = []; 
       //Verificar nombre guardado
       document.getElementById("nombrecliente").value = getCookie('nombrecliente')
-      
+      socket.emit('conectado',{'rol':'cliente','nombre':getCookie('nombrecliente')})
       socket.on('carros', (listaDeCarros) =>{ 
         populateCarros(listaDeCarros);
       });
