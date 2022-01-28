@@ -79,7 +79,7 @@
       }
       
       function comenzar() {
-        play1();
+
         var elNombre = document.getElementById("nombre").value
         setCookie('nombrechofer', elNombre, 9000) //Guardar nombre del chofer
         if (navigator.geolocation) {
@@ -123,6 +123,8 @@
       }  
       
       socket.on('pre-contratos', (pcs) =>{ 
+        window.navigator.vibrate([1000]);
+        play1();
         var elNombre = document.getElementById("nombre").value
         misPcs = pcs.filter(pc=>pc.chofer==elNombre)
         clientes.innerHTML=''
