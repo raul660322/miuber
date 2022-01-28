@@ -74,7 +74,7 @@
           seleccion = document.createElement('a')
           seleccion.textContent = carro.nombre; 
           seleccion.setAttribute("href", "protocolo.html"+"?carro="+carro.nombre
-                                +"&lat="+carro.lat+"&long="+carro.long+"&cli="+nCliente.value+"&dest=" + zona);
+                                +"&lat="+carro.lat+"&long="+carro.long+"&cli="+nCliente.value+"&dest=" + zona.nombre);
           item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
@@ -85,7 +85,7 @@
       
       function zonaSelected(){
         var idx = misZonas.selectedIndex; 
-        var zona = misZonas.options[idx].value; 
+        zona = misZonas.options[idx].value; 
       }
       //Poblar lista de zonas
       for (var zona of zonas){
