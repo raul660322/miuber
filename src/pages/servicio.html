@@ -123,11 +123,13 @@
       }  
       
       socket.on('pre-contratos', (pcs) =>{ 
-        window.navigator.vibrate([1000]);
-        play1();
         var elNombre = document.getElementById("nombre").value
         misPcs = pcs.filter(pc=>pc.chofer==elNombre)
         clientes.innerHTML=''
+        if (misPcs){
+            window.navigator.vibrate([1000]);
+            play1();
+        }
         for (var pc of misPcs){
           var item = document.createElement('li'); 
           seleccion = document.createElement('a')
@@ -142,6 +144,7 @@
       });
       function play1() {
           const audio = new Audio("https://cdn.glitch.global/f094be99-42ec-4e88-9374-0cfe649a4926/p.mp3?v=1643390130877");
+          audio.volume = 0.01;
           audio.play();
       }  
     </script>    
