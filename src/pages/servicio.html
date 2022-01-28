@@ -125,7 +125,7 @@
       
       socket.on('pre-contratos', (pcs) =>{ 
         var elNombre = document.getElementById("nombre").value
-        misPcs = pcs.filter(pc=>pc.chofer==elNombre)
+        misPcs = pcs.pre.filter(pc=>pc.chofer==elNombre)
         clientes.innerHTML=''
         if (misPcs){
             window.navigator.vibrate([1000]);

@@ -74,7 +74,7 @@ io.on('connection', (socket) => {
      socket.on('cliente-chofer',(pc)=>{
        console.log('cliente-chofer: ',pc); 
        preContratos.push(pc);
-       io.emit('pre-contratos', preContratos);
+       io.emit('pre-contratos', {"chofer":pc.chofer,"pre":preContratos});
      }); 
 })
 
