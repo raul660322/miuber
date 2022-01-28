@@ -36,7 +36,15 @@ io.on('connection', (socket) => {
      console.log('......', 'Conectado!');
      io.emit('carros', losCarros);
      io.emit('pre-contratos', preContratos); 
-     socket. 
+     socket.on('conectado',rol=>{
+       if (rol=='cliente'){
+         io.emit('carros', losCarros);
+       } else {
+         if (rol=='chofer'){
+           io.emit('pre-contratos', preContratos); 
+         }
+       }
+     }) 
      socket.on('chat message', (msg) => {
        console.log('message: ' + msg); 
      });
