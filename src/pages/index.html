@@ -40,7 +40,7 @@
       
       <div class="form-group">
         <label for nombre>Nombre:</label>
-        <input type="text" id="nombrecliente"  class="form-control">
+        <input type="text" id="nombrecliente"  class="form-control" onchange="cambioNombre()">
       </div>
       <div class="form-group">
         <label for destino>Destino  :</label>
@@ -48,10 +48,10 @@
           
         </select>
       </div>
-      <button class="btn btn-success mt-2" onclick="buscar()">Buscar transporte</button>
+      <button class="btn btn-success mt-2" onclick="buscar()" style="display:none;">Buscar transporte</button>
       <br>
       <!--<p id="pp"></p>-->
-      <div id="oferta" style="display:none;" >
+      <div id="oferta">
         Motos:
         <ul id="messages"></ul>
       </div>
@@ -74,10 +74,21 @@
       //document.getElementById('pp').innerHTML=window.location.href
       
       function buscar(){
-        nCliente = document.getElementById("nombrecliente").value;
+        nCliente = document.getElementById("nombrecliente");
         populateCarros(losCarros);
         document.getElementById("oferta").style.display = 'block';
-        setCookie('nombrecliente', nCliente, 9000) //Guardar nombre del cliente
+        setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
+      }
+      
+      function cambioNombre(){
+        //document.getElementById("oferta").style.display = 'none';
+        nCliente = document.getElementById("nombrecliente");
+        populateCarros(losCarros);
+        document.getElementById("oferta").style.display = 'block';
+        setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
+       
+        
+        
       }
       
       function populateCarros(listaDeCarros){
