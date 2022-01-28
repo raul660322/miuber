@@ -61,13 +61,14 @@
       var socket = io();
       var messages = document.getElementById('messages');
       var nCliente = document.getElementById('nombrecliente')
-      var misZonas = document.getElementById('destino')
+      var misZonas = document.getElementById('destino');
       //Verificar nombre guardado
       document.getElementById("nombrecliente").value = getCookie('nombrecliente')
       
       socket.on('carros', (listaDeCarros) =>{ 
         messages.innerHTML=''
         for (var carro of listaDeCarros){
+          let misZonas = document.getElementById('destino');
           var item = document.createElement('li'); 
           seleccion = document.createElement('a')
           seleccion.textContent = carro.nombre; 
