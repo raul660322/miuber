@@ -67,13 +67,15 @@
       
       socket.on('carros', (listaDeCarros) =>{ 
         messages.innerHTML=''
+        var idx = misZonas.selectedIndex; 
+        var zona = misZonas.options[idx].value; 
+        console.log("La zona: ", zona)
         for (var carro of listaDeCarros){
-          let misZonas = document.getElementById('destino');
           var item = document.createElement('li'); 
           seleccion = document.createElement('a')
           seleccion.textContent = carro.nombre; 
           seleccion.setAttribute("href", "protocolo.html"+"?carro="+carro.nombre
-                                +"&lat="+carro.lat+"&long="+carro.long+"&cli="+nCliente.value+"&dest="+misZonas.value);
+                                +"&lat="+carro.lat+"&long="+carro.long+"&cli="+nCliente.value+"&dest=" + zona);
           item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
