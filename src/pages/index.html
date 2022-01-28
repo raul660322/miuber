@@ -51,7 +51,7 @@
       <button class="btn btn-success mt-2" onclick="buscar()">Buscar transporte</button>
       <br>
       <!--<p id="pp"></p>-->
-      <div style="display:none;" >
+      <div id="oferta" style="display:none;" >
         Motos:
         <ul id="messages"></ul>
       </div>
@@ -72,6 +72,13 @@
       });
       
       //document.getElementById('pp').innerHTML=window.location.href
+      
+      function buscar(){
+        nCliente = document.getElementById("nombrecliente").value;
+        populateCarros(losCarros);
+        document.getElementById("oferta").style.display = 'block';
+        setCookie('nombrecliente', nCliente, 9000) //Guardar nombre del cliente
+      }
       
       function populateCarros(listaDeCarros){
         losCarros = listaDeCarros;
