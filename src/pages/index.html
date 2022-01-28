@@ -48,10 +48,10 @@
           
         </select>
       </div>
-
+      <button class="btn btn-success mt-2" onclick="buscar()">Buscar transporte</button>
       <br>
-      <p id="pp"></p>
-      <div>
+      <!--<p id="pp"></p>-->
+      <div style="display:none;" >
         Motos:
         <ul id="messages"></ul>
       </div>
@@ -71,7 +71,7 @@
         populateCarros(listaDeCarros);
       });
       
-      document.getElementById('pp').innerHTML=window.location.href
+      //document.getElementById('pp').innerHTML=window.location.href
       
       function populateCarros(listaDeCarros){
         losCarros = listaDeCarros;
