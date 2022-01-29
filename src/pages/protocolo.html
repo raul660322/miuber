@@ -37,6 +37,7 @@
       </div>
     </div>
     <button onclick="pedirChofer()">Pedir</button>
+    <button onclick="anularChofer()">Anular</button>
     <button onclick="ocupar()" style="display:none;">Ocupar</button>
     <a class="nav-link" href="/">Retornar</a>
 
@@ -112,6 +113,14 @@
           conversacion.scrollTop = conversacion.scrollHeight;
         }
       });
+      
+      function anularChofer(){
+        mensaje("He cancelado la solicitud. Que tenga un buen dia.",
+               nCliente,socket);
+        socket.emit('rechazar', {'chofer':nombre,'cliente':nCliente});
+        location.href = "/"
+      }
+      
       //Comenzar geolocalización del cliente
       comenzar();
     </script>
