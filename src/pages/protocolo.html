@@ -90,15 +90,17 @@
       
       function enviarMensaje(){
         var elTexto = document.getElementById('decir').value;
-        socket.emit('chat',{"texto":elTexto, "dest":nCliente})
+        socket.emit('chat',{"texto":elTexto, "dest":nombre})
       }
       
-      socket.on('chat', msg=>{
-        if (msg.dest==nombre){
+      socket.on('chat-response', msg=>{
+        if (msg.dest==nCliente){
           conversacion = document.getElementById('chat');
           item = document.createElement('div');
+          item.innerHTML = msg.texto;
+          conversacion.appendChild(item);
         }
-      })
+      });
       //Comenzar geolocalización del cliente
       comenzar();
     </script>

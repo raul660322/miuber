@@ -29,7 +29,13 @@
       <p id="longitud"></p>
     </div>
     <br>
-    <div id="chat" style="width: 400px; height: 300px; display:block"></div>
+    <div id="chat_container">
+        <div id="chat" style="width:400px; height: 300px; display:block"></div>
+        <div>
+            <input type="text" id="decir" style="width:350px" class="form-control" onchange="cambioNombre()">
+            <button onclick="enviarMensaje()">Enviar</button>  
+      </div>
+    </div>
     <div id="map" style="width: 400px; height: 300px; display:none"></div>
     <button onclick = "verMapa()">Ver en mapa</button>
     <button onclick = "hideMapa()">Ocultar mapa</button>
@@ -95,6 +101,20 @@
       function hideMapa(){
         document.getElementById("map").style.display='none'
       }
+      
+      function enviarMensaje(){
+        var elTexto = document.getElementById('decir').value;
+        socket.emit('chat',{"texto":elTexto, "dest":nCliente})
+      }
+      
+      socket.on('chat-response', msg=>{
+        if (msg.dest==nombre){
+          conversacion = document.getElementById('chat');
+          item = document.createElement('div');
+          item.innerHTML = msg.texto;
+          conversacion.appendChild(item);
+        }
+      });      
       //Comenzar geolocalización del chofer
       comenzar();
     </script>

@@ -62,6 +62,7 @@ io.on('connection', (socket) => {
        //Enviar choferes al cliente
        io.emit('carros', losCarros);  
      });
+     //Poner al chofer como no disponible 
      socket.on('ocupar',(carro)=>{
        console.log('ocupando: ',carro); 
        const index = losCarros.findIndex(c=>c.nombre==carro)
@@ -71,7 +72,14 @@ io.on('connection', (socket) => {
          io.emit('carros', losCarros);  
        }          
      }); 
+     //Petición Cliente-Chofer 
      socket.on('cliente-chofer',(pc)=>{
+       console.log('cliente-chofer: ',pc); 
+       preContratos.push(pc);
+       io.emit('pre-contratos', {"chofer":pc.chofer,"pre":preContratos});
+     }); 
+     //Respuesta al chat 
+     socket.on('chat',(msg)=>{
        console.log('cliente-chofer: ',pc); 
        preContratos.push(pc);
        io.emit('pre-contratos', {"chofer":pc.chofer,"pre":preContratos});
