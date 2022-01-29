@@ -29,16 +29,12 @@
       <p id="longitud"></p>
     </div>
     <br>
-    <div id="chat" style="width: 400px; height: 300px; display:block">
-      <div class="chat-input">
-          
-      </div>
+    <div id="chat_container">
+        <div id="chat" style="width: 400px; height: 300px; display:block"></div>
+        <div>
+            <input type="text" id="decir" style="width:400px" class="form-control" onchange="cambioNombre()">
+        </div>
     </div>
-    <div>
-        <input type="text" id="nombrecliente" style="width:400px" class="form-control" onchange="cambioNombre()">
-
-    </div>
-
     <button onclick="pedirChofer()">Pedir</button>
     <button onclick="ocupar()">Ocupar</button>
     <a class="nav-link" href="/">Retornar</a>
