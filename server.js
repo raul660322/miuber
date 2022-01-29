@@ -71,7 +71,10 @@ io.on('connection', (socket) => {
         //Desactivar carro
          io.emit('desactivar', carro); 
         //Enviar nueva lista de choferes al cliente
-         io.emit('carros', losCarros);  
+         io.emit('carros', losCarros); 
+        //Eliminar pre-contrato
+          const i = losCarros.findIndex(c=>c.nombre==carro.chofer && c.nombre==carro.chofer)
+          if (index != -1) {
        }          
      }); 
      //Petición Cliente-Chofer 
