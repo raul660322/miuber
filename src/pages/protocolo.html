@@ -95,6 +95,11 @@
         conversacion = document.getElementById('chat');
         item = document.createElement('div');
         item.innerHTML = msg.texto;
+        item.style.color = 'brown';
+        item.style.marginLeft= 'auto';
+        item.style.marginRight = 0;
+        item.style.marginTop= '20px';
+        item.style.marginBottom = '20px';
         conversacion.appendChild(item);        
       }
       
@@ -103,6 +108,7 @@
           conversacion = document.getElementById('chat');
           item = document.createElement('div');
           item.innerHTML = msg.texto;
+          
           conversacion.appendChild(item);
         }
       });
