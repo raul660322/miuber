@@ -98,7 +98,7 @@
         item.classList.add("chat-send")
         conversacion.appendChild(item);  
         document.getElementById('decir').value = ""
-        conversacion.scrollTop = objDiv.scrollHeight;
+        conversacion.scrollTop = conversacion.scrollHeight;
       }
       
       socket.on('chat-response', msg=>{
@@ -108,6 +108,7 @@
           item.innerHTML = msg.texto;
           item.classList.add("chat-receive")
           conversacion.appendChild(item);
+          conversacion.scrollTop = conversacion.scrollHeight;
         }
       });
       //Comenzar geolocalización del cliente
