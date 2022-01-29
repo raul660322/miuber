@@ -80,9 +80,8 @@ io.on('connection', (socket) => {
      }); 
      //Respuesta al chat 
      socket.on('chat',(msg)=>{
-       console.log('cliente-chofer: ',pc); 
-       preContratos.push(pc);
-       io.emit('pre-contratos', {"chofer":pc.chofer,"pre":preContratos});
+       console.log('mensaje: ',msg); 
+       io.emit('chat-response', msg);
      }); 
 })
 
