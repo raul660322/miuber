@@ -97,11 +97,12 @@ io.on('connection', (socket) => {
      socket.on('rechazar',(carro)=>{
        console.log('rechazando: ',carro); 
        //Eliminar pre-contrato
-       const i = preContratos.findIndex(c=>(c.chofer==carro.chofer) && (c.cliente==carro.cliente))
+       const i = preContratos.findIndex(c=>{return (c.chofer==carro.chofer) && (c.cliente==carro.cliente)})
        if (i != -1) {
           preContratos.splice(i,1);
+          io.emit('pre-contratos', {"chofer":carro.chofer,"pre":preContratos});
        }
-       io.emit('pre-contratos', {"chofer":carro.chofer,"pre":preContratos});
+       
      });  
   
      //Petición Cliente-Chofer 
