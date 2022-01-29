@@ -19,3 +19,15 @@ function getCookie(cname) {
   }
   return "";
 }
+
+function mensaje(texto,destino,socket){
+  //var elTexto = document.getElementById('decir').value;
+  socket.emit('chat',{"texto":texto, "dest":destino})
+  var conversacion = document.getElementById('chat');
+  var item = document.createElement('div');
+  item.innerHTML = texto;
+  item.classList.add("chat-send")
+  conversacion.appendChild(item);  
+  conversacion.scrollTop = conversacion.scrollHeight;
+  document.getElementById('decir').value = ""
+}

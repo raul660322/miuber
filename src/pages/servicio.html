@@ -145,10 +145,17 @@
               window.scrollTo(0, document.body.scrollHeight); 
           }  
       });
-      
+      //Poner en No disponible por solicitud del Servidor
+      //iniciada por el chofer en la página de protocolo
       socket.on('desactivar',carro=>{
         var elNombre = document.getElementById("nombre").value
-        if (carro.chofer==)
+        if (carro.chofer==elNombre){
+          navigator.geolocation.clearWatch(watchId);
+          estado = "No disponible"
+          document.getElementById("estado").innerHTML = estado
+          document.getElementById("estado").style.color = (estado=="Disponible")?"green":"red"
+          setCookie('estadochofer',estado,24)
+         }
       });
       
       function play1() {
