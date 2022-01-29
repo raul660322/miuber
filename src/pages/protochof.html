@@ -105,6 +105,11 @@
       function enviarMensaje(){
         var elTexto = document.getElementById('decir').value;
         socket.emit('chat',{"texto":elTexto, "dest":nCliente})
+        conversacion = document.getElementById('chat');
+        item = document.createElement('div');
+        item.innerHTML = elTexto;
+        item.classList.add("chat-send")
+        conversacion.appendChild(item);         
       }
       
       socket.on('chat-response', msg=>{
@@ -112,6 +117,7 @@
           conversacion = document.getElementById('chat');
           item = document.createElement('div');
           item.innerHTML = msg.texto;
+          item.classList.add("chat-receive")
           conversacion.appendChild(item);
         }
       });      
