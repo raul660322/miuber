@@ -130,6 +130,7 @@
         socket.emit('ocupar', {'chofer':nombre,'cliente':nCliente});
         mensaje("He aceptado su viaje. En breves minutos estaré a su disposición",
                nCliente,socket);
+        setCookie('estadochofer','No disponible',24)
         //location.href = "servicio.html"
       }
       function rechazar(){
