@@ -65,9 +65,11 @@ io.on('connection', (socket) => {
      //Poner al chofer como no disponible 
      socket.on('ocupar',(carro)=>{
        console.log('ocupando: ',carro); 
-       const index = losCarros.findIndex(c=>c.nombre==carro)
+       const index = losCarros.findIndex(c=>c.nombre==carro.chofer)
        if (index != -1) {
-         losCarros.splice(index,1);
+         losCarros.splice(index,1); //Quitar carro de la lista
+        //Desactivar carro
+         io.emit('desactivar', carro); 
         //Enviar nueva lista de choferes al cliente
          io.emit('carros', losCarros);  
        }          
