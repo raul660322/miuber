@@ -29,5 +29,4 @@ function mensaje(texto,destino,socket){
   item.classList.add("chat-send")
   conversacion.appendChild(item);  
   conversacion.scrollTop = conversacion.scrollHeight;
-  document.getElementById('decir').value = ""
 }

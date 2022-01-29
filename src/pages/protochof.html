@@ -127,7 +127,9 @@
       
       function ocupar(){
         socket.emit('ocupar', {'chofer':nombre,'cliente':nCliente});
-        //location.href="/"
+        mensaje("He aceptado su viaje. En breves minutos estaré a su disposición",
+               nCliente,socket);
+        location.href = "servicio.html"
       }
 
       //Comenzar geolocalización del chofer
