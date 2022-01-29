@@ -116,9 +116,9 @@
       
       function anularChofer(){
         mensaje("He cancelado la solicitud. Que tenga un buen dia.",
-               nCliente,socket);
+               nombre,socket);
         socket.emit('rechazar', {'chofer':nombre,'cliente':nCliente});
-        location.href = "/"
+        //location.href = "/"
       }
       
       //Comenzar geolocalización del cliente
