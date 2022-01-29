@@ -120,7 +120,7 @@
         document.getElementById("estado").style.color = (estado=="Disponible")?"green":"red"
         var elNombre = document.getElementById("nombre").value
         setCookie('estadochofer',estado,24)
-        socket.emit('ocupar', elNombre); //Quitar de la lista de choferes disponibles
+        socket.emit('quitar-carro', elNombre); //Quitar de la lista de choferes disponibles
       }  
       
       socket.on('pre-contratos', (pcs) =>{ 

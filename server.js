@@ -62,7 +62,8 @@ io.on('connection', (socket) => {
        //Enviar choferes al cliente
        io.emit('carros', losCarros);  
      });
-     //Poner al chofer como no disponible 
+  
+     //Ocupar el carro con un cliente 
      socket.on('ocupar',(carro)=>{
        console.log('ocupando: ',carro); 
        const index = losCarros.findIndex(c=>c.nombre==carro.chofer)
@@ -73,10 +74,24 @@ io.on('connection', (socket) => {
         //Enviar nueva lista de choferes al cliente
          io.emit('carros', losCarros); 
         //Eliminar pre-contrato
-          const i = losCarros.findIndex(c=>c.nombre==carro.chofer && c.nombre==carro.chofer)
+          const i = preContratos.findIndex(c=>(c.chofer==carro.chofer) && (c.cliente==carro.cliente))
           if (index != -1) {
+            preContratos.splice(i,1);
+          }
        }          
      }); 
+  
+    //Quitar carro de la lista a petición de chofer
+     socket.on('quitar-carro',(carro)=>{
+       console.log('quitando: ',carro); 
+       const index = losCarros.findIndex(c=>c.nombre==carro)
+       if (index != -1) {
+         losCarros.splice(index,1); //Quitar carro de la lista
+        //Enviar nueva lista de choferes al cliente
+         io.emit('carros', losCarros); 
+       }          
+     }); 
+  
      //Petición Cliente-Chofer 
      socket.on('cliente-chofer',(pc)=>{
        console.log('cliente-chofer: ',pc); 
