@@ -114,7 +114,7 @@
       });
       
       function anularChofer(){
-        mensaje("He cancelado la solicitud. Que tenga un buen dia.",
+        mensaje("Disculpe, he cancelado la solicitud del viaje con usted. Será en otra ocasión. Que tenga un buen dia.",
                nombre,socket);
         socket.emit('rechazar', {'chofer':nombre,'cliente':nCliente});
         //location.href = "/"

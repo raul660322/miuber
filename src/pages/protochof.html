@@ -134,7 +134,7 @@
       }
       function rechazar(){
         //socket.emit('ocupar', {'chofer':nombre,'cliente':nCliente});
-        mensaje("No puedo realizar su viaje. Por favor busque otro chofer.",
+        mensaje("Lo siento. Lamentablemente, no puedo realizar su viaje. Por favor busque otro chofer.",
                nCliente,socket);
         socket.emit('rechazar', {'chofer':nombre,'cliente':nCliente});
         //location.href = "servicio.html"
