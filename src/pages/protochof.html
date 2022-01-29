@@ -109,7 +109,8 @@
         item = document.createElement('div');
         item.innerHTML = elTexto;
         item.classList.add("chat-send")
-        conversacion.appendChild(item);         
+        conversacion.appendChild(item);  
+        document.getElementById('decir').value = ""
       }
       
       socket.on('chat-response', msg=>{

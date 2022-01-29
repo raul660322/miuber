@@ -15,13 +15,17 @@ html {
 }
 
 .chat-send{
+  font-weight:bold;
+  width:300px;
   margin: 10px auto 10px 0; 
-  color:brown;
+  color:#00443E;
 }
 
 .chat-receive{
+  font-weight:bold;
+  width:300px;
   margin: 10px 0 10px auto; 
-  color:#00443E;
+  color:brown;
 }
 
 .chat-input{

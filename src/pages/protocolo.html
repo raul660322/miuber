@@ -95,13 +95,9 @@
         conversacion = document.getElementById('chat');
         item = document.createElement('div');
         item.innerHTML = elTexto;
-        //item.style.color = 'brown';
-        //item.style.marginLeft= 'auto';
-        //item.style.marginRight = 0;
-        //item.style.marginTop= '20px';
-        //item.style.marginBottom = '20px';
         item.classList.add("chat-send")
-        conversacion.appendChild(item);        
+        conversacion.appendChild(item);  
+        document.getElementById('decir').value = ""
       }
       
       socket.on('chat-response', msg=>{
