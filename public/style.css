@@ -10,6 +10,10 @@ html {
   box-sizing: inherit;
 }
 
+.chat{
+  border:blue solid 2px;
+}
+
 /* adjust typography defaults */
 body {
   margin: 1rem;
