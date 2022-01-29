@@ -30,7 +30,7 @@
     </div>
     <br>
     <div id="chat_container" style="display:none">
-        <div id="chat" style="width:400px; height: 300px; display:block"></div>
+        <div id="chat" style="width:400px; height: 300px; overflow-y:scroll;"></div>
         <div>
             <input type="text" id="decir" style="width:350px" class="form-control" onchange="cambioNombre()">
             <button onclick="enviarMensaje()">Enviar</button>  
@@ -98,6 +98,7 @@
         item.classList.add("chat-send")
         conversacion.appendChild(item);  
         document.getElementById('decir').value = ""
+        conversacion.scrollTop = objDiv.scrollHeight;
       }
       
       socket.on('chat-response', msg=>{
