@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Protocolo Cliente</title>
+    <link rel="stylesheet" href="/style.css" /> 
     <script src="/socket.io/socket.io.js"></script>
     <script src="code.js"></script>
   </head>
@@ -28,6 +29,11 @@
       <p id="longitud"></p>
     </div>
     <br>
+    <div id="chat" style="width: 400px; height: 300px; display:block">
+      <div class="chat-input">
+          
+      </div>
+    </div>
     <button onclick="pedirChofer()">Pedir</button>
     <button onclick="ocupar()">Ocupar</button>
     <a class="nav-link" href="/">Retornar</a>
