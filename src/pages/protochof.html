@@ -27,16 +27,17 @@
       <p id="latitud" style="display:none"></p>
       <p id="longitud" style="display:none"></p>
     </div>
-    <br>
+    
     <div id="chat_container">
-        <div id="chat" style="width:350px; height: 300px; overflow-y:scroll;"></div>
+        <div id="chat" style="margin-bottom:10px; width:350px; height: 300px; overflow-y:scroll;"></div>
         <div>
-            <input type="text" id="decir" style="width:290px" class="form-control" onchange="cambioNombre()">
+            <input type="text" id="decir" style="width:290px; margin-bottom:10px;" class="form-control" onchange="cambioNombre()">
+                   
             <button onclick="enviarMensaje()">Enviar</button>  
       </div>
     </div>
     <div id="map" style="width: 350px; height: 300px; display:none"></div>
-    <button onclick = "verMapa()">Ver en mapa</button>
+    <button onclick = "verMapa()">Mapa</button>
     <button onclick = "hideMapa()">Ocultar mapa</button>
     <button onclick="ocupar()">Aceptar </button>
     <button onclick="rechazar()">Rechazar</button>
