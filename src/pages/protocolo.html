@@ -35,8 +35,8 @@
             <button onclick="enviarMensaje()">Enviar</button>  
       </div>
     </div>
-    <button onclick="pedirChofer()">Pedir</button>
-    <button onclick="anularChofer()">Anular</button>
+    <button id="pedir" onclick="pedirChofer()">Pedir</button>
+    <button id="anular" onclick="anularChofer()" style="display:none">Anular</button>
     <button onclick="ocupar()" style="display:none;">Ocupar</button>
     <a class="nav-link" href="/">Retornar</a>
 
@@ -66,6 +66,8 @@
         socket.emit('cliente-chofer',
           {chofer:nombre, cliente:nCliente, lat:latCli, long:longCli, dest:elDestino});
         document.getElementById("chat_container").style.display="block"
+        document.getElementById("anular").style.display="initial"
+        document.getElementById("pedir").style.display="none"
       }
 
       function ocupar(){
@@ -117,6 +119,9 @@
         mensaje("Disculpe, he cancelado la solicitud del viaje con usted. Será en otra ocasión. Que tenga un buen dia.",
                nombre,socket);
         socket.emit('rechazar', {'chofer':nombre,'cliente':nCliente});
+        document.getElementById("anular").style.display="none"
+        document.getElementById("pedir").style.display="initial"
+        document.getElementById("chat_container").style.display="none"
         //location.href = "/"
       }
       
