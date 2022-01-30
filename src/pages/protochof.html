@@ -37,8 +37,8 @@
       </div>
     </div>
     <div id="map" style="width: 350px; height: 300px; display:none"></div>
-    <button onclick = "verMapa()">Mapa</button>
-    <button onclick = "hideMapa()">Ocultar mapa</button>
+    <button id="vermapa" onclick = "verMapa()">Mapa</button>
+    <button id="hidemapa" onclick = "hideMapa()" style="display:none">Ocultar mapa</button>
     <button onclick="ocupar()">Aceptar </button>
     <button onclick="rechazar()">Rechazar</button>
     <a class="nav-link" href="servicio.html">Retornar</a> 
@@ -85,7 +85,8 @@
           container: 'map',
           style: 'mapbox://styles/mapbox/streets-v11',
           center: [-81.5665845, 23.047131], // starting position Matanzas
-          zoom: 14 // starting zoom  
+          zoom: 14 // starting zoom 
+          
         });
         
         // Create a default Marker and add it to the map.
@@ -98,10 +99,16 @@
           essential: true // this animation is considered essential with respect to prefers-reduced-motion
           });
         document.getElementById("map").style.display='block'
+        document.getElementById('hidemapa').style.display='initial'
+        document.getElementById('vermapa').style.display='none'
+        document.getElementById("chat_container").style.display='none'
       }  
       
       function hideMapa(){
         document.getElementById("map").style.display='none'
+        document.getElementById('hidemapa').style.display='none'
+        document.getElementById('vermapa').style.display='initial'
+        document.getElementById("chat_container").style.display='none'        
       }
       
       function enviarMensaje(){

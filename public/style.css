@@ -16,7 +16,7 @@ html {
 
 .chat-send{
   font-weight:bold;
-  border-radius:5px;
+  border-radius:10px;
   padding:5px;
   width:250px;
   margin: 5px auto 5px 0; 
@@ -26,7 +26,7 @@ html {
 
 .chat-receive{
   font-weight:bold;
-  border-radius:5px;
+  border-radius:10px;
   padding:5px;
   width:250px;
   margin: 5px 0 5px auto; 
