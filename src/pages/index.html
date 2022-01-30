@@ -110,6 +110,7 @@
       function zonaSelected(){
         var idx = misZonas.selectedIndex; 
         laZona = misZonas.options[idx].value; 
+        setCookie('zonacliente', laZona, 1) //Guardar el destino por 1 hora
         populateCarros(losCarros);
       }
       //Poblar lista de zonas
