@@ -16,16 +16,22 @@ html {
 
 .chat-send{
   font-weight:bold;
+  border-radius:5px;
+  padding:5px;
   width:250px;
-  margin: 10px auto 10px 0; 
+  margin: 5px auto 5px 0; 
   color:#00443E;
+  background:rgb(250,250,169);
 }
 
 .chat-receive{
   font-weight:bold;
+  border-radius:5px;
+  padding:5px;
   width:250px;
-  margin: 10px 0 10px auto; 
+  margin: 5px 0 5px auto; 
   color:brown;
+  background:#9BEEF8;
 }
 
 .chat-input{
