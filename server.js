@@ -112,6 +112,11 @@ io.on('connection', (socket) => {
        if (i === -1) {
          preContratos.push(pc);
          io.emit('pre-contratos', {"chofer":pc.chofer,"pre":preContratos});
+       } else {
+         if (preContratos[i].dest != pc.dest) {
+           preContratos[i].dest = pc.dest;
+           io.emit('pre-contratos', {"chofer":pc.chofer,"pre":preContratos});
+         }
        }
      }); 
      //Respuesta al chat 
