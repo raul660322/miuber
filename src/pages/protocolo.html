@@ -36,6 +36,7 @@
       </div>
     </div>
     <button id="pedir" onclick="pedirChofer()">Pedir</button>
+    <button id="sms" onclick="sendSMS()">Enviar SMS</button>
     <button id="anular" onclick="anularChofer()" style="display:none">Anular</button>
     <button onclick="ocupar()" style="display:none;">Ocupar</button>
     <a class="nav-link" href="/">Retornar</a>
@@ -125,6 +126,13 @@
         //location.href = "/"
       }
       
+      function enviarSMS(){
+          var mapUrl = "https://moto-server.glitch.me/protochof.html"+"?cliente="+pc.cliente
+                                      +"&lat="+pc.lat+"&long="+pc.long
+                                      +"&chofer="+elNombre + "&dest=" + pc.dest
+          var url = "sms:?body=" + encodeURIComponent("Tiene un cliente esperando aquí " + mapUrl);
+          location.href = url;
+      }
       //Comenzar geolocalización del cliente
       comenzar();
     </script>
