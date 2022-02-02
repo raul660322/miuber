@@ -127,7 +127,9 @@
       }
       
       function sendSMS(){
-          var mapUrl = "https://moto-server.glitch.me/protochof.html"+"?cliente="+ nCliente+"&lat="+latCli+"&long="+longCli+"&chofer="+ nombre + "&dest=" + elDestino
+          var mapUrl = "https://moto-server.glitch.me/protochof.html"+"?cliente="
+          + nCliente.replace()+";lat="+latCli+";long="+longCli+";chofer="+ nombre + ";dest="
+          + elDestino
           var url = "sms:+5353433021?body=" + encodeURIComponent("Tiene un cliente esperando aquí " + mapUrl);
           //var url = "sms:+5352925785?body=" + "Tiene un cliente esperando aquí " + mapUrl;
           

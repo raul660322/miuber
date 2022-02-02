@@ -30,3 +30,5 @@ function mensaje(texto,destino,socket){
   conversacion.appendChild(item);  
   conversacion.scrollTop = conversacion.scrollHeight;
 }
+
+

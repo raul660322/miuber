@@ -44,7 +44,7 @@
     <a class="nav-link" href="servicio.html">Retornar</a> 
     
     <script>
-      const miUrl=window.location.href;
+      const miUrl=window.location.href.replace(/;/g,'&').replace(/_/g,' ');
       var socket = io();
       var x = document.getElementById("demo");
       var watchId;
