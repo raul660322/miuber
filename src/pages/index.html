@@ -38,8 +38,6 @@
           Para Clientes
       </h1> 
       <form class="needs-validation">
-        
-      
       <div class="form-group">
         <label for nombrecliente>Nombre:</label>
         <input type="text" id="nombrecliente"  class="form-control" onchange="cambioNombre()">
@@ -102,6 +100,7 @@
         populateCarros(losCarros);
         document.getElementById("oferta").style.display = 'block';
         setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año
+        validateform;
       }
       
       function populateCarros(listaDeCarros){
