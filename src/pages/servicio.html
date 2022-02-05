@@ -128,14 +128,17 @@
         document.getElementById("estado").innerHTML = estado
         document.getElementById("estado").style.color = (estado=="Disponible")?"green":"red"
         var elNombre = document.getElementById("nombre").value
+        var elTelef = document.getElementById("telef").value
         setCookie('estadochofer',estado,24)
-        socket.emit('quitar-carro', elNombre); //Quitar de la lista de choferes disponibles
+        //socket.emit('quitar-carro', elNombre); //Quitar de la lista de choferes disponibles
+        socket.emit('quitar-carro', elTelef); //Quitar de la lista de choferes disponibles by phone
       }  
       
       socket.on('pre-contratos', (pcs) =>{ 
           var elNombre = document.getElementById("nombre").value
-          if (pcs.chofer==elNombre){
-              misPcs = pcs.pre.filter(pc=>pc.chofer==elNombre)
+          var elTelef = document.getElementById("telef").value
+          if (pcs.tchofer==elTelef){
+              misPcs = pcs.pre.filter(pc=>pc.tchofer==elTelef)
               clientes.innerHTML=''
               if (misPcs){
                   window.navigator.vibrate([1000]);
@@ -147,7 +150,8 @@
                 seleccion.textContent = pc.cliente + " - "+pc.dest; 
                 seleccion.setAttribute("href", "protochof.html"+"?cliente="+pc.cliente
                                       +"&lat="+pc.lat+"&long="+pc.long
-                                      +"&chofer="+elNombre + "&dest=" + pc.dest);
+                                      +"&chofer="+elNombre + "&dest=" + pc.dest
+                                      +"&tch=" + pc.tchofer+"&tcl=" + pc.tcliente);
                 item.appendChild(seleccion);
                 clientes.appendChild(item);    
               }  
@@ -158,7 +162,8 @@
       //iniciada por el chofer en la página de protocolo
       socket.on('desactivar',carro=>{
         var elNombre = document.getElementById("nombre").value
-        if (carro.chofer==elNombre){
+        var elTelef = document.getElementById("telef").value
+        if (carro.tchofer==elTelef){
           navigator.geolocation.clearWatch(watchId);
           estado = "No disponible"
           document.getElementById("estado").innerHTML = estado
