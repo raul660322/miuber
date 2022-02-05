@@ -45,16 +45,20 @@
       <div class="form-group">
         <label for telcliente>Teléfono:</label>
         <input type="tel" id="telcliente"  class="form-control" onchange="cambioTel()" required>
-      </div>
+          <div class="invalid-feedback">
+      Please enter a message in the textarea.
+    </div>
+        </div>
       <div class="form-group">
         <label for destino>Destino  :</label>
         <select id="destino" class="form-control" onchange="zonaSelected()">
           
         </select>
       </div>
-      </form>  
-      <button class="btn btn-success mt-2" onclick="buscar()" style="display:none;">Buscar transporte</button>
-      <br>
+       
+      <button class="btn btn-success mt-2" onclick="buscar()" type="submit">Buscar transporte</button>
+      </form> 
+        <br>
       <!--<p id="pp"></p>-->
       <div id="oferta">
         Servicio disponible:
@@ -100,7 +104,6 @@
         populateCarros(losCarros);
         document.getElementById("oferta").style.display = 'block';
         setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año
-        validateform;
       }
       
       function populateCarros(listaDeCarros){
