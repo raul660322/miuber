@@ -73,7 +73,7 @@
       document.getElementById("nombrecliente").value = getCookie('nombrecliente')
       document.getElementById("telcliente").value = getCookie('telcliente')
       socket.emit('conectado',{'rol':'cliente','nombre':getCookie('nombrecliente'),
-                              'telef':'getCookie('telcliente')})
+                              'telef':getCookie('telcliente')})
       socket.on('carros', (listaDeCarros) =>{ 
         populateCarros(listaDeCarros);
       });
