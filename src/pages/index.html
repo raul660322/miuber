@@ -86,7 +86,6 @@
       }
       
       function cambioNombre(){
-        //document.getElementById("oferta").style.display = 'none';
         nCliente = document.getElementById("nombrecliente");
         populateCarros(losCarros);
         document.getElementById("oferta").style.display = 'block';
@@ -94,11 +93,10 @@
       }
       
       function cambioTel(){
-        //document.getElementById("oferta").style.display = 'none';
-        var tCliente = document.getElementById('telcliente')
+        tCliente = document.getElementById('telcliente')
         populateCarros(losCarros);
         document.getElementById("oferta").style.display = 'block';
-        setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
+        setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año
       }
       
       function populateCarros(listaDeCarros){
@@ -110,7 +108,9 @@
           seleccion = document.createElement('a')
           seleccion.textContent = carro.nombre; 
           seleccion.setAttribute("href", "protocolo.html"+"?carro="+carro.nombre
-                                +"&lat="+carro.lat+"&long="+carro.long+"&cli="+nCliente.value+"&dest="+laZona);         
+                                +"&lat="+carro.lat+"&long="+carro.long
+                                +"&cli="+nCliente.value+"&dest="+laZona
+                                +"&tel="+tCliente.value);         
           item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
