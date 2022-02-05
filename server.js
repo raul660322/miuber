@@ -1,4 +1,5 @@
 const path = require("path");
+const timeOut = 1000*60*60; //1h
 var losCarros = [];
 var preContratos = [];
 
@@ -33,7 +34,10 @@ fastify.register(require('fastify-cors'), {
 
 
 io.on('connection', (socket) => {
+     //purgar choferes con tiempo de inactividad > timeOut
+      
      var time = new Date().getTime() 
+     losCarros = losCarros.filter(item => item.time + timeOut<time);
      console.log('......', 'Conectado!', time);
      socket.on('conectado',rol=>{
        if (rol.rol=='cliente'){
