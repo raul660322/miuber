@@ -43,8 +43,8 @@
         <input type="text" id="nombrecliente"  class="form-control" onchange="cambioNombre()">
       </div>
       <div class="form-group">
-        <label for telcliente>:</label>
-        <input type="text" id="telcliente"  class="form-control" onchange="cambioNombre()">
+        <label for telcliente>Teléfono:</label>
+        <input type="tel" id="telcliente"  class="form-control" onchange="cambioTel()">
       </div>
       <div class="form-group">
         <label for destino>Destino  :</label>
@@ -66,6 +66,7 @@
       
       var messages = document.getElementById('messages');
       var nCliente = document.getElementById('nombrecliente')
+      var tCliente = document.getElementById('telcliente')
       var misZonas = document.getElementById('destino');
       var losCarros = []; 
       //Verificar nombre guardado
@@ -90,9 +91,14 @@
         populateCarros(losCarros);
         document.getElementById("oferta").style.display = 'block';
         setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
-       
-        
-        
+      }
+      
+      function cambioTel(){
+        //document.getElementById("oferta").style.display = 'none';
+        var tCliente = document.getElementById('telcliente')
+        populateCarros(losCarros);
+        document.getElementById("oferta").style.display = 'block';
+        setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
       }
       
       function populateCarros(listaDeCarros){
