@@ -66,7 +66,7 @@ io.on('connection', (socket) => {
      //Ocupar el carro con un cliente 
      socket.on('ocupar',(carro)=>{
        console.log('ocupando: ',carro); 
-       const index = losCarros.findIndex(c=>c.nombre==carro.chofer)
+       const index = losCarros.findIndex(c=>c.tel==carro.tchofer)
        if (index != -1) {
          losCarros.splice(index,1); //Quitar carro de la lista
         //Desactivar carro
@@ -74,11 +74,11 @@ io.on('connection', (socket) => {
         //Enviar nueva lista de choferes al cliente
          io.emit('carros', losCarros); 
         //Eliminar pre-contrato
-         const i = preContratos.findIndex(c=>(c.chofer==carro.chofer) && (c.cliente==carro.cliente))
+         const i = preContratos.findIndex(c=>(c.tchofer==carro.tchofer) && (c.tcliente==carro.tcliente))
          if (i != -1) {
             preContratos.splice(i,1);
          }
-         io.emit('pre-contratos', {"chofer":carro.chofer,"pre":preContratos});
+         io.emit('pre-contratos', {"chofer":carro.tchofer,"pre":preContratos});
        }          
      }); 
   
