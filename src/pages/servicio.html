@@ -54,7 +54,7 @@
       </div>
       <div>
         <button id="comenzar" onclick="comenzar()">Activar</button>
-        <button id="detener" onclick="detener()" s>Detener</button>
+        <button id="detener" onclick="detener()">Detener</button>
       </div>
        
       <br>
@@ -84,16 +84,18 @@
       document.getElementById("estado").style.color = (estado=="Disponible")?"green":"red"
       if (estado=="Disponible"){
         comenzar();
+      } else {
+        document.getElementById("detener").style.display='none';
       }
       
       function comenzar() {
-        document.getElementById("nombre").disabled=true;
-        document.getElementById("telef").disabled=true;
-        document.getElementById("comenzar").style.display='none';
-        document.getElementById("detener").style.display='unset';
         var elNombre = document.getElementById("nombre").value
         var elTelef = document.getElementById("telef").value
         if (elNombre && elTelef){
+          document.getElementById("nombre").disabled=true;
+          document.getElementById("telef").disabled=true;
+          document.getElementById("comenzar").style.display='none';
+          document.getElementById("detener").style.display='unset';
           setCookie('nombrechofer', elNombre, 9000) //Guardar nombre del chofer
           setCookie('telchofer', elTelef, 9000) //Guardar teléfono del chofer
           if (navigator.geolocation) {
@@ -135,6 +137,7 @@
         document.getElementById("nombre").disabled=false;
         document.getElementById("telef").disabled=false;
         document.getElementById("comenzar").style.display='initial';
+        document.getElementById("detener").style.display='none';
         navigator.geolocation.clearWatch(watchId);
         estado = "No disponible"
         document.getElementById("estado").innerHTML = estado
