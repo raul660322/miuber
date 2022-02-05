@@ -39,11 +39,11 @@
 
       <br>
       <div class="form-group">
-        <label for nombre>Nombre:</label>
+        <label for nombre style="width:65px">Nombre:</label>
         <input type="text" id="nombre">
       </div>
-      <div class="form-group">
-        <label for nombre>Teléfono:</label>
+      <div class="form-group" style="margin-top:5px">
+        <label for telef style="width:65px">Teléfono:</label>
         <input type="tel" id="telef">
       </div>
       
@@ -87,7 +87,9 @@
       function comenzar() {
 
         var elNombre = document.getElementById("nombre").value
+        var elTelef = document.getElementById("nombre").value
         setCookie('nombrechofer', elNombre, 9000) //Guardar nombre del chofer
+        setCookie('telchofer', elTelef, 9000) //Guardar teléfono del chofer
         if (navigator.geolocation) {
           watchId = navigator.geolocation.watchPosition(showPosition);
 
@@ -101,7 +103,9 @@
           "<br>Longitude: " + position.coords.longitude;
           //Enviar posición al servidor
           var elNombre = document.getElementById("nombre").value
+          var elTelef = document.getElementById("telef").value
           socket.emit('posicion', {'nombre':elNombre,
+            'tel':elTelef,                       
             'lat':position.coords.latitude,
             'long':position.coords.longitude
           });
