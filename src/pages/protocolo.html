@@ -133,10 +133,9 @@
       }
       
       function sendSMS(){
-          var mapUrl = "https://moto-server.glitch.me/protochof.html"+"?cliente="
-          + nCliente.replace(/ /g,'_')+";lat="+latCli+";long="+longCli+";chofer="
-          + nombre.replace(/ /g,'_') + ";dest="+ elDestino.replace(/ /g,'_')
-          + ";tcl="+tCliente + ";tch="+tChofer;
+          var mapUrl = "https://moto-server.glitch.me/protochof.html" 
+          + "?cliente=" + nCliente.replace(/ /g,'_') + ";lat=" + latCli + ";long=" + longCli 
+          + ";dest="+ elDestino.replace(/ /g,'_') + ";tcl="+tCliente;
           var url = "sms:" + tChofer + "?body=" + encodeURIComponent("Cliente " + mapUrl);
           //var url = "sms:+5352925785?body=" + "Tiene un cliente esperando aquí " + mapUrl;
           

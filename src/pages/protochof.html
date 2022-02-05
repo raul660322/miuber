@@ -50,8 +50,9 @@
       var watchId;
       document.getElementById('pp').innerHTML=miUrl;
       var url = new URL(miUrl);
-      var nombre = url.searchParams.get("chofer");
-      var telefono = url.searchParams.get("tch");
+      var nombre = getCookie('nombrechofer');
+      //var telefono = url.searchParams.get("tch");
+      var telefono = getCookie('telchofer');
       var tCliente = url.searchParams.get("tcl");
       var latitud = url.searchParams.get("lat");
       var longitud = url.searchParams.get("long");

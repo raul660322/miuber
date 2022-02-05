@@ -163,10 +163,10 @@
                 var item = document.createElement('li'); 
                 seleccion = document.createElement('a')
                 seleccion.textContent = pc.cliente + " - "+pc.dest; 
-                seleccion.setAttribute("href", "protochof.html"+"?cliente="+pc.cliente
-                                      +"&lat="+pc.lat+"&long="+pc.long
-                                      +"&chofer="+elNombre + "&dest=" + pc.dest
-                                      +"&tch=" + pc.tchofer+"&tcl=" + pc.tcliente);
+                seleccion.setAttribute("href", "protochof.html"+"?cliente=" + pc.cliente
+                                      + "&lat=" + pc.lat + "&long=" +pc.long
+                                      + "&dest=" + pc.dest
+                                      + "&tcl=" + pc.tcliente);
                 item.appendChild(seleccion);
                 clientes.appendChild(item);    
               }  
