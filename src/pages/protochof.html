@@ -126,7 +126,7 @@
       }
       
       socket.on('chat-response', msg=>{
-        if (msg.dest==nombre){
+        if (msg.dest==telefono){
           conversacion = document.getElementById('chat');
           item = document.createElement('div');
           item.innerHTML = msg.texto;

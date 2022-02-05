@@ -53,10 +53,15 @@
       var longitud = url.searchParams.get("long");
       var nCliente = url.searchParams.get("cli")
       var elDestino = url.searchParams.get("dest")
+      
+      var tCliente = url.searchParams.get("tcl")
+      var tChofer = url.searchParams.get("tch")
+      
       document.getElementById('chofer').innerHTML="Chofer: " + nombre;
       document.getElementById('latitud').innerHTML="Latitud: " + latitud;
       document.getElementById('longitud').innerHTML="Longitud: " + longitud;
       document.getElementById('cliente').innerHTML="Cliente: " + nCliente + " Destino: " + elDestino;
+
       var latCli="";
       var longCli="";
       
