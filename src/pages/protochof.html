@@ -51,6 +51,8 @@
       document.getElementById('pp').innerHTML=miUrl;
       var url = new URL(miUrl);
       var nombre = url.searchParams.get("chofer");
+      var telefono = url.searchParams.get("tch");
+      var tCliente = url.searchParams.get("tcl");
       var latitud = url.searchParams.get("lat");
       var longitud = url.searchParams.get("long");
       var nCliente = url.searchParams.get("cliente")
@@ -113,7 +115,7 @@
       
       function enviarMensaje(){
         var elTexto = document.getElementById('decir').value;
-        socket.emit('chat',{"texto":elTexto, "dest":nCliente})
+        socket.emit('chat',{"texto":elTexto, "dest":tCliente})
         conversacion = document.getElementById('chat');
         item = document.createElement('div');
         item.innerHTML = elTexto;
@@ -135,9 +137,10 @@
       });  
       
       function ocupar(){
-        socket.emit('ocupar', {'chofer':nombre,'cliente':nCliente});
+        socket.emit('ocupar', {'chofer':nombre, 'tchofer':telefono,
+                               'cliente':nCliente,'tcliente':tCliente});
         mensaje("He aceptado su viaje. En breves minutos estaré a su disposición",
-               nCliente,socket);
+               tCliente,socket);
         setCookie('estadochofer','No disponible',24)
         document.getElementById('ocupar').style.display='none'
         document.getElementById("rechazar").style.display='none'
@@ -147,8 +150,9 @@
       function rechazar(){
         //socket.emit('ocupar', {'chofer':nombre,'cliente':nCliente});
         mensaje("Lo siento. Lamentablemente, no puedo realizar su viaje. Por favor busque otro chofer.",
-               nCliente,socket);
-        socket.emit('rechazar', {'chofer':nombre,'cliente':nCliente});
+               tCliente,socket);
+        socket.emit('rechazar', {'chofer':nombre, 'tchofer':telefono,
+                               'cliente':nCliente,'tcliente':tCliente});
         document.getElementById("map").style.display='none'
         document.getElementById('hidemapa').style.display='none'
         document.getElementById('vermapa').style.display='none'
