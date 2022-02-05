@@ -38,16 +38,14 @@
       </h1>
 
       <br>
-      <form class="needs-validation">
       <div class="form-group">
         <label for nombre style="width:65px">Nombre:</label>
         <input type="text" id="nombre" required>
       </div>
       <div class="form-group" style="margin-top:5px">
         <label for telef style="width:65px">Teléfono:</label>
-        <input type="tel" id="telef" required>
+        <input type="tel" id="telef" placeholder="Nombre obligatorio" required>
       </div>
-      </form>
       <br>
       <p id="demo"></p>
       <div>
@@ -89,17 +87,20 @@
       }
       
       function comenzar() {
-
         var elNombre = document.getElementById("nombre").value
         var elTelef = document.getElementById("telef").value
-        setCookie('nombrechofer', elNombre, 9000) //Guardar nombre del chofer
-        setCookie('telchofer', elTelef, 9000) //Guardar teléfono del chofer
-        if (navigator.geolocation) {
-          watchId = navigator.geolocation.watchPosition(showPosition);
+        if (elNombre && elTelef){
+          setCookie('nombrechofer', elNombre, 9000) //Guardar nombre del chofer
+          setCookie('telchofer', elTelef, 9000) //Guardar teléfono del chofer
+          if (navigator.geolocation) {
+            watchId = navigator.geolocation.watchPosition(showPosition);
 
-        } else { 
-          x.innerHTML = "Geolocation is not supported by this browser.";
-        }
+          } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+        } else {
+          alert('Debe poner el nombre y el teléfono');
+        }  
       }
 
       function showPosition(position) {
