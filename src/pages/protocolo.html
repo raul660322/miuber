@@ -99,7 +99,7 @@
       
       function enviarMensaje(){
         var elTexto = document.getElementById('decir').value;
-        mensaje(elTexto,nombre,socket);
+        mensaje(elTexto,tchofer,socket);
         //socket.emit('chat',{"texto":elTexto, "dest":nombre})
         //Agregar mi propio texto
         //conversacion = document.getElementById('chat');
@@ -112,7 +112,7 @@
       }
       
       socket.on('chat-response', msg=>{
-        if (msg.dest==nCliente){
+        if (msg.dest==tCliente){
           conversacion = document.getElementById('chat');
           item = document.createElement('div');
           item.innerHTML = msg.texto;
@@ -125,7 +125,7 @@
       function anularChofer(){
         mensaje("Disculpe, he cancelado la solicitud del viaje con usted. Será en otra ocasión. Que tenga un buen dia.",
                nombre,socket);
-        socket.emit('rechazar', {'chofer':nombre,'cliente':nCliente});
+        socket.emit('rechazar', {'chofer':tChofer,'cliente':tCliente});
         document.getElementById("anular").style.display="none"
         document.getElementById("pedir").style.display="initial"
         document.getElementById("chat_container").style.display="none"
@@ -136,7 +136,7 @@
           var mapUrl = "https://moto-server.glitch.me/protochof.html"+"?cliente="
           + nCliente.replace(/ /g,'_')+";lat="+latCli+";long="+longCli+";chofer="
           + nombre.replace(/ /g,'_') + ";dest="+ elDestino.replace(/ /g,'_');
-          var url = "sms:+5353433021?body=" + encodeURIComponent("Cliente " + mapUrl);
+          var url = "sms:" + tChofer + "?body=" + encodeURIComponent("Cliente " + mapUrl);
           //var url = "sms:+5352925785?body=" + "Tiene un cliente esperando aquí " + mapUrl;
           
           console.log(url);

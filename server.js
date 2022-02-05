@@ -85,7 +85,7 @@ io.on('connection', (socket) => {
     //Quitar carro de la lista a petición de chofer
      socket.on('quitar-carro',(carro)=>{
        console.log('quitando: ',carro); 
-       const index = losCarros.findIndex(c=>c.nombre==carro)
+       const index = losCarros.findIndex(c=>c.tel==carro)
        if (index != -1) {
          losCarros.splice(index,1); //Quitar carro de la lista
         //Enviar nueva lista de choferes al cliente
@@ -97,10 +97,10 @@ io.on('connection', (socket) => {
      socket.on('rechazar',(carro)=>{
        console.log('rechazando: ',carro); 
        //Eliminar pre-contrato
-       const i = preContratos.findIndex(c=>{return (c.chofer==carro.chofer) && (c.cliente==carro.cliente)})
+       const i = preContratos.findIndex(c=>{return (c.tchofer==carro.tchofer) && (c.tcliente==carro.tcliente)})
        if (i != -1) {
           preContratos.splice(i,1);
-          io.emit('pre-contratos', {"chofer":carro.chofer,"pre":preContratos});
+          io.emit('pre-contratos', {"chofer":carro.tchofer,"pre":preContratos});
        }
        
      });  
