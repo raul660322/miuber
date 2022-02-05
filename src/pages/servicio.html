@@ -40,11 +40,11 @@
       <br>
       <div class="form-group">
         <label for nombre style="width:65px">Nombre:</label>
-        <input type="text" id="nombre" required>
+        <input type="text" id="nombre" placeholder="Nombre obligatorio" required>
       </div>
       <div class="form-group" style="margin-top:5px">
         <label for telef style="width:65px">Teléfono:</label>
-        <input type="tel" id="telef" placeholder="Nombre obligatorio" required>
+        <input type="tel" id="telef" placeholder="Teléfono obligatorio" required>
       </div>
       <br>
       <p id="demo"></p>
@@ -53,8 +53,8 @@
         <strong id="estado"></strong>
       </div>
       <div>
-        <button onclick="comenzar()">Activar</button>
-        <button onclick="detener()">Detener</button>
+        <button id="comenzar" onclick="comenzar()">Activar</button>
+        <button id="detener" onclick="detener()" s>Detener</button>
       </div>
        
       <br>
@@ -87,6 +87,10 @@
       }
       
       function comenzar() {
+        document.getElementById("nombre").disabled=true;
+        document.getElementById("telef").disabled=true;
+        document.getElementById("comenzar").style.display='none';
+        document.getElementById("detener").style.display='unset';
         var elNombre = document.getElementById("nombre").value
         var elTelef = document.getElementById("telef").value
         if (elNombre && elTelef){
@@ -128,6 +132,9 @@
     
 
       function detener() {
+        document.getElementById("nombre").disabled=false;
+        document.getElementById("telef").disabled=false;
+        document.getElementById("comenzar").style.display='initial';
         navigator.geolocation.clearWatch(watchId);
         estado = "No disponible"
         document.getElementById("estado").innerHTML = estado
