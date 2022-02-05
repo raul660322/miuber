@@ -74,14 +74,18 @@
       //Verificar nombre guardado
       document.getElementById("nombrecliente").value = getCookie('nombrecliente')
       document.getElementById("telcliente").value = getCookie('telcliente')
-      socket.emit('conectado',{'rol':'cliente','nombre':getCookie('nombrecliente'),
-                              'telef':getCookie('telcliente')})
-      socket.on('carros', (listaDeCarros) =>{ 
-        populateCarros(listaDeCarros);
-      });
-      document.getElementById("oferta").style.display = 'block';
-      //document.getElementById('pp').innerHTML=window.location.href
-      
+      nCliente = document.getElementById("nombrecliente");
+      tCliente = document.getElementById('telcliente')
+      if (tCliente.value && nCliente.value){
+        socket.emit('conectado',{'rol':'cliente','nombre':getCookie('nombrecliente'),
+                                'telef':getCookie('telcliente')})
+        socket.on('carros', (listaDeCarros) =>{ 
+          populateCarros(listaDeCarros);
+        });
+        document.getElementById("oferta").style.display = 'block';
+      } else {
+        document.getElementById("oferta").style.display = 'none'; 
+      }
       function buscar(){
         nCliente = document.getElementById("nombrecliente");
         populateCarros(losCarros);
@@ -98,7 +102,7 @@
           setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
           setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año
         } else {
-          document.getElementById("oferta").style.display = 'initial';          
+          document.getElementById("oferta").style.display = 'none';          
         }  
       }
       
@@ -111,7 +115,7 @@
           setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
           setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año
         } else {
-          document.getElementById("oferta").style.display = 'initial';          
+          document.getElementById("oferta").style.display = 'none';          
         } 
       }
       
