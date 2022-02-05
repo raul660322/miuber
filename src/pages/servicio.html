@@ -184,6 +184,10 @@
           document.getElementById("estado").innerHTML = estado
           document.getElementById("estado").style.color = (estado=="Disponible")?"green":"red"
           setCookie('estadochofer',estado,24)
+          document.getElementById("nombre").disabled=false;
+          document.getElementById("telef").disabled=false;
+          document.getElementById("comenzar").style.display='initial';
+          document.getElementById("detener").style.display='none';
          }
       });
       
