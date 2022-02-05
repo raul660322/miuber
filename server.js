@@ -33,6 +33,7 @@ fastify.register(require('fastify-cors'), {
 
 
 io.on('connection', (socket) => {
+      
      console.log('......', 'Conectado!');
      socket.on('conectado',rol=>{
        if (rol.rol=='cliente'){
