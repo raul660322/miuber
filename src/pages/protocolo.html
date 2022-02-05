@@ -70,7 +70,8 @@
       //Enviar al servidor notificación de posible contrato cliente-chofer
       function pedirChofer(){
         socket.emit('cliente-chofer',
-          {chofer:nombre, cliente:nCliente, lat:latCli, long:longCli, dest:elDestino});
+          {chofer:nombre, cliente:nCliente, lat:latCli, long:longCli,
+           tcliente:tCliente,tchofer:tChofer,dest:elDestino});
         document.getElementById("chat_container").style.display="block"
         document.getElementById("anular").style.display="initial"
         document.getElementById("pedir").style.display="none"

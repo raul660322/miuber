@@ -108,14 +108,14 @@ io.on('connection', (socket) => {
      //Petición Cliente-Chofer 
      socket.on('cliente-chofer',(pc)=>{
        console.log('cliente-chofer: ',pc); 
-       const i = preContratos.findIndex(c=>{return (c.chofer==pc.chofer) && (c.cliente==pc.cliente)})
+       const i = preContratos.findIndex(c=>{return (c.tchofer==pc.tchofer) && (c.tcliente==pc.tcliente)})
        if (i === -1) {
          preContratos.push(pc);
-         io.emit('pre-contratos', {"chofer":pc.chofer,"pre":preContratos});
+         io.emit('pre-contratos', {"chofer":pc.tchofer,"pre":preContratos});
        } else {
          if (preContratos[i].dest != pc.dest) {
            preContratos[i].dest = pc.dest;
-           io.emit('pre-contratos', {"chofer":pc.chofer,"pre":preContratos});
+           io.emit('pre-contratos', {"chofer":pc.tchofer,"pre":preContratos});
          }
        }
      }); 
