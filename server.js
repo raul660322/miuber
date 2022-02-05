@@ -41,7 +41,7 @@ io.on('connection', (socket) => {
        } else {
          if (rol.rol=='chofer'){
            console.log('Conectado un chofer',rol.nombre)
-           io.emit('pre-contratos', {"chofer":rol.nombre,"pre":preContratos}); 
+           io.emit('pre-contratos', {"chofer":rol.telef,"pre":preContratos}); 
          }
        }
      }) 
@@ -52,7 +52,7 @@ io.on('connection', (socket) => {
        console.log('coordenadas: ',pos); 
        
        //Obtener choferes
-       const index = losCarros.findIndex(carro=>carro.nombre==pos.nombre)
+       const index = losCarros.findIndex(carro=>carro.tel==pos.tel)
        if (index === -1) {
          losCarros.push(pos)
        } else {
