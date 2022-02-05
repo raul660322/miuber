@@ -33,8 +33,8 @@ fastify.register(require('fastify-cors'), {
 
 
 io.on('connection', (socket) => {
-      
-     console.log('......', 'Conectado!');
+     var time = new Date().getTime() 
+     console.log('......', 'Conectado!', time);
      socket.on('conectado',rol=>{
        if (rol.rol=='cliente'){
          console.log('Conectado un cliente',rol.nombre)
@@ -50,8 +50,9 @@ io.on('connection', (socket) => {
        console.log('message: ' + msg); 
      });
      socket.on('posicion', (pos) => {
+       pos["time"] = new Date().getTime()
        console.log('coordenadas: ',pos); 
-       
+             
        //Obtener choferes
        const index = losCarros.findIndex(carro=>carro.tel==pos.tel)
        if (index === -1) {
