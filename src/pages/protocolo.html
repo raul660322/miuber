@@ -35,9 +35,10 @@
       <div id="chat_container" style="display:none">
           <div id="chat" style="margin-bottom:10px; width:350px; height: 300px; overflow-y:scroll;"></div>
           <div>
-              <input type="text" id="decir" style="width:290px; margin-bottom:10px;" class="form-control" onchange="cambioNombre()">
-              <button onclick="enviarMensaje()">Enviar</button>  
-        </div>
+              <input type="text" id="decir" style="width:290px; margin-bottom:10px;"
+                     onchange="cambioNombre()" placeholder="Teclee mensaje para el chofer">
+              <button style="display:inline" onclick="enviarMensaje()">Enviar</button>  
+          </div>
       </div>
       <button id="pedir" class="btn btn-success" onclick="pedirChofer()">Pedir</button>
       <button id="sms" class="btn btn-primary" onclick="sendSMS()">Enviar SMS</button>
