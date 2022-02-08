@@ -63,8 +63,8 @@
         <strong id="estado"></strong>
       </div>
       <div>
-        <button class="btn btn-success btn-sm" id="comenzar" onclick="comenzar()">Activar</button>
-        <button class="btn btn-danger btn-sm" id="detener" onclick="detener()">Detener</button>
+        <button class="btn btn-success" id="comenzar" onclick="comenzar()">Activar</button>
+        <button class="btn btn-danger" id="detener" onclick="detener()">Detener</button>
       </div>
        
       <br>
@@ -83,6 +83,12 @@
       var watchId;
       var estado = "No disponible";
       
+      //var camera_button = document.querySelector("#start-camera");
+      var video = document.querySelector("#video");
+      //var click_button = document.querySelector("#click-photo");
+      var canvas = document.querySelector("#canvas");
+      var stream;  
+      
       //Verificar nombre guardado
       document.getElementById("nombre").value = getCookie('nombrechofer')
       document.getElementById("telef").value = getCookie('telchofer')
@@ -96,6 +102,10 @@
         comenzar();
       } else {
         document.getElementById("detener").style.display='none';
+      }
+      //Verificar foto
+      if (window.localStorage.getItem("foto") != null) {
+        canvas.src = window.localStorage.getItem("foto");
       }
       
       function comenzar() {
@@ -207,11 +217,6 @@
           audio.play();
       } 
       //Manejar foto      
-      let camera_button = document.querySelector("#start-camera");
-      let video = document.querySelector("#video");
-      let click_button = document.querySelector("#click-photo");
-      let canvas = document.querySelector("#canvas");
-      var stream;  
       canvas.addEventListener('click', async ()=> {
         stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
         video.srcObject = stream;
