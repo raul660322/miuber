@@ -40,7 +40,7 @@
         <button id="start-camera">Start Camera</button>
         <video id="video" width="320" height="240" autoplay></video>
         <button id="click-photo">Click Photo</button>
-        <canvas id="canvas" width="320" height="240"></canvas>
+        <canvas id="canvas" width="320" height="240" ></canvas>
       </div>
       <br>
       <div class="form-group">
@@ -213,9 +213,9 @@
       });
 
       click_button.addEventListener('click', function() {
-          canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+          
+          canvas.getContext('2d').drawImage(video, 0, 0, video.width, video.height);
           let image_data_url = canvas.toDataURL('image/jpeg');
-
           // data url of the image
           console.log(image_data_url);
       });      
