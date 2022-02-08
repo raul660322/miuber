@@ -68,10 +68,12 @@ video {
 }
 
 .datos{
-  border: solid gray 2px;
+  border: solid blue 2px;
   border-radius:20px;
-  padding:5px
-  height:  
+  padding:5px;
+  height:120px; 
+  margin-left:10px;
+  
 }
 
 input{
