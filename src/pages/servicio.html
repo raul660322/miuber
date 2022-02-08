@@ -231,7 +231,8 @@
           stream.getTracks().forEach(track => track.stop());
           video.style.display="none";
           canvas.style.display="initial";
-
+          //Guardar foto
+          window.localStorage.setItem("foto",image_data_url);
           console.log("tamaño: ",image_data_url.length);
       });      
     </script>    
