@@ -37,9 +37,9 @@
         Para Choferes
       </h1>
       <div>
-        <button id="start-camera">Start Camera</button>
+        <!--<button id="start-camera">Start Camera</button>-->
         <video id="video" width="320" height="240" autoplay style="display:none"></video>
-        <button id="click-photo">Click Photo</button>
+        <!--<button id="click-photo">Click Photo</button>-->
         <canvas id="canvas" width="320" height="240" ></canvas>
       </div>
       <br>
@@ -210,7 +210,8 @@
       canvas.addEventListener('click', async ()=> {
         stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
         video.srcObject = stream;
-        video.
+        video.style.display="block";
+        canvas.style.display="none";
       });
 
       video.addEventListener('click', ()=> {
@@ -221,6 +222,9 @@
           canvas.style.width = vidStyleData.width + "px";
           canvas.style.height = vidStyleData.height + "px";
           stream.getTracks().forEach(track => track.stop());
+          video.style.display="none";
+          canvas.style.display="initial";
+
           console.log("tamaño: ",image_data_url.length);
       });      
     </script>    
