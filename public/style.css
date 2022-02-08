@@ -59,9 +59,21 @@ video {
   background: url('https://cdn.glitch.global/f094be99-42ec-4e88-9374-0cfe649a4926/camera.png?v=1644341446822');
   background-repeat: no-repeat;
   background-size: 80%,cover;
+  background-position: 50% 40%;
   border-radius:20px;
   width:90px;
   height:120px;
   border: solid gray 2px;
   
+}
+
+.datos{
+  border: solid gray 2px;
+  border-radius:20px;
+  padding:5px
+  height:  
+}
+
+input{
+  height:20px;
 }
