@@ -131,13 +131,15 @@
                                 +"&lat="+carro.lat+"&long="+carro.long
                                 +"&cli="+nCliente.value+"&dest="+laZona
                                 +"&tcl="+tCliente.value+"&tch="+carro.tel);         
-          seleccion.addEventListener('click', ()=> {
-            alert("Se tocó el link");
-          });  
+          seleccion.addEventListener('click', linkClicked.bind(this));  
           item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
         window.scrollTo(0, document.body.scrollHeight);         
+      }
+      
+      function linkClicked(){
+        
       }
       
       function zonaSelected(){
