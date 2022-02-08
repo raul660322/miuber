@@ -49,11 +49,11 @@
         <div class="col-8 datos">
           <div class="form-group">
             <label for nombre style="width:65px">Nombre:</label>
-            <input type="text" id="nombre" placeholder="Nombre obligatorio" required>
+            <input type="text" class="estrecho" id="nombre" placeholder="Nombre obligatorio" required>
           </div>
           <div class="form-group" style="margin-top:5px">
             <label for telef style="width:65px">Teléfono:</label>
-            <input type="tel" id="telef" placeholder="Teléfono obligatorio" required>
+            <input type="tel" class="estrecho" id="telef" placeholder="Teléfono obligatorio" required>
           </div>
           </div>  
         </div>  
@@ -105,8 +105,14 @@
       }
       //Verificar foto
       if (window.localStorage.getItem("foto") != null) {
-        canvas.src = window.localStorage.getItem("foto");
+        
       }
+      var ctx = canvas.getContext('2d');
+      var img = new Image;
+      img.onload = function(){
+        ctx.drawImage(img,0,0); // Or at whatever offset you like
+      };
+      img.src = window.localStorage.getItem("foto"); 
       
       function comenzar() {
         var elNombre = document.getElementById("nombre").value
