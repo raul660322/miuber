@@ -131,17 +131,17 @@
                                 +"&lat="+carro.lat+"&long="+carro.long
                                 +"&cli="+nCliente.value+"&dest="+laZona
                                 +"&tcl="+tCliente.value+"&tch="+carro.tel);         
-          seleccion.addEventListener('click', linkClicked.bind(this),false);  
+          seleccion.addEventListener('click', linkClicked.bind(null,tCliente.value),false);  
           item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
         window.scrollTo(0, document.body.scrollHeight);         
       }
       
-      function linkClicked(obj){
+      function linkClicked(obj,tel){
         
-        console.log(obj);
-        alert(obj);
+        console.log(tel);
+        alert(tel);
       }
       
       function zonaSelected(){
