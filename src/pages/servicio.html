@@ -47,19 +47,16 @@
           <canvas id="canvas" width="320" height="240" class="foto"></canvas>
         </div>
         <div class="col-9">
-          
-        
-        <div class="form-group">
-          <label for nombre style="width:65px">Nombre:</label>
-          <input type="text" id="nombre" placeholder="Nombre obligatorio" required>
-        </div>
-        <div class="form-group" style="margin-top:5px">
-          <label for telef style="width:65px">Teléfono:</label>
-          <input type="tel" id="telef" placeholder="Teléfono obligatorio" required>
-        </div>
+          <div class="form-group">
+            <label for nombre style="width:65px">Nombre:</label>
+            <input type="text" id="nombre" placeholder="Nombre obligatorio" required>
+          </div>
+          <div class="form-group" style="margin-top:5px">
+            <label for telef style="width:65px">Teléfono:</label>
+            <input type="tel" id="telef" placeholder="Teléfono obligatorio" required>
+          </div>
+          </div>  
         </div>  
-        </div>  
-      <br>
       <p id="demo"></p>
       <div>
         <strong>Estado: </strong>
@@ -227,8 +224,10 @@
           canvas.getContext('2d').drawImage(video, 0, 0, video.width, video.height);
           let image_data_url = canvas.toDataURL('image/jpeg');
           const vidStyleData = video.getBoundingClientRect();
-          canvas.style.width = vidStyleData.width/4 + "px";
-          canvas.style.height = vidStyleData.height/4 + "px";
+          //canvas.style.height = vidStyleData.height/4 + "px";
+          //canvas.style.width = vidStyleData.width/4 + "px";
+          canvas.style.height = "120px";
+          canvas.style.width = "90px";
           stream.getTracks().forEach(track => track.stop());
           video.style.display="none";
           canvas.style.display="initial";

@@ -58,9 +58,10 @@ video {
 .foto{
   background: url('https://cdn.glitch.global/f094be99-42ec-4e88-9374-0cfe649a4926/camera.png?v=1644341446822');
   background-repeat: no-repeat;
-  background-size: contain, cover;
+  background-size: 80%,cover;
   border-radius:20px;
-  width:100px;
+  width:90px;
+  height:120px;
   border: solid gray 2px;
   
 }
