@@ -103,17 +103,17 @@
       } else {
         document.getElementById("detener").style.display='none';
       }
-      //Verificar foto
       //if (window.localStorage.getItem("foto") != null) {
-        
-      }
+      // }
+      //---------------------------------------------------------
+      //Verificar foto, obtenerla del local storage
       var ctx = canvas.getContext('2d');
       var img = new Image;
       img.onload = ()=>{
         ctx.drawImage(img,0,0); // Or at whatever offset you like
       };
       img.src = window.localStorage.getItem("foto"); 
-      
+      //----------------------------------------------------------
       function comenzar() {
         var elNombre = document.getElementById("nombre").value
         var elTelef = document.getElementById("telef").value
