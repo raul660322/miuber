@@ -109,7 +109,7 @@
       }
       var ctx = canvas.getContext('2d');
       var img = new Image;
-      img.onload = function(){
+      img.onload = ()=>{
         ctx.drawImage(img,0,0); // Or at whatever offset you like
       };
       img.src = window.localStorage.getItem("foto"); 
@@ -231,7 +231,6 @@
       });
 
       video.addEventListener('click', ()=> {
-          
           canvas.getContext('2d').drawImage(video, 0, 0, video.width, video.height);
           let image_data_url = canvas.toDataURL('image/jpeg');
           const vidStyleData = video.getBoundingClientRect();
@@ -244,7 +243,10 @@
           canvas.style.display="initial";
           //Guardar foto
           window.localStorage.setItem("foto",image_data_url);
-          console.log("tamaño: ",image_data_url.length);
+          //console.log("tamaño: ",image_data_url.length);
+          //Enviar foto al servidor
+          var chofer = document.getElementById("telef").value;
+          socket.emit('foto', {'chofer':chofer,'foto':image_data_url});
       });      
     </script>    
   </body>

@@ -129,6 +129,11 @@ io.on('connection', (socket) => {
        console.log('mensaje: ',msg); 
        io.emit('chat-response', msg);
      }); 
+    //Recibir foto recien sacada
+     socket.on('foto',(foto)=>{
+       console.log('chofer:',foto.chofer,'tamaño:',foto.foto.length); 
+       //io.emit('chat-response', msg);
+     });   
 })
 
 // Our main GET home page route, pulls from src/pages/index.hbs
