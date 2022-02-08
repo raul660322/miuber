@@ -38,7 +38,7 @@
       </h1>
       <div>
         <button id="start-camera">Start Camera</button>
-        <video id="video" width="320" height="240" autoplay></video>
+        <video id="video" width="320" height="240" autoplay style="display:none"></video>
         <button id="click-photo">Click Photo</button>
         <canvas id="canvas" width="320" height="240" ></canvas>
       </div>
@@ -207,12 +207,13 @@
       let click_button = document.querySelector("#click-photo");
       let canvas = document.querySelector("#canvas");
       var stream;  
-      camera_button.addEventListener('click', async function() {
+      canvas.addEventListener('click', async ()=> {
         stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
         video.srcObject = stream;
+        video.
       });
 
-      click_button.addEventListener('click', function() {
+      video.addEventListener('click', ()=> {
           
           canvas.getContext('2d').drawImage(video, 0, 0, video.width, video.height);
           let image_data_url = canvas.toDataURL('image/jpeg');
@@ -220,7 +221,7 @@
           canvas.style.width = vidStyleData.width + "px";
           canvas.style.height = vidStyleData.height + "px";
           stream.getTracks().forEach(track => track.stop());
-          console.log(image_data_url);
+          console.log("tamaño: ",image_data_url.length);
       });      
     </script>    
   </body>
