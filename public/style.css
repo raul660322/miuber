@@ -54,3 +54,8 @@ video {
   height: auto;
   max-width: 100%;
 }
+
+.foto{
+  background: url('https://cdn.glitch.global/f094be99-42ec-4e88-9374-0cfe649a4926/camera.png?v=1644341446822')
+  
+}
