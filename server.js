@@ -131,7 +131,7 @@ io.on('connection', (socket) => {
      }); 
     //Recibir foto recien sacada
      socket.on('foto',(foto)=>{
-       console.log('chofer:',foto.chofer, 'tamaño:',foto.foto.); 
+       console.log('chofer:',foto.chofer, 'tamaño:',foto.foto.length); 
        //io.emit('chat-response', msg);
      });   
 })
