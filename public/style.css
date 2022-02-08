@@ -60,4 +60,7 @@ video {
   background-repeat: no-repeat;
   background-size: contain, cover;
   border-radius:20px;
+  width:100px;
+  border: solid gray 2px;
+  
 }

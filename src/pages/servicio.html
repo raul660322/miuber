@@ -40,13 +40,15 @@
         <!--<button id="start-camera">Start Camera</button>-->
         <video id="video" width="320" height="240" autoplay style="display:none"></video>
         <!--<button id="click-photo">Click Photo</button>-->
-        <canvas id="canvas" width="320" height="240" class="foto"></canvas>
       </div>
       <br>
       <div class="row">
         <div class="col-3">
-          
+          <canvas id="canvas" width="320" height="240" class="foto"></canvas>
         </div>
+        <div class="col-9">
+          
+        
         <div class="form-group">
           <label for nombre style="width:65px">Nombre:</label>
           <input type="text" id="nombre" placeholder="Nombre obligatorio" required>
@@ -55,6 +57,7 @@
           <label for telef style="width:65px">Teléfono:</label>
           <input type="tel" id="telef" placeholder="Teléfono obligatorio" required>
         </div>
+        </div>  
         </div>  
       <br>
       <p id="demo"></p>
