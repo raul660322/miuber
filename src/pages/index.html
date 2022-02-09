@@ -136,6 +136,11 @@
             alert(tCliente.value);
           });  
           item.appendChild(seleccion);
+          laFoto = document.createElement('img');
+          laFoto.src = carro.foto;
+          laFoto.style.height="50px";
+          laFoto.style.width="40px";
+          item.appendChild(laFoto);
           messages.appendChild(item);    
         }  
         window.scrollTo(0, document.body.scrollHeight);         

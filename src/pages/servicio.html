@@ -144,7 +144,8 @@
           socket.emit('posicion', {'nombre':elNombre,
             'tel':elTelef,                       
             'lat':position.coords.latitude,
-            'long':position.coords.longitude
+            'long':position.coords.longitude,
+            'foto':img.src                       
           });
           estado = "Disponible"
           document.getElementById("estado").innerHTML = estado
