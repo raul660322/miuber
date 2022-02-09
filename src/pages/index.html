@@ -133,7 +133,8 @@
                                 +"&tcl="+tCliente.value+"&tch="+carro.tel);         
           //seleccion.addEventListener('click', linkClicked.bind(null,tCliente.value),false);  
           seleccion.addEventListener('click', ()=>{
-            alert(carro.tel);
+            
+            alert("Seleccionado el servicio del chofer " + carro.nombre);
           });  
           item.appendChild(seleccion);
           laFoto = document.createElement('img');
