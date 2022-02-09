@@ -31,7 +31,9 @@
         <p id="latitud" style="display:none"></p>
         <p id="longitud" style="display:none"></p>
       </div>
-
+      <div id="photo_frame">
+        <img id="fotochofer">
+      </div>
       <div id="chat_container" style="display:none">
           <div id="chat" style="margin-bottom:10px; width:350px; height: 300px; overflow-y:scroll;"></div>
           <div>
@@ -72,6 +74,11 @@
       
       setCookie('nombrecliente', nCliente, 9000) //Guardar nombre del cliente
       setCookie('zonacliente', elDestino, 1) //Guardar el destino por 1 hora
+      
+      //Poner foto del chofer en el protocolo
+      var fchofer = document.getElementById("fotochofer");
+      fchofer.src = window.localStorage.getItem("fotochofer");
+      
       //Enviar al servidor notificación de posible contrato cliente-chofer
       function pedirChofer(){
         socket.emit('cliente-chofer',
@@ -80,6 +87,8 @@
         document.getElementById("chat_container").style.display="block"
         document.getElementById("anular").style.display="initial"
         document.getElementById("pedir").style.display="none"
+        //Cerrar la foto del chofer
+        document.getElementById("photo_frame").style.display="none"
       }
 
       function ocupar(){
