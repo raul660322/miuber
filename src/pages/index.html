@@ -133,24 +133,21 @@
                                 +"&tcl="+tCliente.value+"&tch="+carro.tel);         
           //seleccion.addEventListener('click', linkClicked.bind(null,tCliente.value),false);  
           seleccion.addEventListener('click', ()=>{
-            alert(tCliente.value);
+            alert(carro.tel);
           });  
           item.appendChild(seleccion);
           laFoto = document.createElement('img');
           laFoto.src = carro.foto;
           laFoto.style.height="50px";
           laFoto.style.width="40px";
+          laFoto.style.marginLeft="10px" 
           item.appendChild(laFoto);
           messages.appendChild(item);    
         }  
         window.scrollTo(0, document.body.scrollHeight);         
       }
       
-      function linkClicked(obj,tel){
-        
-        console.log(tel);
-        alert(tel);
-      }
+
       
       function zonaSelected(){
         var idx = misZonas.selectedIndex; 
