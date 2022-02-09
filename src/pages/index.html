@@ -131,7 +131,10 @@
                                 +"&lat="+carro.lat+"&long="+carro.long
                                 +"&cli="+nCliente.value+"&dest="+laZona
                                 +"&tcl="+tCliente.value+"&tch="+carro.tel);         
-          seleccion.addEventListener('click', linkClicked.bind(null,tCliente.value),false);  
+          //seleccion.addEventListener('click', linkClicked.bind(null,tCliente.value),false);  
+          seleccion.addEventListener('click', ()=>{
+            alert(tCliente.value);
+          });  
           item.appendChild(seleccion);
           messages.appendChild(item);    
         }  
