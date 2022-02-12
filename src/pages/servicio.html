@@ -96,10 +96,10 @@
       
       //Verificar pago
       var tele = document.getElementById("telef").value
-      socket.emit('checkpago',{'telefono':tele,callback:(error,autorizo)=>{
+      socket.emit('checkpago',{'telefono':tele,'callback':(error,autorizo)=>{
           alert('Fecha: ' + autorizo.fecha);
         };
-      })
+      });
       
       //Verificar estado
       estado = getCookie('estadochofer')
