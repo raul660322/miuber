@@ -96,7 +96,7 @@
       
       //Verificar pago
       var tele = document.getElementById("telef").value
-      socket.emit('checkpago',{'telefono':tele,'callback':function(error,autorizo){
+      socket.emit('checkpago',{'telefono':tele,callback:function(error,autorizo){
           alert('Fecha: ' + autorizo.fecha);
         }
       });
