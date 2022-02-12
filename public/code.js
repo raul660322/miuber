@@ -31,4 +31,7 @@ function mensaje(texto,destino,socket){
   conversacion.scrollTop = conversacion.scrollHeight;
 }
 
+function getPago(msg){
+  return {'tel':'123456','time_stamp':'1111111111111'};
+}
 

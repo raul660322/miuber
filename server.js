@@ -59,7 +59,8 @@ io.on('connection', (socket) => {
      });
      
      //Recibe pago de CUBACEL 
-     socket.on('pago', (msg) => {
+     socket.on('pago', async (msg) => {
+       await this.level.db.put(msg.tel, msg.time_stamp)
        console.log('message: ' + msg); 
      });
 
