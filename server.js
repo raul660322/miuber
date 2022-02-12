@@ -32,16 +32,16 @@ fastify.register(require("point-of-view"), {
 //Allow requests from anywhere
 fastify.register(require('fastify-cors'), { 
     origin:'*'
-})
+});
 
 //key-value database
 fastify.register(
   require('fastify-leveldb'),
   { name: 'db' }
-)
+);
 
 io.on('connection', (socket) => {
-     console.log('level: ',this.leveldb.db) 
+     console.log('level: ',this.level) 
      //purgar choferes con tiempo de inactividad > timeOut
      var time = new Date().getTime(); 
      losCarros = losCarros.filter(item => item.time + timeOut > time);
