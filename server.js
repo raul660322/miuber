@@ -52,6 +52,12 @@ io.on('connection', (socket) => {
      socket.on('chat message', (msg) => {
        console.log('message: ' + msg); 
      });
+     
+     //Recibe pago de CUBACEL 
+     socket.on('pago', (msg) => {
+       console.log('message: ' + msg); 
+     });
+
      socket.on('posicion', (pos) => {
        pos["time"] = new Date().getTime()
        console.log('coordenadas: ',pos); 
