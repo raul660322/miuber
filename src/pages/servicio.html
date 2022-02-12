@@ -102,8 +102,11 @@
         
       } else {
         socket.emit('checkpago',tele,function(error,autorizo){
-
-            alert('Fecha: ' + autorizo.fecha);
+            if (autorizo.fecha>0){//Time stamp
+              tsHasta = Number(autorizo.fecha)
+              alert('Autorizado a operar hasta: ' + moment(tsHasta).format('dd/mm/yyyy'));
+              setCookie('choferautorizadohasta',autorizo.fecha,24); //No verificar autorizo por 24 horas
+            }  
           }
         );
       }  

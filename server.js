@@ -77,7 +77,7 @@ io.on('connection', (socket) => {
            const fecha = await fastify.level.db.get(telefono);
            const fechaActual = new Date().getTime();
            if (fecha && (fecha + MES > fechaActual)){
-             callback(null,{'telefono':telefono, 'fecha':fecha});
+             callback(null,{'telefono':telefono, 'fecha':fecha+MES});
            } else {
              callback(null,{'telefono':telefono, 'fecha':0});
            } 
