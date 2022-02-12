@@ -96,17 +96,24 @@
       socket.emit('conectado',{'rol':'chofer','nombre':getCookie('nombrechofer'),'telef':getCookie('telchofer')});
       
       //Verificar pago
-      var tele = document.getElementById("telef").value
-      var autorizadoHasta = getCookie('choferautorizadohasta');
+      
+      var autorizadoHasta = getCookie('choferautorizadohasta');//Ver primero en cache
       if (autorizadoHasta) {
         
       } else {
+        //Verificar en el servidor
+        var tele = document.getElementById("telef").value
         socket.emit('checkpago',tele,function(error,autorizo){
-            if (autorizo.fecha>0){//Time stamp
+            if (autorizo.fecha > 0){//Time stamp + el mes
               tsHasta = Number(autorizo.fecha)
               alert('Autorizado a operar hasta: ' + moment(tsHasta).format('dd/mm/yyyy'));
               setCookie('choferautorizadohasta',autorizo.fecha,24); //No verificar autorizo por 24 horas
-            }  
+            } else {
+              alert('Para poder operar debe realizar una trasferencia de saldo'+
+                   'de 100 CUP al teléfono XXXXXXXX. Esto le garantizará la' +
+                   'disponibilidad del sitio durante un MES a partir de momento' +
+                   'en que realice la transferencia. Muchas gracias y disculpe la molestia.');
+            } 
           }
         );
       }  
