@@ -69,7 +69,7 @@ io.on('connection', (socket) => {
        console.log('message: ' + msg); 
      });
 
-     socket.on('checkpago', async (telefono) => {
+     socket.on('checkpago', async (aut) => {
        const fecha = await this.level.db.get(telefono);
        console.log('teléfono: ',telefono, 'fecha: ',fecha); 
      });        
