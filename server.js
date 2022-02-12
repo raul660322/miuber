@@ -64,13 +64,17 @@ io.on('connection', (socket) => {
      socket.on('pago', async (msg) => {
        var elPago = getPago(msg);
        if (elPago){
-         await this.level.db.put(elPago.tel, elPago.time_stamp)
+         await this.level.db.put(elPago.tel, elPago.time_stamp);
        }  
        console.log('message: ' + msg); 
      });
 
-     
-      socket.on('posicion', (pos) => {
+     socket.on('checkpago', async (telefono) => {
+       const fecha = await this.level.db.get(telefono);
+       console.log('teléfono: ',telefono, 'fecha: ',fecha); 
+     });        
+  
+     socket.on('posicion', (pos) => {
        //Poner time stamp a la oferta del carro
        pos["time"] = new Date().getTime()
        console.log('coordenadas: ',pos); 
