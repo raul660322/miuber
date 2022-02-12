@@ -2,7 +2,7 @@ const path = require("path");
 const timeOut = 1000*60*60; //1h
 const MES = 1000*3600*24*30;
 const PAGO_ACORDADO = 1; //Tentativamente 100
-const level = require('./')
+const level = require('fastify-leveldb')
 var losCarros = [];
 var preContratos = [];
 
@@ -37,7 +37,7 @@ fastify.register(require('fastify-cors'), {
 
 //key-value database
 fastify.register(
-  require('fastify-leveldb'),
+  level,
   { name: 'db' }
 );
 
