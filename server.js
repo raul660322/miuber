@@ -203,9 +203,10 @@ fastify.listen(process.env.PORT, function(err, address) {
 function getPago(msg){
   var ln = msg.split(' ');
   var resultado = "";
-  if ((ln[0]+ln[1]+ln[2] == "Ustedharecibido") && (ln[4]="CUP") && Number(ln[4])>=100) {
-     
+  if ((ln[0]+ln[1]+ln[2] == "Ustedharecibido") && (ln[4]="CUP")
+      && parseFloat(ln[4])>=100) {
+    const telefono = parseInt(ln[7]); 
     resultado = {'tel':'123456','time_stamp':new Date().getTime()}; 
   }
-  return resultado
+  return resultado;
 }
