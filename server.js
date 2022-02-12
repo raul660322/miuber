@@ -32,6 +32,11 @@ fastify.register(require('fastify-cors'), {
     origin:'*'
 })
 
+//key-value database
+fastify.register(
+  require('fastify-leveldb'),
+  { name: 'db' }
+)
 
 io.on('connection', (socket) => {
      //purgar choferes con tiempo de inactividad > timeOut
