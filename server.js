@@ -82,7 +82,8 @@ io.on('connection', (socket) => {
            } 
        } 
        catch (e) {
-           autorizo.callback(null,{'telefono':autorizo.telefono, 'fecha':0});
+           console.log(autorizo);
+           //autorizo.callback(null,{'telefono':autorizo.telefono, 'fecha':0});
        }
         
      });        
