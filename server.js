@@ -68,6 +68,7 @@ io.on('connection', (socket) => {
        if (elPago){
          await fastify.level.db.put(elPago.tel, elPago.time_stamp);
        }  
+       console.log(msg);
        console.log(' Pagando telefono: ' + elPago.tel, 'fecha: ' + elPago.time_stamp); 
      });
 
