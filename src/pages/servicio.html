@@ -92,8 +92,15 @@
       //Verificar nombre guardado
       document.getElementById("nombre").value = getCookie('nombrechofer')
       document.getElementById("telef").value = getCookie('telchofer')
-      socket.emit('conectado',{'rol':'chofer','nombre':getCookie('nombrechofer'),
-                              'telef':getCookie('telchofer')});
+      socket.emit('conectado',{'rol':'chofer','nombre':getCookie('nombrechofer'),'telef':getCookie('telchofer')});
+      
+      //Verificar pago
+      var tele = document.getElementById("telef").value
+      socket.emit('checkpago',{'telefono':tele,(error,autorizo)=>{
+          alert('Fecha: '+aut)
+        };
+      })
+      
       //Verificar estado
       estado = getCookie('estadochofer')
       document.getElementById("estado").innerHTML = estado

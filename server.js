@@ -69,9 +69,11 @@ io.on('connection', (socket) => {
        console.log('message: ' + msg); 
      });
 
-     socket.on('checkpago', async (aut) => {
-       const fecha = await this.level.db.get(telefono);
-       console.log('teléfono: ',telefono, 'fecha: ',fecha); 
+     socket.on('checkpago', async (autorizo) => {
+       const fecha = await this.level.db.get(autorizo.telefono);
+       
+       console.log('telefono: ',autorizo.telefono, 'fecha: ',fecha); 
+       autorizo.callback(null,{'telefono':autorizo.telefono, 'fecha':fecha})
      });        
   
      socket.on('posicion', (pos) => {
