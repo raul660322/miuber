@@ -1,5 +1,7 @@
 const path = require("path");
-const timeOut = 1000*60; //1h
+const timeOut = 1000*60*60; //1h
+const MES = 1000*3600*24*30;
+const PAGO_ACORDADO = 1; //Tentativamente 100
 var losCarros = [];
 var preContratos = [];
 
@@ -58,7 +60,7 @@ io.on('connection', (socket) => {
        console.log('message: ' + msg); 
      });
      
-     //Recibe pago de CUBACEL 
+     //Recibe pago de CUBACEL y lo guarda en la base de datos
      socket.on('pago', async (msg) => {
        var elPago = getPago(msg);
        if (elPago){
@@ -67,7 +69,8 @@ io.on('connection', (socket) => {
        console.log('message: ' + msg); 
      });
 
-     socket.on('posicion', (pos) => {
+     
+      socket.on('posicion', (pos) => {
        //Poner time stamp a la oferta del carro
        pos["time"] = new Date().getTime()
        console.log('coordenadas: ',pos); 
@@ -200,11 +203,13 @@ fastify.listen(process.env.PORT, function(err, address) {
   fastify.log.info(`server listening on ${address}`);
 });
 
+//Verifica en el msg que se paga lo acordado (100 CUP) 
+//y se devuelve el par telefono-fecha actual
 function getPago(msg){
   var ln = msg.split(' ');
   var resultado = "";
   if ((ln[0]+ln[1]+ln[2] == "Ustedharecibido") && (ln[4]="CUP")
-      && parseFloat(ln[3])>=100) {
+      && parseFloat(ln[3]) >= PAGO_ACORDADO) {
     const telefono = parseInt(ln[7]); 
     resultado = {'tel':telefono,'time_stamp':new Date().getTime()}; 
   }
