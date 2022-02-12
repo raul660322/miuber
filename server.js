@@ -40,7 +40,7 @@ fastify.register(
 
 io.on('connection', (socket) => {
      //purgar choferes con tiempo de inactividad > timeOut
-     var time = new Date().getTime() 
+     var time = new Date().getTime(); 
      losCarros = losCarros.filter(item => item.time + timeOut > time);
      console.log('......', 'Conectado!', time);
      socket.on('conectado',rol=>{
@@ -68,6 +68,7 @@ io.on('connection', (socket) => {
      });
 
      socket.on('posicion', (pos) => {
+       //Poner time stamp a la oferta del carro
        pos["time"] = new Date().getTime()
        console.log('coordenadas: ',pos); 
              
@@ -203,7 +204,8 @@ function getPago(msg){
   var ln = msg.split(' ');
   var resultado = "";
   if ((ln[0]+ln[1]+ln[2] == "Ustedharecibido") && (ln[4]="CUP") && Number(ln[4])>=100) {
-     resultado = {'tel':'123456','time_stamp':'1111111111111'}; 
+     
+    resultado = {'tel':'123456','time_stamp':new Date().getTime()}; 
   }
-  return 
+  return resultado
 }
