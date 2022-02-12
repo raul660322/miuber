@@ -60,7 +60,10 @@ io.on('connection', (socket) => {
      
      //Recibe pago de CUBACEL 
      socket.on('pago', async (msg) => {
-       await this.level.db.put(msg.tel, msg.time_stamp)
+       var elPago = getPago(msg);
+       if (elPago){
+         await this.level.db.put(elPago.tel, elPago.time_stamp)
+       }  
        console.log('message: ' + msg); 
      });
 
@@ -195,3 +198,8 @@ fastify.listen(process.env.PORT, function(err, address) {
   console.log(`Your app is listening on ${address}`);
   fastify.log.info(`server listening on ${address}`);
 });
+
+function getPago(msg){
+  var linea = msg.split()
+  return {'tel':'123456','time_stamp':'1111111111111'};
+}
