@@ -73,7 +73,12 @@ io.on('connection', (socket) => {
        const fecha = await this.level.db.get(autorizo.telefono);
        
        console.log('telefono: ',autorizo.telefono, 'fecha: ',fecha); 
-       autorizo.callback(null,{'telefono':autorizo.telefono, 'fecha':fecha})
+       const fechaActual = new Date().getTime();
+       if (fecha && (fecha + MES > fechaActual)){
+         autorizo.callback(null,{'telefono':autorizo.telefono, 'fecha':fecha});
+       } else {
+         autorizo.callback(null,{'telefono':autorizo.telefono, 'fecha':0});
+       }  
      });        
   
      socket.on('posicion', (pos) => {
