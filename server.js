@@ -41,6 +41,7 @@ fastify.register(
 )
 
 io.on('connection', (socket) => {
+     console.log('level: ',this.leveldb.db) 
      //purgar choferes con tiempo de inactividad > timeOut
      var time = new Date().getTime(); 
      losCarros = losCarros.filter(item => item.time + timeOut > time);
