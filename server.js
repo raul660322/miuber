@@ -66,13 +66,13 @@ io.on('connection', (socket) => {
      socket.on('pago', async (msg) => {
        var elPago = getPago(msg);
        if (elPago){
-         await this.level.db.put(elPago.tel, elPago.time_stamp);
+         await fastify.level.db.put(elPago.tel, elPago.time_stamp);
        }  
        console.log('message: ' + msg); 
      });
 
      socket.on('checkpago', async function(autorizo) {
-       const fecha = await this.level.db.get(autorizo.telefono);
+       const fecha = await fastify.level.db.get(autorizo.telefono);
        
        console.log('telefono: ',autorizo.telefono, 'fecha: ',fecha); 
        const fechaActual = new Date().getTime();
