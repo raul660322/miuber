@@ -200,6 +200,10 @@ fastify.listen(process.env.PORT, function(err, address) {
 });
 
 function getPago(msg){
-  var linea = msg.split()
-  return {'tel':'123456','time_stamp':'1111111111111'};
+  var ln = msg.split(' ');
+  var resultado = "";
+  if ((ln[0]+ln[1]+ln[2] == "Ustedharecibido") && (ln[4]="CUP") && Number(ln[4])>=100) {
+     resultado = {'tel':'123456','time_stamp':'1111111111111'}; 
+  }
+  return 
 }
