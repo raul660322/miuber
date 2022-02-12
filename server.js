@@ -71,19 +71,19 @@ io.on('connection', (socket) => {
        console.log('message: ' + msg); 
      });
 
-     socket.on('checkpago', async function(autorizo) {
+     socket.on('checkpago', async function(telefono,callback) {
        try {
-           const fecha = await fastify.level.db.get(autorizo.telefono);
+           const fecha = await fastify.level.db.get(telefono);
            const fechaActual = new Date().getTime();
            if (fecha && (fecha + MES > fechaActual)){
-             autorizo.callback(null,{'telefono':autorizo.telefono, 'fecha':fecha});
+             callback(null,{'telefono':telefono, 'fecha':fecha});
            } else {
-             autorizo.callback(null,{'telefono':autorizo.telefono, 'fecha':0});
+             callback(null,{'telefono':telefono, 'fecha':0});
            } 
        } 
        catch (e) {
-           console.log(autorizo);
-           //autorizo.callback(null,{'telefono':autorizo.telefono, 'fecha':0});
+           console.log(telefono);
+           callback(null,{'telefono':telefono, 'fecha':0});
        }
         
      });        
