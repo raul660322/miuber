@@ -42,7 +42,7 @@ fastify.register(
 );
 
 io.on('connection', (socket) => {
-     console.log('level: ',this.level) 
+     
      //purgar choferes con tiempo de inactividad > timeOut
      var time = new Date().getTime(); 
      losCarros = losCarros.filter(item => item.time + timeOut > time);
@@ -71,7 +71,7 @@ io.on('connection', (socket) => {
        console.log('message: ' + msg); 
      });
 
-     socket.on('checkpago', async (autorizo) => {
+     socket.on('checkpago', async function(autorizo) {
        const fecha = await this.level.db.get(autorizo.telefono);
        
        console.log('telefono: ',autorizo.telefono, 'fecha: ',fecha); 
