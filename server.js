@@ -71,7 +71,7 @@ io.on('connection', (socket) => {
        }  
        console.log(msg);
        console.log(' Pagando telefono: ' + elPago.tel, 'fecha: ' + elPago.time_stamp);
-       console.log(moment.unix(elPago.time_stamp)).format('l');
+       console.log(new Date(elPago.time_stamp)).customFormat("#DD#/#MM#/#YYYY#"";
      });
 
      socket.on('checkpago', async function(telefono,callback) {
