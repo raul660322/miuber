@@ -71,7 +71,7 @@ io.on('connection', (socket) => {
        }  
        console.log(msg);
        console.log(' Pagando telefono: ' + elPago.tel, 'fecha: ' + elPago.time_stamp);
-       console.log(new Date(elPago.time_stamp)).customFormat("#DD#/#MM#/#YYYY#"";
+       console.log(new Date(elPago.time_stamp)).customFormat("#DD#/#MM#/#YYYY#");
      });
 
      socket.on('checkpago', async function(telefono,callback) {
@@ -80,7 +80,7 @@ io.on('connection', (socket) => {
            const fechaActual = new Date().getTime();
            if (fecha && (fecha + MES > fechaActual)){
              callback(null,{'telefono':telefono, 'fecha':fecha});
-             console.log(moment.unix(Number(fecha)).format('l'));
+             //console.log(moment(new Date(Number(fecha)))).format('l');
            } else {
              callback(null,{'telefono':telefono, 'fecha':0});
            } 
