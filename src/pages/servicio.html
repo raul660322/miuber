@@ -99,14 +99,15 @@
       //Verificar pago
       var tele = document.getElementById("telef").value
       var autorizadoHasta = getCookie('choferautorizadohasta');//Ver primero en cache
-      if (autorizadoHasta & (autorizadoHasta == tele)) {
+      if (autorizadoHasta & (autorizadoHasta == "a")) {
         
       } else {
         //Verificar en el servidor
         socket.emit('checkpago',tele,function(error,autorizo){
             if (autorizo.fecha > 0){//Time stamp + el mes
               tsHasta = Number(autorizo.fecha)
-              alert('Autorizado a operar hasta: ' + moment(tsHasta).format('l'));
+              //alert('Autorizado a operar hasta: ' + moment.unix(tsHasta).format('l'));
+              alert('Autorizado a operar hasta: ' + tsHasta);
               setCookie('choferautorizadohasta',tele,24); //No verificar autorizo por 24 horas
             } else {
               alert('Para poder operar debe realizar una trasferencia de saldo '+
