@@ -54,8 +54,8 @@
         </select>
       </div>
        
-      <button class="btn btn-success mt-2" onclick="buscar()" style="display:none">Buscar transporte</button>
-        <br>
+      <button class="btn btn-success mt-2 btn-sm" onclick="buscar()">Buscar transporte</button>
+      <br>
       <!--<p id="pp"></p>-->
       <div id="oferta" style="display:none">
         Servicio disponible:
@@ -88,9 +88,16 @@
       }
       function buscar(){
         nCliente = document.getElementById("nombrecliente");
-        populateCarros(losCarros);
-        document.getElementById("oferta").style.display = 'block';
-        setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
+        tCliente = document.getElementById('telcliente')
+        if (tCliente.value && nCliente.value){
+          populateCarros(losCarros);
+          document.getElementById("oferta").style.display = 'block';
+          setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
+          setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año
+        } else {
+          document.getElementById("oferta").style.display = 'none'; 
+          alert('Debe poner el nombre, el teléfono y el destino');
+        }  
       }
       
       function cambioNombre(){
