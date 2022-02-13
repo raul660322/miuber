@@ -164,6 +164,7 @@ io.on('connection', (socket) => {
            io.emit('pre-contratos', {"chofer":pc.tchofer,"pre":preContratos});
          }
        }
+       console.log('pre-contratos: ',pc);
      }); 
      //Respuesta al chat 
      socket.on('chat',(msg)=>{

@@ -202,6 +202,7 @@
       }  
       
       socket.on('pre-contratos', (pcs) =>{ 
+          console.log('precontratos: ',pcs);
           var elNombre = document.getElementById("nombre").value
           var elTelef = document.getElementById("telef").value
           if (pcs.chofer==elTelef){
