@@ -106,7 +106,7 @@
         socket.emit('checkpago',tele,function(error,autorizo){
             if (autorizo.fecha > 0){//Time stamp + el mes
               tsHasta = Number(autorizo.fecha)
-              alert('Autorizado a operar hasta: ' + moment(new Date(tsHasta)).format('l'));
+              alert('Autorizado a operar hasta el día: ' + moment(new Date(tsHasta)).format('DD/MM/YYYY'));
               //alert('Autorizado a operar hasta: ' + tsHasta);
               setCookie('choferautorizadohasta',tele,24); //No verificar autorizo por 24 horas
             } else {

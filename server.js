@@ -71,7 +71,7 @@ io.on('connection', (socket) => {
        }  
        console.log(msg);
        console.log(' Pagando telefono: ' + elPago.tel, 'fecha: ' + elPago.time_stamp);
-       console.log(new Date(elPago.time_stamp)).customFormat("#DD#/#MM#/#YYYY#");
+       //console.log(new Date(elPago.time_stamp)).customFormat("#DD#/#MM#/#YYYY#");
      });
 
      socket.on('checkpago', async function(telefono,callback) {
@@ -79,7 +79,7 @@ io.on('connection', (socket) => {
            const fecha = await fastify.level.db.get(telefono);
            const fechaActual = new Date().getTime();
            if (fecha && (fecha + MES > fechaActual)){
-             callback(null,{'telefono':telefono, 'fecha':fecha});
+             callback(null,{'telefono':telefono, 'fecha':Number(fecha)+MES});
              //console.log(moment(new Date(Number(fecha)))).format('l');
            } else {
              callback(null,{'telefono':telefono, 'fecha':0});
