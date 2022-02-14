@@ -36,13 +36,16 @@ function haySat(hay){
   if (hay==1){
     document.getElementById('sat-red').style.display = "none";
     document.getElementById('sat-green').style.display = "block";
+    return true;
   } else {
     if (hay==2){
         document.getElementById('sat-red').style.display = "block";
         document.getElementById('sat-green').style.display = "none";
+        return false;
     } else {
         document.getElementById('sat-red').style.display = "none";
         document.getElementById('sat-green').style.display = "none";
+        return false;
     }  
   }
 }

@@ -77,7 +77,7 @@
     </div>
     <script>
       var socket = io();
-      
+      var satelite = false;
       var messages = document.getElementById('messages');
       var nCliente = document.getElementById('nombrecliente')
       var tCliente = document.getElementById('telcliente')
@@ -88,7 +88,7 @@
       document.getElementById("telcliente").value = getCookie('telcliente')
       nCliente = document.getElementById("nombrecliente");
       tCliente = document.getElementById('telcliente')
-      if (tCliente.value && nCliente.value){
+      if (tCliente.value && nCliente.value && satelite){
         socket.emit('conectado',{'rol':'cliente','nombre':getCookie('nombrecliente'),
                                 'telef':getCookie('telcliente')});
         socket.on('carros', (listaDeCarros) =>{ 
@@ -117,7 +117,7 @@
       function encontrarTransporte(){
         nCliente = document.getElementById("nombrecliente");
         tCliente = document.getElementById('telcliente')
-        if (tCliente.value && nCliente.value){
+        if (tCliente.value && nCliente.value && satelite) {
           populateCarros(losCarros);
           socket.emit('conectado',{'rol':'cliente','nombre':nCliente,
                                   'telef':tcliente});
@@ -184,7 +184,7 @@
       }
       
       function comenzar() {
-        haySat(2);
+        satelite = haySat(2);
         if (navigator.geolocation) {
           watchId = navigator.geolocation.watchPosition(showPosition);
         } else { 
@@ -197,7 +197,7 @@
           //"<br>Longitude: " + position.coords.longitude;
           latCli = position.coords.latitude;
           longCli = position.coords.longitude;
-          haySat(1);
+          satelite = haySat(1);
       }   
       //Poblar lista de zonas
       for (var zona of zonas){
