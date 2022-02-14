@@ -100,18 +100,18 @@
       }
       
       function buscar(){
-        comenzar();
-        //encontrarTransporte();
+        //comenzar();
+        encontrarTransporte();
       }
       
       function cambioNombre(){
         comenzar();
-        //encontrarTransporte();
+        encontrarTransporte();
       }
       
       function cambioTel(){
         comenzar();
-        //encontrarTransporte();
+        encontrarTransporte();
       }
       
       function encontrarTransporte(){
@@ -121,14 +121,14 @@
         if (tCliente.value && nCliente.value && satelite) {
           populateCarros(losCarros);
           socket.emit('conectado',{'rol':'cliente','nombre':nCliente,
-                                  'telef':tcliente});
+                                  'telef':tCliente});
           socket.on('carros', (listaDeCarros) =>{populateCarros(listaDeCarros)});
           //document.getElementById("oferta").style.display = 'block';
           setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
           setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año
         } else {
           document.getElementById("oferta").style.display = 'none'; 
-          alert('Debe poner el nombre, el teléfono y el destino');
+          alert('Debe poner el nombre, el teléfono y el destino. Además debe tener activado el GPS');
         }  
       }
       
@@ -199,7 +199,7 @@
           latCli = position.coords.latitude;
           longCli = position.coords.longitude;
           satelite = haySat(1);
-          encontrarTransporte();
+          
       }   
       //Poblar lista de zonas
       for (var zona of zonas){
