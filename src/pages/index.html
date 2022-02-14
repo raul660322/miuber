@@ -193,8 +193,8 @@
       }
 
       function showPosition(position) {
-          x.innerHTML="Latitude: " + position.coords.latitude + 
-          "<br>Longitude: " + position.coords.longitude;
+          //x.innerHTML="Latitude: " + position.coords.latitude + 
+          //"<br>Longitude: " + position.coords.longitude;
           latCli = position.coords.latitude;
           longCli = position.coords.longitude;
           haySat(1);
@@ -215,6 +215,7 @@
       } else {
           var laZona = misZonas.options[0].value;
       }
+      comenzar();
     </script>    
   </body>
 </html>
