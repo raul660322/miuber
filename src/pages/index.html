@@ -101,22 +101,23 @@
       
       function buscar(){
         comenzar();
-        encontrarTransporte();
+        //encontrarTransporte();
       }
       
       function cambioNombre(){
         comenzar();
-        encontrarTransporte();
+        //encontrarTransporte();
       }
       
       function cambioTel(){
         comenzar();
-        encontrarTransporte();
+        //encontrarTransporte();
       }
       
       function encontrarTransporte(){
         nCliente = document.getElementById("nombrecliente");
         tCliente = document.getElementById('telcliente')
+        console.log(satelite);
         if (tCliente.value && nCliente.value && satelite) {
           populateCarros(losCarros);
           socket.emit('conectado',{'rol':'cliente','nombre':nCliente,
@@ -198,6 +199,7 @@
           latCli = position.coords.latitude;
           longCli = position.coords.longitude;
           satelite = haySat(1);
+          encontrarTransporte();
       }   
       //Poblar lista de zonas
       for (var zona of zonas){
