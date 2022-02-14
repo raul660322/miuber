@@ -47,6 +47,7 @@ io.on('connection', (socket) => {
      //purgar choferes con tiempo de inactividad > timeOut
      var time = new Date().getTime(); 
      losCarros = losCarros.filter(item => item.time + timeOut > time);
+     //
      console.log('......', 'Conectado!', time);
      socket.on('conectado',rol=>{
        if (rol.rol=='cliente'){
@@ -153,6 +154,7 @@ io.on('connection', (socket) => {
   
      //Petición Cliente-Chofer 
      socket.on('cliente-chofer',(pc)=>{
+       pc["time"] = new Date().getTime();//Agregar time stamp al pre-contrato
        console.log('cliente-chofer: ',pc); 
        const i = preContratos.findIndex(c=>{return (c.tchofer==pc.tchofer) && (c.tcliente==pc.tcliente)})
        if (i === -1) {
