@@ -34,9 +34,19 @@
       </div>
     </nav>
     <div class="container">
-      <h1>
-          Para Clientes
-      </h1> 
+      <div class="row">
+          <div class="col-10">
+            <h1>
+                Para Clientes
+            </h1> 
+          </div>  
+          <div class="col-2">
+             <img src="https://cdn.glitch.global/f094be99-42ec-4e88-9374-0cfe649a4926/sat_red.png?v=1644856762585"
+                id="sat-red" width="50" class="blink-image" style="display:none"/>
+             <img src="https://cdn.glitch.global/f094be99-42ec-4e88-9374-0cfe649a4926/sat_green.png?v=1644856751059"
+                id="sat-green" width="50" style="display:none"/>
+          </div>
+      </div>  
       <div class="form-group">
         <label for nombrecliente>Nombre:</label>
         <input type="text" id="nombrecliente"  class="form-control"
@@ -179,6 +189,21 @@
         setCookie('zonacliente', laZona, 1) //Guardar el destino por 1 hora
         populateCarros(losCarros);
       }
+      
+      function comenzar() {
+        if (navigator.geolocation) {
+          watchId = navigator.geolocation.watchPosition(showPosition);
+        } else { 
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      }
+
+      function showPosition(position) {
+          x.innerHTML="Latitude: " + position.coords.latitude + 
+          "<br>Longitude: " + position.coords.longitude;
+          latCli = position.coords.latitude;
+          longCli = position.coords.longitude;
+      }   
       //Poblar lista de zonas
       for (var zona of zonas){
         var item = document.createElement('option');
