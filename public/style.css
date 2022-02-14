@@ -56,7 +56,7 @@ video {
 }
 
 .foto{
-  background: url('https://cdn.glitch.global/f094be99-42ec-4e88-9374-0cfe649a4926/camera.png?v=1644341446822');
+  background: url('https://cdn.glitch.global/f094be99-42ec-4e88-9374-0cfe649a4926/camera1.png?v=1644856781202');
   background-repeat: no-repeat;
   background-size: 80%,cover;
   background-position: 50% 40%;
@@ -143,8 +143,8 @@ video {
     }
 } 
 .blink-image {
-    -moz-animation: blink normal 2s infinite ease-in-out; /* Firefox */
-    -webkit-animation: blink normal 2s infinite ease-in-out; /* Webkit */
-    -ms-animation: blink normal 2s infinite ease-in-out; /* IE */
-    animation: blink normal 2s infinite ease-in-out; /* Opera and prob css3 final iteration */
+    -moz-animation: blink normal 1s infinite ease-in-out; /* Firefox */
+    -webkit-animation: blink normal 1s infinite ease-in-out; /* Webkit */
+    -ms-animation: blink normal 1s infinite ease-in-out; /* IE */
+    animation: blink normal 1s infinite ease-in-out; /* Opera and prob css3 final iteration */
 }
