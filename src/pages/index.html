@@ -90,7 +90,7 @@
       tCliente = document.getElementById('telcliente')
       if (tCliente.value && nCliente.value){
         socket.emit('conectado',{'rol':'cliente','nombre':getCookie('nombrecliente'),
-                                'telef':getCookie('telcliente')})
+                                'telef':getCookie('telcliente')});
         socket.on('carros', (listaDeCarros) =>{ 
           populateCarros(listaDeCarros);
         });
@@ -103,6 +103,9 @@
         tCliente = document.getElementById('telcliente')
         if (tCliente.value && nCliente.value){
           populateCarros(losCarros);
+          socket.emit('conectado',{'rol':'cliente','nombre':getCookie('nombrecliente'),
+                                  'telef':getCookie('telcliente')});
+          socket.on('carros', (listaDeCarros) =>{populateCarros(listaDeCarros)});
           //document.getElementById("oferta").style.display = 'block';
           setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
           setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año
@@ -191,6 +194,7 @@
       }
       
       function comenzar() {
+        haySat(2);
         if (navigator.geolocation) {
           watchId = navigator.geolocation.watchPosition(showPosition);
         } else { 
@@ -203,6 +207,7 @@
           "<br>Longitude: " + position.coords.longitude;
           latCli = position.coords.latitude;
           longCli = position.coords.longitude;
+          haySat(1);
       }   
       //Poblar lista de zonas
       for (var zona of zonas){
