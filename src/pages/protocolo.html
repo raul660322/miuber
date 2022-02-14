@@ -114,15 +114,7 @@
       function enviarMensaje(){
         var elTexto = document.getElementById('decir').value;
         mensaje(elTexto,tChofer,socket);
-        //socket.emit('chat',{"texto":elTexto, "dest":nombre})
-        //Agregar mi propio texto
-        //conversacion = document.getElementById('chat');
-        //item = document.createElement('div');
-        //item.innerHTML = elTexto;
-        //item.classList.add("chat-send")
-        //conversacion.appendChild(item);  
         document.getElementById('decir').value = ""
-        
       }
       
       socket.on('chat-response', msg=>{
