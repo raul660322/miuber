@@ -1,5 +1,6 @@
 const path = require("path");
-const timeOut = 1000*60*60; //1h
+const TIMEOUT = 1000*60*60; // Timeout for drivers (1h)
+const PC_TIMEOUT = 1000*60*5 //Time out for pre-contratos (5min)
 const MES = 1000*3600*24*30;
 const PAGO_ACORDADO = 1; //Tentativamente 100
 const level = require('fastify-leveldb')
@@ -44,10 +45,11 @@ fastify.register(
 
 io.on('connection', (socket) => {
      
-     //purgar choferes con tiempo de inactividad > timeOut
+     //purgar choferes con tiempo de inactividad > timeOut 
      var time = new Date().getTime(); 
-     losCarros = losCarros.filter(item => item.time + timeOut > time);
-     //
+     losCarros = losCarros.filter(item => item.time + TIMEOUT > time);
+     //Purgar pre-contratos con tiempo > PC_TIMEOUT
+     preContratos = preContratos.filter(item => item.time + PC_TIMEOUT > time);
      console.log('......', 'Conectado!', time);
      socket.on('conectado',rol=>{
        if (rol.rol=='cliente'){
