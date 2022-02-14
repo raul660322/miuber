@@ -157,6 +157,7 @@
           document.getElementById("detener").style.display='unset';
           setCookie('nombrechofer', elNombre, 9000) //Guardar nombre del chofer
           setCookie('telchofer', elTelef, 9000) //Guardar teléfono del chofer
+          haySat(2);
           if (navigator.geolocation) {
             watchId = navigator.geolocation.watchPosition(showPosition);
 
@@ -184,6 +185,7 @@
           document.getElementById("estado").innerHTML = estado
           document.getElementById("estado").style.color = (estado=="Disponible")?"green":"red"
           setCookie('estadochofer',estado,24)
+          haySat(1);
          }     
       //document.getElementById('conjs').innerHTML="Esto es con JavaScript"
       
@@ -207,6 +209,7 @@
         setCookie('estadochofer',estado,24)
         //socket.emit('quitar-carro', elNombre); //Quitar de la lista de choferes disponibles
         socket.emit('quitar-carro', elTelef); //Quitar de la lista de choferes disponibles by phone
+        haySat(3);
       }  
       
       socket.on('pre-contratos', (pcs) =>{ 
@@ -257,21 +260,7 @@
           audio.volume = 0.05;
           audio.play();
       } 
-      
-      function haySat(hay){
-        if (hay==1){
-          document.getElementById('sat-red').style.display = "none";
-          document.getElementById('sat-green').style.display = "block";
-        } else {
-          if (hay==2){
-              document.getElementById('sat-red').style.display = "block";
-              document.getElementById('sat-green').style.display = "none";
-          } else {
-              document.getElementById('sat-red').style.display = "none";
-              document.getElementById('sat-green').style.display = "none";
-          }  
-        }
-      }
+
       
       //Manejar foto      
       canvas.addEventListener('click', async ()=> {

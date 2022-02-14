@@ -31,6 +31,22 @@ function mensaje(texto,destino,socket){
   conversacion.scrollTop = conversacion.scrollHeight;
 }
 
+//1-Hay satélite, 2-Esperando satélite, 3-No usar satélite
+function haySat(hay){
+  if (hay==1){
+    document.getElementById('sat-red').style.display = "none";
+    document.getElementById('sat-green').style.display = "block";
+  } else {
+    if (hay==2){
+        document.getElementById('sat-red').style.display = "block";
+        document.getElementById('sat-green').style.display = "none";
+    } else {
+        document.getElementById('sat-red').style.display = "none";
+        document.getElementById('sat-green').style.display = "none";
+    }  
+  }
+}
+
 //*** This code is copyright 2002-2016 by Gavin Kistner, !@phrogz.net
 //*** It is covered under the license viewable at http://phrogz.net/JS/_ReuseLicense.txt
 Date.prototype.customFormat = function(formatString){
