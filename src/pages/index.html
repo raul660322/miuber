@@ -98,13 +98,29 @@
       } else {
         document.getElementById("oferta").style.display = 'none'; 
       }
+      
       function buscar(){
+        comenzar();
+        encontrarTransporte();
+      }
+      
+      function cambioNombre(){
+        comenzar();
+        encontrarTransporte();
+      }
+      
+      function cambioTel(){
+        comenzar();
+        encontrarTransporte();
+      }
+      
+      function encontrarTransporte(){
         nCliente = document.getElementById("nombrecliente");
         tCliente = document.getElementById('telcliente')
         if (tCliente.value && nCliente.value){
           populateCarros(losCarros);
-          socket.emit('conectado',{'rol':'cliente','nombre':getCookie('nombrecliente'),
-                                  'telef':getCookie('telcliente')});
+          socket.emit('conectado',{'rol':'cliente','nombre':nCliente,
+                                  'telef':tcliente});
           socket.on('carros', (listaDeCarros) =>{populateCarros(listaDeCarros)});
           //document.getElementById("oferta").style.display = 'block';
           setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
@@ -113,32 +129,6 @@
           document.getElementById("oferta").style.display = 'none'; 
           alert('Debe poner el nombre, el teléfono y el destino');
         }  
-      }
-      
-      function cambioNombre(){
-        nCliente = document.getElementById("nombrecliente");
-        tCliente = document.getElementById('telcliente')
-        if (tCliente.value && nCliente.value){
-          populateCarros(losCarros);
-          //document.getElementById("oferta").style.display = 'block';
-          setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
-          setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año
-        } else {
-          document.getElementById("oferta").style.display = 'none';          
-        }  
-      }
-      
-      function cambioTel(){
-        nCliente = document.getElementById("nombrecliente");
-        tCliente = document.getElementById('telcliente')
-        if (tCliente.value && nCliente.value){
-          populateCarros(losCarros);
-          //document.getElementById("oferta").style.display = 'block';
-          setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
-          setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año
-        } else {
-          document.getElementById("oferta").style.display = 'none';          
-        } 
       }
       
       function populateCarros(listaDeCarros){
