@@ -138,7 +138,7 @@
       
       function anularChofer(){
         mensaje("Disculpe, he cancelado la solicitud del viaje con usted. Será en otra ocasión. Que tenga un buen dia.",
-               nombre,socket);
+               tchofer,socket);
         socket.emit('rechazar', {'chofer':tChofer,'cliente':tCliente});
         document.getElementById("anular").style.display="none"
         document.getElementById("pedir").style.display="initial"
