@@ -40,7 +40,9 @@
         </div> 
          <div class="col-2">
            <img src="https://cdn.glitch.global/f094be99-42ec-4e88-9374-0cfe649a4926/sat_red.png?v=1644856762585"
-                id="sat" width="50" class="blink-image" style="display:none"/>
+                id="sat-red" width="50" class="blink-image" style="display:none"/>
+           <img src="https://cdn.glitch.global/f094be99-42ec-4e88-9374-0cfe649a4926/sat_green.png?v=1644856751059"
+                id="sat-green" width="50" style="display:none"/>
         </div>   
       </div>
       <div>
@@ -255,6 +257,22 @@
           audio.volume = 0.05;
           audio.play();
       } 
+      
+      function haySat(hay){
+        if (hay==1){
+          document.getElementById('sat-red').style.display = "none";
+          document.getElementById('sat-green').style.display = "block";
+        } else {
+          if (hay==2){
+              document.getElementById('sat-red').style.display = "block";
+              document.getElementById('sat-green').style.display = "none";
+          } else {
+              document.getElementById('sat-red').style.display = "none";
+              document.getElementById('sat-green').style.display = "none";
+          }  
+        }
+      }
+      
       //Manejar foto      
       canvas.addEventListener('click', async ()=> {
         stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
