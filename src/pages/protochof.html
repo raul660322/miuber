@@ -68,7 +68,7 @@
       var longCli="";
       
       mensaje("Hola. Un saludo. ¿En qué puedo ayudarle?",
-             tCliente,socket);
+             telefono,tCliente,socket);
       
       function comenzar() {
         if (navigator.geolocation) {
@@ -119,7 +119,7 @@
       
       function enviarMensaje(){
         var elTexto = document.getElementById('decir').value;
-        socket.emit('chat',{"texto":elTexto, "dest":tCliente})
+        socket.emit('chat',{"texto":elTexto, "orig":telefono,"dest":tCliente})
         conversacion = document.getElementById('chat');
         item = document.createElement('div');
         item.innerHTML = elTexto;
@@ -141,7 +141,7 @@
       });  
       
       socket.on('chofer-anulado',(contrato)=>{
-        if(contrato.tchofer==telefono){
+        if(contrato.tchofer==telefono && contrato.tcliente==tCliente) {
           setCookie('estadochofer','Disponible',24)
           document.getElementById('ocupar').style.display='none'
           document.getElementById("rechazar").style.display='none'
@@ -154,7 +154,7 @@
         socket.emit('ocupar', {'chofer':nombre, 'tchofer':telefono,
                                'cliente':nCliente,'tcliente':tCliente});
         mensaje("He aceptado su viaje. En breves minutos estaré a su disposición",
-               tCliente,socket);
+               telefono,tCliente,socket);
         setCookie('estadochofer','No disponible',24)
         document.getElementById('ocupar').style.display='none'
         document.getElementById("rechazar").style.display='none'

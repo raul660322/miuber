@@ -130,7 +130,7 @@
       });
       
       socket.on('cliente-rechazado',(contrato)=>{
-        if (contrato.tcliente == tCliente){
+        if (contrato.tcliente == tCliente && contrato.tchofer==tChofer){
           document.getElementById("anular").style.display="none"
           document.getElementById("pedir").style.display="none"
           document.getElementById("sms").style.display="none"
@@ -141,7 +141,7 @@
       
       function anularChofer(){
         mensaje("Disculpe, he cancelado la solicitud del viaje con usted. Será en otra ocasión. Que tenga un buen dia.",
-               tChofer,socket);
+               tCliente,tChofer,socket);
         socket.emit('anular-chofer', {'chofer':nombre, 'tchofer':tChofer,
                                'cliente':nCliente,'tcliente':tCliente});
         document.getElementById("anular").style.display="none"
