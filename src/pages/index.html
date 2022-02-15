@@ -87,7 +87,7 @@
       document.getElementById("nombrecliente").value = getCookie('nombrecliente')
       document.getElementById("telcliente").value = getCookie('telcliente')
       nCliente = document.getElementById("nombrecliente");
-      tCliente = document.getElementById('telcliente')
+      tCliente = document.getElementById('telcliente');
       if (tCliente.value && nCliente.value && satelite){
         socket.emit('conectado',{'rol':'cliente','nombre':getCookie('nombrecliente'),
                                 'telef':getCookie('telcliente')});
@@ -116,14 +116,14 @@
       
       function encontrarTransporte(){
         nCliente = document.getElementById("nombrecliente");
-        tCliente = document.getElementById('telcliente')
+        tCliente = document.getElementById('telcliente');
         //console.log(satelite);
-        if (!nCliente) {
+        if (!nCliente.value) {
            document.getElementById("oferta").style.display = 'none'; 
            alert('Debe poner el nombre');
            return;
         }
-        if (!tCliente) {
+        if (!tCliente.value) {
           document.getElementById("oferta").style.display = 'none'; 
           alert('Debe poner el teléfono'); 
           return; 
