@@ -76,7 +76,9 @@ io.on('connection', (socket) => {
        console.log(' Pagando telefono: ' + elPago.tel, 'fecha: ' + elPago.time_stamp);
        //console.log(new Date(elPago.time_stamp)).customFormat("#DD#/#MM#/#YYYY#");
      });
-
+     
+     //Devuelve inmediatamente al chofer la fecha (time stamp) del vencimiento
+     //del autorizo de operación, mediante la funci>
      socket.on('checkpago', async function(telefono,callback) {
        try {
            const fecha = await fastify.level.db.get(telefono);

@@ -75,7 +75,7 @@
       <button id="pedir" class="btn btn-success" onclick="pedirChofer()">
         Pedir
       </button>
-      <button id="sms" class="btn btn-primary" onclick="sendSMS()">
+      <button id="sms" class="btn btn-primary" onclick="sendSMS()" style="display:none">
         Enviar SMS
       </button>
       <button
@@ -139,8 +139,10 @@
         //Cerrar la foto del chofer
         document.getElementById("photo_frame").style.display = "none";
         document.getElementById("retornar").style.display = "none";
+        document.getElementById("sms").style.display = "inline";
       }
 
+      //No se usa
       function ocupar() {
         socket.emit("ocupar", nombre);
         location.href = "/";
