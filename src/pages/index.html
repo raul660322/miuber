@@ -50,12 +50,12 @@
       <div class="form-group">
         <label for nombrecliente>Nombre:</label>
         <input type="text" id="nombrecliente"  class="form-control"
-               onchange="cambioNombre()" placeholder="Nombre obligatorio">
+               oninput="cambioNombre()" placeholder="Nombre obligatorio">
       </div>
       <div class="form-group">
         <label for telcliente>Teléfono:</label>
         <input type="tel" id="telcliente"  class="form-control"
-               onchange="cambioTel()"  placeholder="Teléfono obligatorio" required>
+               oninput="cambioTel()"  placeholder="Teléfono obligatorio" required>
       </div>
       <div class="form-group">
         <label for destino>Destino  :</label>
@@ -108,13 +108,17 @@
       }
       
       function cambioNombre(){
+        changed = true;
+        mostrarTransporte(false);
         //comenzar();
-        encontrarTransporte();
+        //encontrarTransporte();
       }
       
       function cambioTel(){
+        changed = true;
+        mostrarTransporte(false);
         //comenzar();
-        encontrarTransporte();
+        //encontrarTransporte();
       }
       
       function encontrarTransporte(){
@@ -139,7 +143,6 @@
         populateCarros(losCarros);
         socket.emit('conectado',{'rol':'cliente','nombre':nCliente.value,
                                 'telef':tCliente.value});
-        socket.on('carros', (listaDeCarros) =>{populateCarros(listaDeCarros)});
         //document.getElementById("oferta").style.display = 'block';
         setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
         setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año
