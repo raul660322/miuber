@@ -20,9 +20,9 @@ function getCookie(cname) {
   return "";
 }
 
-function mensaje(texto,destino,socket){
+function mensaje(texto,origen,destino,socket){
   //var elTexto = document.getElementById('decir').value;
-  socket.emit('chat',{"texto":texto, "dest":destino})
+  socket.emit('chat',{"texto":texto, "orig":origen, "dest":destino})
   var conversacion = document.getElementById('chat');
   var item = document.createElement('div');
   item.innerHTML = texto;
