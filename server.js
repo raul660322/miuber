@@ -78,7 +78,8 @@ io.on('connection', (socket) => {
      });
      
      //Devuelve inmediatamente al chofer la fecha (time stamp) del vencimiento
-     //del autorizo de operación, mediante la funci>
+     //del autorizo de operación, mediante la función callback
+     //Si el autorizo está vencido o no existe, devuelve fecha "0"
      socket.on('checkpago', async function(telefono,callback) {
        try {
            const fecha = await fastify.level.db.get(telefono);
@@ -94,8 +95,7 @@ io.on('connection', (socket) => {
            console.log(telefono);
            callback(null,{'telefono':telefono, 'fecha':0});
        }
-        
-     });        
+      });        
   
      socket.on('posicion', (pos) => {
        //Poner time stamp a la oferta del carro
@@ -130,6 +130,7 @@ io.on('connection', (socket) => {
             preContratos.splice(i,1);
          }
          io.emit('pre-contratos', {"chofer":carro.tchofer,"pre":preContratos});
+         io.emit('cliente-aceptado',carro);
        }          
      }); 
   

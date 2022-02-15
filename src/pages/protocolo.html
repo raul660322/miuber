@@ -193,6 +193,16 @@
           document.getElementById("retornar").style.display = "initial";
         }
       });
+      
+      socket.on('cliente-aceptado',(contrato)=>{
+         if (contrato.tcliente == tCliente && contrato.tchofer == tChofer) {
+          //document.getElementById("anular").style.display = "none";
+          document.getElementById("pedir").style.display = "none";
+          document.getElementById("sms").style.display = "none";
+          //document.getElementById("chat_container").style.display="none"
+          document.getElementById("retornar").style.display = "initial";
+        }
+      });
 
       function anularChofer() {
         mensaje(
