@@ -140,6 +140,15 @@
         }
       });  
       
+      socket.on('chofer-anulado',(contrato)=>{
+        if(contrato.tchofer==telefono){
+          setCookie('estadochofer','Disponible',24)
+          document.getElementById('ocupar').style.display='none'
+          document.getElementById("rechazar").style.display='none'
+          document.getElementById("chat_container").style.display='initial'
+        }
+      });
+      
       function ocupar(){
         socket.emit('ocupar', {'chofer':nombre, 'tchofer':telefono,
                                'cliente':nCliente,'tcliente':tCliente});

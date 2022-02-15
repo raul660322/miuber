@@ -129,10 +129,20 @@
         }
       });
       
+      socket.on('cliente-rechazado',(contrato)=>{
+        if (contrato.tcliente == tCliente){
+          document.getElementById("anular").style.display="none"
+          document.getElementById("pedir").style.display="none"
+          document.getElementById("sms").style.display="none"
+          //document.getElementById("chat_container").style.display="none"
+          document.getElementById("retornar").style.display="initial"
+        }
+      });
+      
       function anularChofer(){
         mensaje("Disculpe, he cancelado la solicitud del viaje con usted. Será en otra ocasión. Que tenga un buen dia.",
                tChofer,socket);
-        socket.emit('rechazar', {'chofer':nombre, 'tchofer':tChofer,
+        socket.emit('anular-chofer', {'chofer':nombre, 'tchofer':tChofer,
                                'cliente':nCliente,'tcliente':tCliente});
         document.getElementById("anular").style.display="none"
         document.getElementById("pedir").style.display="none"

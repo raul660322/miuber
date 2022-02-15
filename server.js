@@ -151,7 +151,7 @@ io.on('connection', (socket) => {
           preContratos.splice(i,1);
           io.emit('pre-contratos', {"chofer":carro.tchofer,"pre":preContratos});
        }
-       
+       io.emit('cliente-rechazado',carro);
      }); 
   
       //Anular chofer
@@ -163,7 +163,7 @@ io.on('connection', (socket) => {
           preContratos.splice(i,1);
           io.emit('pre-contratos', {"chofer":carro.tchofer,"pre":preContratos});
        }
-       
+       io.emit('chofer-anulado',carro);
      });   
   
   
