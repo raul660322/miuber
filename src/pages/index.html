@@ -134,8 +134,8 @@
           return;
         }
         populateCarros(losCarros);
-        socket.emit('conectado',{'rol':'cliente','nombre':nCliente,
-                                'telef':tCliente});
+        socket.emit('conectado',{'rol':'cliente','nombre':nCliente.value,
+                                'telef':tCliente.value});
         socket.on('carros', (listaDeCarros) =>{populateCarros(listaDeCarros)});
         //document.getElementById("oferta").style.display = 'block';
         setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
