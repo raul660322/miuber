@@ -135,7 +135,8 @@
         socket.emit('rechazar', {'chofer':nombre, 'tchofer':tChofer,
                                'cliente':nCliente,'tcliente':tCliente});
         document.getElementById("anular").style.display="none"
-        document.getElementById("pedir").style.display="initial"
+        document.getElementById("pedir").style.display="none"
+        document.getElementById("sms").style.display="none"
         document.getElementById("chat_container").style.display="none"
         document.getElementById("retornar").style.display="initial"
         //location.href = "/"
