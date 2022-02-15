@@ -47,15 +47,15 @@
         <div id="chat" style="margin-bottom:10px; width:350px; height: 300px; overflow-y:scroll;"></div>
         <div>
             <input type="text" id="decir" style="width:290px; margin-bottom:10px;"
-                   class="form-control" onchange="cambioNombre()"
+                   onchange="cambioNombre()"
                    placeholder="Teclee mensaje para el cliente">
                    
             <button onclick="enviarMensaje()" style="display: inline">Enviar</button>  
       </div>
     </div>
     <div id="map" style="width: 350px; height: 300px; display:none"></div>
-    <button id="vermapa" class="btn btn-sm btn-primary" onclick = "verMapa()">Mapa</button>
-    <button id="hidemapa" class="btn btn-sm btn-primary" onclick = "hideMapa()" style="display:none">Ocultar mapa</button>
+    <button id="vermapa" class="btn btn-sm btn-success" onclick = "verMapa()">Mapa</button>
+    <button id="hidemapa" class="btn btn-sm btn-success" onclick = "hideMapa()" style="display:none">Ocultar mapa</button>
     <button id="ocupar" class="btn btn-sm btn-success" onclick="ocupar()">Aceptar </button>
     <button id="rechazar" class="btn btn-sm btn-danger" onclick="rechazar()">Rechazar</button>
     <a class="nav-link" href="servicio.html" style="display: inline">Retornar</a> 
