@@ -119,27 +119,27 @@
         tCliente = document.getElementById('telcliente')
         //console.log(satelite);
         if (!nCliente) {
-           alert('Debe poner el nombre');return; 
+           document.getElementById("oferta").style.display = 'none'; 
+           alert('Debe poner el nombre');
+           return;
         }
         if (!tCliente) {
-           alert('Debe poner el nombre, el teléfono y el destino. Además debe tener activado el GPS');
-           return; 
+          document.getElementById("oferta").style.display = 'none'; 
+          alert('Debe poner el teléfono'); 
+          return; 
         }
         if (!satelite) {
-           alert('Debe poner el nombre, el teléfono y el destino. Además debe tener activado el GPS');
-           return; 
-        }
-        if (tCliente.value && nCliente.value && satelite) {
-          populateCarros(losCarros);
-          socket.emit('conectado',{'rol':'cliente','nombre':nCliente,
-                                  'telef':tCliente});
-          socket.on('carros', (listaDeCarros) =>{populateCarros(listaDeCarros)});
-          //document.getElementById("oferta").style.display = 'block';
-          setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
-          setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año
-        } else {
           document.getElementById("oferta").style.display = 'none'; 
-        }  
+          alert('Debe tener activado el GPS'); 
+          return;
+        }
+        populateCarros(losCarros);
+        socket.emit('conectado',{'rol':'cliente','nombre':nCliente,
+                                'telef':tCliente});
+        socket.on('carros', (listaDeCarros) =>{populateCarros(listaDeCarros)});
+        //document.getElementById("oferta").style.display = 'block';
+        setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
+        setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año
       }
       
       function populateCarros(listaDeCarros){
