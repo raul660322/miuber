@@ -46,7 +46,7 @@
       <button id="sms" class="btn btn-primary" onclick="sendSMS()">Enviar SMS</button>
       <button id="anular" class="btn btn-danger" onclick="anularChofer()" style="display:none">Anular</button>
       <button onclick="ocupar()" style="display:none;">Ocupar</button>
-      <a class="nav-link" href="/" style="display:inline;">Retornar</a>
+      <a class="nav-link" id="retornar" href="/" style="display:inline;">Retornar</a>
     </div>
     <script>
       const miUrl=window.location.href;
@@ -88,6 +88,7 @@
         document.getElementById("pedir").style.display="none"
         //Cerrar la foto del chofer
         document.getElementById("photo_frame").style.display="none"
+        document.getElementById("retornar").style.display="none"
       }
 
       function ocupar(){
@@ -136,6 +137,7 @@
         document.getElementById("anular").style.display="none"
         document.getElementById("pedir").style.display="initial"
         document.getElementById("chat_container").style.display="none"
+        document.getElementById("retornar").style.display="initial"
         //location.href = "/"
       }
       
