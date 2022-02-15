@@ -152,7 +152,20 @@ io.on('connection', (socket) => {
           io.emit('pre-contratos', {"chofer":carro.tchofer,"pre":preContratos});
        }
        
-     });  
+     }); 
+  
+      //Anular chofer
+     socket.on('anular-chofer',(carro)=>{
+       console.log('anulando: ',carro); 
+       //Eliminar pre-contrato
+       const i = preContratos.findIndex(c=>{return (c.tchofer==carro.tchofer) && (c.tcliente==carro.tcliente)})
+       if (i != -1) {
+          preContratos.splice(i,1);
+          io.emit('pre-contratos', {"chofer":carro.tchofer,"pre":preContratos});
+       }
+       
+     });   
+  
   
      //Petición Cliente-Chofer 
      socket.on('cliente-chofer',(pc)=>{
