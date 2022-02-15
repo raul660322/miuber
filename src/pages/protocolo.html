@@ -63,14 +63,13 @@
       
       var tCliente = url.searchParams.get("tcl")
       var tChofer = url.searchParams.get("tch")
-      
       document.getElementById('chofer').innerHTML="Chofer: " + nombre;
       document.getElementById('latitud').innerHTML="Latitud: " + latitud;
       document.getElementById('longitud').innerHTML="Longitud: " + longitud;
       document.getElementById('cliente').innerHTML="Cliente: " + nCliente + " Destino: " + elDestino;
 
-      var latCli="";
-      var longCli="";
+      var latCli = url.searchParams.get("latcli");;
+      var longCli = url.searchParams.get("longcli");;
       
       setCookie('nombrecliente', nCliente, 9000) //Guardar nombre del cliente
       setCookie('zonacliente', elDestino, 1) //Guardar el destino por 1 hora
@@ -96,6 +95,7 @@
         location.href="/"
       }
 
+      //No usar
       function comenzar() {
         if (navigator.geolocation) {
           watchId = navigator.geolocation.watchPosition(showPosition);
@@ -103,7 +103,7 @@
           x.innerHTML = "Geolocation is not supported by this browser.";
         }
       }
-
+      //No usar
       function showPosition(position) {
           x.innerHTML="Latitude: " + position.coords.latitude + 
           "<br>Longitude: " + position.coords.longitude;
@@ -150,7 +150,7 @@
           location.href = url;
       }
       //Comenzar geolocalización del cliente
-      comenzar();
+      //comenzar();
     </script>
   </body>
 </html>  

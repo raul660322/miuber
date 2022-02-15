@@ -104,6 +104,7 @@
       
       function buscar(){
         //comenzar();
+        changed = false;
         encontrarTransporte();
       }
       
@@ -160,7 +161,8 @@
             seleccion.setAttribute("href", "protocolo.html"+"?carro="+carro.nombre
                                   +"&lat="+carro.lat+"&long="+carro.long
                                   +"&cli="+nCliente.value+"&dest="+laZona
-                                  +"&tcl="+tCliente.value+"&tch="+carro.tel);         
+                                  +"&tcl="+tCliente.value+"&tch="+carro.tel
+                                  +"&latcli="+latCli+"&longcli="+longCli);         
             //seleccion.addEventListener('click', linkClicked.bind(null,tCliente.value),false);  
             seleccion.addEventListener('click', ()=>{
               window.localStorage.setItem("fotochofer",carro.foto);
