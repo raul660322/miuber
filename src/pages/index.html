@@ -82,22 +82,25 @@
       var nCliente = document.getElementById('nombrecliente')
       var tCliente = document.getElementById('telcliente')
       var misZonas = document.getElementById('destino');
+      var changed = false;
       var losCarros = []; 
       //Verificar nombre guardado
       document.getElementById("nombrecliente").value = getCookie('nombrecliente')
       document.getElementById("telcliente").value = getCookie('telcliente')
       nCliente = document.getElementById("nombrecliente");
       tCliente = document.getElementById('telcliente');
-      if (tCliente.value && nCliente.value && satelite){
-        socket.emit('conectado',{'rol':'cliente','nombre':getCookie('nombrecliente'),
+      socket.emit('conectado',{'rol':'cliente','nombre':getCookie('nombrecliente'),
                                 'telef':getCookie('telcliente')});
-        socket.on('carros', (listaDeCarros) =>{ 
+      socket.on('carros', (listaDeCarros) =>{ 
+        if (tCliente.value && nCliente.value && satelite && !changed){
           populateCarros(listaDeCarros);
-        });
-        //document.getElementById("oferta").style.display = 'block';
-      } else {
-        document.getElementById("oferta").style.display = 'none'; 
-      }
+          mostrarTransporte(true);
+        } else {
+          mostrarTransporte(false);
+        }        
+      });
+      
+
       
       function buscar(){
         //comenzar();
