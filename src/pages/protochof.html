@@ -130,7 +130,7 @@
       }
       
       socket.on('chat-response', msg=>{
-        if (msg.dest==telefono){
+        if (msg.dest==telefono && msg.orig==tCliente){
           conversacion = document.getElementById('chat');
           item = document.createElement('div');
           item.innerHTML = msg.texto;
@@ -164,7 +164,7 @@
       function rechazar(){
         //socket.emit('ocupar', {'chofer':nombre,'cliente':nCliente});
         mensaje("Lo siento. Lamentablemente, no puedo realizar su viaje. Por favor busque otro chofer.",
-               tCliente,socket);
+               telefono,tCliente,socket);
         socket.emit('rechazar', {'chofer':nombre, 'tchofer':telefono,
                                'cliente':nCliente,'tcliente':tCliente});
         document.getElementById("map").style.display='none'

@@ -114,12 +114,12 @@
       
       function enviarMensaje(){
         var elTexto = document.getElementById('decir').value;
-        mensaje(elTexto,tChofer,socket);
+        mensaje(elTexto,tCliente,tChofer,socket);
         document.getElementById('decir').value = ""
       }
       
       socket.on('chat-response', msg=>{
-        if (msg.dest==tCliente){
+        if (msg.dest==tCliente && msg.orig==tChofer){
           conversacion = document.getElementById('chat');
           item = document.createElement('div');
           item.innerHTML = msg.texto;
