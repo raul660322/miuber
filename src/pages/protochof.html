@@ -54,8 +54,8 @@
       </div>
     </div>
     <div id="map" style="width: 350px; height: 300px; display:none"></div>
-    <button id="vermapa" class="btn btn-sm btn-success" onclick = "verMapa()">Mapa</button>
-    <button id="hidemapa" class="btn btn-sm btn-success" onclick = "hideMapa()" style="display:none">Ocultar mapa</button>
+    <button id="vermapa" class="btn btn-sm btn-primary" onclick = "verMapa()">Mapa</button>
+    <button id="hidemapa" class="btn btn-sm btn-warning" onclick = "hideMapa()" style="display:none">Ocultar mapa</button>
     <button id="ocupar" class="btn btn-sm btn-success" onclick="ocupar()">Aceptar </button>
     <button id="rechazar" class="btn btn-sm btn-danger" onclick="rechazar()">Rechazar</button>
     <a class="nav-link" href="servicio.html" style="display: inline">Retornar</a> 
@@ -101,6 +101,10 @@
       }    
       
       function verMapa(){
+        if (isNaN(latitud)){
+          alert("No hay información sobre la posición del cliente")
+          return
+        }
         mapboxgl.accessToken = 'pk.eyJ1IjoicmF1bHNhbmNoZXpwZXJlejY2IiwiYSI6ImNreW9rZ3ZlbzAxMmMyd3AybmxtOXN5bXkifQ.FOexLz_l9hDR7nwEouFR_A';
         var map = new mapboxgl.Map({
           container: 'map',
