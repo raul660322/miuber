@@ -94,7 +94,7 @@
       socket.on('carros', (listaDeCarros) =>{ 
         if (tCliente.value && nCliente.value && satelite && !changed){
           populateCarros(listaDeCarros);
-          mostrarTransporte(true);
+          //mostrarTransporte(true);
         } else {
           mostrarTransporte(false);
         }        
@@ -140,7 +140,7 @@
           alert('Debe tener activado el GPS'); 
           return;
         }
-        populateCarros(losCarros);
+        //populateCarros(losCarros);
         socket.emit('conectado',{'rol':'cliente','nombre':nCliente.value,
                                 'telef':tCliente.value});
         //document.getElementById("oferta").style.display = 'block';
@@ -175,20 +175,25 @@
             item.appendChild(laFoto);
             messages.appendChild(item);    
           }  
-          mostrarTransporte(true);
+          mostrarTransporte("si");
           window.scrollTo(0, document.body.scrollHeight); 
         } else {
-          mostrarTransporte(false);
+          mostrarTransporte("no");
         } 
       }
       
       function mostrarTransporte(hayTransporte){
-        if (hayTransporte){
+        if (hayTransporte=="si"){
           document.getElementById("oferta").style.display = 'block'; 
           document.getElementById("notransporte").style.display = 'none';
         } else {
-          document.getElementById("oferta").style.display = 'none'; 
-          document.getElementById("notransporte").style.display = 'block';
+          if (hayTransporte=="no"){
+            document.getElementById("oferta").style.display = 'none'; 
+            document.getElementById("notransporte").style.display = 'block';
+          } else {
+            document.getElementById("oferta").style.display = 'none'; 
+            document.getElementById("notransporte").style.display = 'none';
+          }
         }
       }
 
@@ -216,6 +221,8 @@
           latCli = position.coords.latitude;
           longCli = position.coords.longitude;
           satelite = haySat(1);
+          socket.emit('conectado',{'rol':'cliente','nombre':nCliente.value,
+                                'telef':tCliente.value});
       }   
       //Poblar lista de zonas
       for (var zona of zonas){
