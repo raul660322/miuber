@@ -58,7 +58,7 @@
     <button id="hidemapa" class="btn btn-sm btn-warning" onclick = "hideMapa()" style="display:none">Ocultar mapa</button>
     <button id="ocupar" class="btn btn-sm btn-success" onclick="ocupar()">Aceptar </button>
     <button id="rechazar" class="btn btn-sm btn-danger" onclick="rechazar()">Rechazar</button>
-    <a class="nav-link" href="servicio.html" style="display: inline">Retornar</a> 
+    <a id="retornar" class="nav-link" href="servicio.html" style="display: none">Retornar</a> 
     
     <script>
       const miUrl=window.location.href.replace(/;/g,'&').replace(/_/g,' ');
@@ -161,11 +161,12 @@
       
       socket.on('chofer-anulado',(contrato)=>{
         if(contrato.tchofer==telefono && contrato.tcliente==tCliente) {
-          setCookie('estadochofer','Disponible',24)
-          document.getElementById('ocupar').style.display='none'
-          document.getElementById("rechazar").style.display='none'
-          document.getElementById("chat_container").style.display='initial'
-          document.getElementById('vermapa').style.display='none'
+          setCookie('estadochofer','Disponible',24);
+          document.getElementById('ocupar').style.display='none';
+          document.getElementById("rechazar").style.display='none';
+          document.getElementById("chat_container").style.display='initial';
+          document.getElementById('vermapa').style.display='none';
+          document.getElementById('retornar').style.display='inline';
         }
       });
       
@@ -178,6 +179,7 @@
         document.getElementById('ocupar').style.display='none'
         document.getElementById("rechazar").style.display='none'
         document.getElementById("chat_container").style.display='initial'
+        document.getElementById('retornar').style.display='inline';
         //location.href = "servicio.html"
       }
       function rechazar(){
@@ -192,7 +194,7 @@
         document.getElementById("chat_container").style.display='none'
         document.getElementById('ocupar').style.display='none'
         document.getElementById("rechazar").style.display='none'
-        
+        document.getElementById('retornar').style.display='inline';
         
         //location.href = "servicio.html"
       }
