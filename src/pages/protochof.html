@@ -84,6 +84,7 @@
       
       mensaje("Hola. Un saludo. ¿En qué puedo ayudarle?",
              telefono,tCliente,socket);
+      negociando();
       
       function comenzar() {
         if (navigator.geolocation) {
@@ -180,6 +181,7 @@
         document.getElementById("rechazar").style.display='none'
         document.getElementById("chat_container").style.display='initial'
         document.getElementById('retornar').style.display='inline';
+        ocupado();
         //location.href = "servicio.html"
       }
       function rechazar(){
@@ -201,7 +203,7 @@
 
       //El chofer se encuentra negociando con un cliente  y envía mensaje de advertencia 
       //a los clientes restantes
-      function negociar(){
+      function negociando(){
         msg_otros("Estoy negociando viaje con otro cliente. Puede esperar, o anular la petición y buscar otro chofer.",
                  telefono, tCliente, socket);
       }
@@ -210,7 +212,8 @@
       function ocupado(){
         const mensaje = "Disculpe, ya estoy ocupado con otro cliente." 
                       + " Le ruego que trate de buscar otro chofer para su viaje."
-                      + " Seguro podré servirle en otra ocasión"
+                      + " Seguro podré servirle en otra ocasión."
+                      + " Que tenga un buen día."
         msg_otros(mensaje,telefono, tCliente, socket);
       }
       
