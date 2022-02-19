@@ -198,7 +198,7 @@ io.on('connection', (socket) => {
      // 
      socket.on('chat-otros',(msg)=>{
        console.log('mensaje: ',msg); 
-       io.emit('chat-response', msg);
+       io.emit('chat-response-otros', msg);
      });
   
     //Recibir foto recien sacada

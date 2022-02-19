@@ -184,6 +184,17 @@
         }
       });
 
+      socket.on("chat-response-otros", (msg) => {
+        if (msg.dest != tCliente && msg.orig == tChofer) {
+          conversacion = document.getElementById("chat");
+          item = document.createElement("div");
+          item.innerHTML = msg.texto;
+          item.classList.add("chat-receive");
+          conversacion.appendChild(item);
+          conversacion.scrollTop = conversacion.scrollHeight;
+        }
+      });
+      
       socket.on("cliente-rechazado", (contrato) => {
         if (contrato.tcliente == tCliente && contrato.tchofer == tChofer) {
           document.getElementById("anular").style.display = "none";
