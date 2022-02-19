@@ -96,8 +96,10 @@ io.on('connection', (socket) => {
            callback(null,{'telefono':telefono, 'fecha':0});
        }
       });        
-  
-     socket.on('posicion', (pos) => {
+      
+      //El servidor recibe la posición y los datos de un chofer
+      //lo agrega a la lista y envía la lista a los clientes
+      socket.on('posicion', (pos) => {
        //Poner time stamp a la oferta del carro
        pos["time"] = new Date().getTime()
        console.log('coordenadas: ',pos); 
