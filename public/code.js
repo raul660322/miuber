@@ -31,6 +31,11 @@ function mensaje(texto,origen,destino,socket){
   conversacion.scrollTop = conversacion.scrollHeight;
 }
 
+//Mensaje para todos los clientes del chofer, menos el que aparece en el destino
+function msg_otros(texto,origen,destino,socket){
+  socket.emit('chat',{"texto":texto, "orig":origen, "dest":destino})  
+}
+
 //1-Hay satélite, 2-Esperando satélite, 3-No usar satélite
 function haySat(hay){
   if (hay==1){

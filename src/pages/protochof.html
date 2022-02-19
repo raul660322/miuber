@@ -202,11 +202,14 @@
       //El chofer se encuentra negociando con un cliente  y envía mensaje de advertencia 
       //a los clientes restantes
       function negociar(){
-        
+        msg_otros("Estoy negociando viaje con otro cliente. Puede esperar, o anular la petición y buscar otro chofer.",
+                 telefono, tCliente, socket);
       }
       
       //El chofer notifica a los clientes restantes que ha sido ocupado
       function ocupado(){
+        msg_otros("Disculpe, ya estoy ocupado con otro cliente. ",
+                 telefono, tCliente, socket);
         
       }
       
