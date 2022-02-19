@@ -188,17 +188,27 @@ io.on('connection', (socket) => {
        }
        console.log('pre-contratos: ',preContratos);
      }); 
+  
      //Respuesta al chat 
      socket.on('chat',(msg)=>{
        console.log('mensaje: ',msg); 
        io.emit('chat-response', msg);
      }); 
+  
+     // 
+     socket.on('chat-otros',(msg)=>{
+       console.log('mensaje: ',msg); 
+       io.emit('chat-response', msg);
+     });
+  
     //Recibir foto recien sacada
      socket.on('foto',(foto)=>{
        console.log('chofer:',foto.chofer, 'tamaño:',foto.foto.length); 
        //io.emit('chat-response', msg);
-     });   
-})
+     });  
+  
+      
+});
 
 // Our main GET home page route, pulls from src/pages/index.hbs
 fastify.get("/", function(request, reply) {

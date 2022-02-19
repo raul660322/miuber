@@ -33,7 +33,7 @@ function mensaje(texto,origen,destino,socket){
 
 //Mensaje para todos los clientes del chofer, menos el que aparece en el destino
 function msg_otros(texto,origen,destino,socket){
-  socket.emit('chat',{"texto":texto, "orig":origen, "dest":destino})  
+  socket.emit('chat-otros',{"texto":texto, "orig":origen, "dest":destino})  
 }
 
 //1-Hay satélite, 2-Esperando satélite, 3-No usar satélite
