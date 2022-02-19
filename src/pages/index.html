@@ -58,6 +58,11 @@
                oninput="cambioTel()"  placeholder="Teléfono obligatorio" required>
       </div>
       <div class="form-group">
+        <label for recoger>Lugar de recogida:</label>
+        <input type="tel" id="recoger"  class="form-control"
+               oninput="cambioRecogida()"  placeholder="Teclee el lugar donde el chofer le recogerá" required>
+      </div>     
+      <div class="form-group">
         <label for destino>Destino  :</label>
         <select id="destino" class="form-control" onchange="zonaSelected()">
           
@@ -121,6 +126,8 @@
         //comenzar();
         //encontrarTransporte();
       }
+      
+      f
       
       function encontrarTransporte(){
         nCliente = document.getElementById("nombrecliente");
