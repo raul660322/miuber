@@ -150,8 +150,14 @@
         setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
         setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año        
         if (!satelite) {
-          document.getElementById("oferta").style.display = 'none'; 
-          alert('Debe tener activado el GPS'); 
+          texto = "Su GPS no está activado, por lo que el chofer no podrá localizar "
+                + "su posición actual en el mapa y deberá decirle mediante un mensaje "
+                + "a qué lugar debe ir a recogerle. ¿Quiere seguir sin GPS?"
+          if !confirm("texto") {
+            document.getElementById("oferta").style.display = 'none'; 
+            return
+          }
+          //alert('Debe tener activado el GPS'); 
           return;
         }
         //populateCarros(losCarros);
