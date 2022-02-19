@@ -85,6 +85,8 @@
     <script>
       var socket = io();
       var satelite = false;
+      var latCli = NaN;
+      var longCli =NaN;
       var messages = document.getElementById('messages');
       var nCliente = document.getElementById('nombrecliente')
       var tCliente = document.getElementById('telcliente')
@@ -158,8 +160,6 @@
             return
           } else {
             satelite = true;
-            latCli = NaN;
-            longCli =NaN;
           }
           //alert('Debe tener activado el GPS'); 
         }
