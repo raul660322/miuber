@@ -136,6 +136,8 @@
           alert('Debe poner el teléfono'); 
           return; 
         }
+        setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
+        setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año        
         if (!satelite) {
           document.getElementById("oferta").style.display = 'none'; 
           alert('Debe tener activado el GPS'); 
@@ -144,9 +146,6 @@
         //populateCarros(losCarros);
         socket.emit('conectado',{'rol':'cliente','nombre':nCliente.value,
                                 'telef':tCliente.value});
-        //document.getElementById("oferta").style.display = 'block';
-        setCookie('nombrecliente', nCliente.value, 9000) //Guardar nombre del cliente
-        setCookie('telcliente', tCliente.value, 9000) //Guardar teléfono del cliente x 1 año
       }
       
       function populateCarros(listaDeCarros){
