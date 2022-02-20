@@ -187,8 +187,8 @@
       }
       
       function populateCarros(listaDeCarros){
-        if (document.getElementById('cercano').value){
-          losCarros = listaDeCarros.filter(permitirCarro(carro));
+        if (document.getElementById('cercano').checked){
+          losCarros = listaDeCarros.filter(carro=>permitirCarro(carro));
         } else {
           losCarros = listaDeCarros;
         }  
