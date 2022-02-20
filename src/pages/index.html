@@ -256,7 +256,7 @@
 
       function citySelected(){
         var idx = misCities.selectedIndex; 
-        cityData = misCities.options[idx].value; 
+        cityData = cities[idx]; 
         setCookie('clientcityindex', idx, 9000) //Guardar ciudad
         changed = true;
         mostrarTransporte(false);
@@ -292,10 +292,10 @@
       }   
       
       //Poblar lista de ciudades
-      for (var city of cities){
+      for (i in cities){
         var item = document.createElement('option');
-        item.text=city.nombre;
-        item.value=city.data;
+        item.text=cities[i].nombre;
+        item.value=i;
         misCities.appendChild(item);
       } 
       //Ciudad actual
@@ -306,6 +306,7 @@
       } else {
           var laZona = misZonas.options[0].value;
       }      //Poblar lista de zonas
+      
       for (var zona of zonas){
         var item = document.createElement('option');
         item.text=zona.nombre;
