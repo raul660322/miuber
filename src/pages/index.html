@@ -75,7 +75,7 @@
         </div>
         <div class="col-8">
           <div class="form-check form-switch" style="margin-top:10px"> 
-            <input class="form-check-input" type="checkbox" id="cercano" checked>
+            <input class="form-check-input" type="checkbox" id="cercano">
             <label class="form-check-label" for="cercano">Buscar sólo transporte cercano</label>
           </div>
         </div>
@@ -176,6 +176,10 @@
         //populateCarros(losCarros);
         socket.emit('conectado',{'rol':'cliente','nombre':nCliente.value,
                                 'telef':tCliente.value});
+      }
+      
+      function permitirCarro(carro) {
+        
       }
       
       function populateCarros(listaDeCarros){
