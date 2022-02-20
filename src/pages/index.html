@@ -283,11 +283,11 @@
       }   
       
       //Poblar lista de ciudades
-      for (var zona of zonas){
+      for (var city of cities){
         var item = document.createElement('option');
-        item.text=zona.nombre;
-        item.value=zona.nombre;
-        misZonas.appendChild(item);
+        item.text=city.nombre;
+        item.value=city.data;
+        misCities.appendChild(item);
       }   
       
       //Poblar lista de zonas

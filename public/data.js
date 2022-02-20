@@ -20,3 +20,9 @@ var zonas = [
   {"nombre":"Universidad","lat":23.0378253,"long":-81.5126972},
   {"nombre":"Canímar","lat":23.0396432,"long":-81.4997837}
 ]
+
+var cities = [
+  {"nombre":"Matanzas","data":{"lat":111111,"long":22222,"zonas":[]}},
+  {"nombre":"Habana","data":{"lat":111111,"long":22222,"zonas":[]}},
+  {"nombre":"Holguín","data":{"lat":111111,"long":22222,"zonas":[]}}
+]
