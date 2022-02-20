@@ -265,7 +265,7 @@
       function zonaSelected(){
         var idx = misZonas.selectedIndex; 
         laZona = misZonas.options[idx].value; 
-         setCookie('zonacliente', laZona, 1) //Guardar el destino por 1 hora
+        setCookie('zonacliente', laZona, 1) //Guardar el destino por 1 hora
         //populateCarros(losCarros);
         //encontrarTransporte();
         changed = true;
@@ -301,10 +301,10 @@
       //Ciudad actual
       var actualCityIdx = getCookie('clientcityindex');
       if (actualCityIdx){
-          var laZona = actualZona;
-          misZonas.value = actualZona;
+          cityData = cities[actualCityIdx];
+          misCities.selectedIndex = actualCityIdx;
       } else {
-          var laZona = misZonas.options[0].value;
+          cityData = cities[0];
       }      //Poblar lista de zonas
       
       for (var zona of zonas){
