@@ -180,13 +180,14 @@
       }
       
       function permitirCarro(carro) {
-        var lugar = [carro.long, carro.lat];
-        var distance = turf.distance(lugar, CITY_LOC);
-        return (distance<=RANGE);
+        var lugarCarro = [carro.long, carro.lat];
+        var lugarCli = [longCli, latCli];
+        var distance = turf.distance(lugarCarro, lugarCli);
+        return (distance <= NEAR_RANGE);
       }
       
       function populateCarros(listaDeCarros){
-        if (document.getElementById('cercanos').value){
+        if (document.getElementById('cercano').value){
           losCarros = listaDeCarros.filter(permitirCarro(carro));
         } else {
           losCarros = listaDeCarros;
