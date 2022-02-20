@@ -55,16 +55,20 @@
       </div>
       <div class="row">
         <div class="col-5">
-          
+          <div class="form-group">
+            <label for telcliente>Teléfono:</label>
+            <input type="tel" id="telcliente"  class="form-control"
+                   oninput="cambioTel()"  placeholder="Teléfono obligatorio" required>
+          </div>
         </div>
-        <div class="col-6">
-          
+        <div class="col-7">
+          <div class="form-group">
+            <label for telcliente>Ciudad:</label>
+            <select id="citycliente" class="form-control"
+                   onchange="citySelected()" placeholder="Ciudad" required>
+            </select>  
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for telcliente>Teléfono:</label>
-        <input type="tel" id="telcliente"  class="form-control"
-               oninput="cambioTel()"  placeholder="Teléfono obligatorio" required>
       </div>
       <div class="form-group" style="display:none;" >
         <label for recoger>Lugar de recogida:</label>
@@ -73,9 +77,8 @@
                placeholder="Teclee el lugar donde el chofer le recogerá">
       </div>     
       <div class="form-group">
-        <label for destino>Destino  :</label>
-        <select id="destino" class="form-control" onchange="zonaSelected()"> 
-        </select>
+        <label for destino>Destino:</label>
+        <select id="destino" class="form-control" onchange="zonaSelected()"></select>
       </div>
       <div class="row">
         <div class="col-4">
@@ -278,6 +281,15 @@
           socket.emit('conectado',{'rol':'cliente','nombre':nCliente.value,
                                 'telef':tCliente.value});
       }   
+      
+      //Poblar lista de ciudades
+      for (var zona of zonas){
+        var item = document.createElement('option');
+        item.text=zona.nombre;
+        item.value=zona.nombre;
+        misZonas.appendChild(item);
+      }   
+      
       //Poblar lista de zonas
       for (var zona of zonas){
         var item = document.createElement('option');
