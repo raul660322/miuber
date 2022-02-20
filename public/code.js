@@ -1,3 +1,5 @@
+const RANGE = 50; //50 Km -Radio de funcionamiento alrededor de CITY_LOC
+const CITY_LOC = [-81.5665845, 23.047131]; //Matanzas, Cuba
 function setCookie(cname, cvalue, exhor) {
     const d = new Date();
     d.setTime(d.getTime() + (exhor * 3600 * 1000));
