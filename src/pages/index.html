@@ -102,6 +102,7 @@
       var misZonas = document.getElementById('destino');
       var changed = false;
       var losCarros = []; 
+      
       //Verificar nombre guardado
       document.getElementById("nombrecliente").value = getCookie('nombrecliente')
       document.getElementById("telcliente").value = getCookie('telcliente')
@@ -179,11 +180,17 @@
       }
       
       function permitirCarro(carro) {
-        
+        var lugar = [carro.long, carro.lat];
+        var distance = turf.distance(lugar, CITY_LOC);
+        return (distance<=RANGE);
       }
       
       function populateCarros(listaDeCarros){
-        losCarros = listaDeCarros;
+        if (document.getElementById('cercanos').value){
+          losCarros = listaDeCarros.filter(permitirCarro(carro));
+        } else {
+          losCarros = listaDeCarros;
+        }  
         messages.innerHTML=''
         console.log("La zona: ", laZona)
         if (losCarros.length > 0) {
