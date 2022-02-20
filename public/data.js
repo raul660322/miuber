@@ -22,7 +22,7 @@ var zonas = [
 ]
 
 var cities = [
-  {"nombre":"Matanzas","data":{"lat":111111,"long":22222,"zonas":[]}},
-  {"nombre":"Habana","data":{"lat":111111,"long":22222,"zonas":[]}},
-  {"nombre":"Holguín","data":{"lat":111111,"long":22222,"zonas":[]}}
+  {"nombre":"Matanzas","data":{"loc":[-81.5665845, 23.047131],"zonas":[]}},
+  {"nombre":"Habana","data":{"loc":[],"zonas":[]}},
+  {"nombre":"Holguín","data":{"loc":[],"zonas":[]}}
 ]
