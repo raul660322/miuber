@@ -45,7 +45,13 @@ var zonasHabana = [
   {"nombre":"Miramar","lat":23.0444105,"long":-81.5814311}, 
   {"nombre":"Guanabo","lat":23.0466831,"long":-81.583546},
   {"nombre":"Guanabacoa","lat":23.0452484,"long":-81.5707942},
-  {"nombre":"Terminal Ferrocarril","lat":23.0444105,"long":-81.5814311},    
+  {"nombre":"San Miguel del Padrón","lat":23.0444105,"long":-81.5814311},    
+  {"nombre":"Alamar","lat":23.0466831,"long":-81.583546},
+  {"nombre":"Hospital Amejeiras","lat":23.0452484,"long":-81.5707942},
+  {"nombre":"Hospital Calixto García","lat":23.0444105,"long":-81.5814311}, 
+  {"nombre":"Hotel Meliá Cohiba","lat":23.0466831,"long":-81.583546},
+  {"nombre":"Hotel Nacional","lat":23.0452484,"long":-81.5707942},
+  {"nombre":"Hotel Meliá Cohiba","lat":23.0444105,"long":-81.5814311},    
   
 ]
 
