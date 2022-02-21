@@ -270,6 +270,8 @@
         cityData = cities[idx]; 
         poblarZonas(cityData);
         poblarRecogidas(cityData);
+        var laRecogida = misRecogidas.options[1].value;
+        misRecogidas.selectedIndex = 1;
         setCookie('clientcityindex', idx, 9000) //Guardar ciudad
         changed = true;
         mostrarTransporte(false);
@@ -279,8 +281,14 @@
         var idx = misZonas.selectedIndex; 
         laZona = misZonas.options[idx].value; 
         setCookie('zonacliente', laZona, 1) //Guardar el destino por 1 hora
-        //populateCarros(losCarros);
-        //encontrarTransporte();
+        changed = true;
+        mostrarTransporte(false);
+      }
+
+      function recogidaSelected(){
+        var idx = misRecogidas.selectedIndex; 
+        laRecogida = misRecogidas.options[idx].value; 
+        setCookie('recogidacliente', laRecogida, 1) //Guardar el origen por 1 hora
         changed = true;
         mostrarTransporte(false);
       }
@@ -355,10 +363,10 @@
       
       //Poblar recogidas
       poblarRecogidas(cityData)
-      var actualRecogidas = getCookie('recogidacliente');
-      if (actualRecogidas){
+      var actualRecogida = getCookie('recogidacliente');
+      if (actualRecogida){
           var laRecogida = actualRecogida;
-          misRecogidas.value = ctualRecogida;
+          misRecogidas.value = actualRecogida;
       } else {
           var laRecogida = misRecogidas.options[1].value;
           misRecogidas.selectedIndex = 1;
