@@ -257,6 +257,7 @@
       function citySelected(){
         var idx = misCities.selectedIndex; 
         cityData = cities[idx]; 
+        poblarZonas(cityData);
         setCookie('clientcityindex', idx, 9000) //Guardar ciudad
         changed = true;
         mostrarTransporte(false);
@@ -291,8 +292,16 @@
                                 'telef':tCliente.value});
       }  
       
-      function poblarZonas(data){
-        
+      function poblarZonas(cdata){
+          var cityZonas = cdata.data.zonas;
+          //Poblar lista de zonas
+          misZonas.innerHTML = "";
+          for (var zona of cityZonas){
+            var item = document.createElement('option');
+            item.text=zona.nombre;
+            item.value=zona.nombre;
+            misZonas.appendChild(item);
+          }        
       }
       
       //Poblar lista de ciudades
@@ -311,14 +320,8 @@
           cityData = cities[0];
       } 
 
-      cityZonas = cityData.data.zonas;
       //Poblar lista de zonas
-      for (var zona of cityZonas){
-        var item = document.createElement('option');
-        item.text=zona.nombre;
-        item.value=zona.nombre;
-        misZonas.appendChild(item);
-      }
+      poblarZonas(cityData);
       
       var actualZona = getCookie('zonacliente');
       

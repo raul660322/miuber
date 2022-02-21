@@ -21,8 +21,22 @@ var zonas = [
   {"nombre":"Canímar","lat":23.0396432,"long":-81.4997837}
 ]
 
+var zonasHabana = [
+  
+]
+
+var zonasHolguin = [
+  {"nombre":"Parque Calixto García","lat":23.0466831,"long":-81.583546},
+  {"nombre":"Parque San José","lat":23.0452484,"long":-81.5707942},
+  {"nombre":"Parque Infantil","lat":23.0444105,"long":-81.5814311},  
+  {"nombre":"Parque de las Flores","lat":23.0466831,"long":-81.583546},
+  {"nombre":"Parque Martí","lat":23.0452484,"long":-81.5707942},
+  {"nombre":"Terminal Ferrocarril","lat":23.0444105,"long":-81.5814311},  
+  
+]
+
 var cities = [
   {"nombre":"Matanzas","data":{"rango":30,"loc":[-81.5665845, 23.047131],"zonas":zonas}},
-  {"nombre":"Habana","data":{"rango":30,"loc":[-82.2438099, 23.1017409],"zonas":[]}},
-  {"nombre":"Holguín","data":{"rango":30,"loc":[-76.2638143, 20.8854784],"zonas":[]}}
+  {"nombre":"Habana","data":{"rango":30,"loc":[-82.2438099, 23.1017409],"zonas":zonasHabana}},
+  {"nombre":"Holguín","data":{"rango":30,"loc":[-76.2638143, 20.8854784],"zonas":zonasHolguin}}
 ]
