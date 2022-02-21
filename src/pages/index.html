@@ -75,10 +75,20 @@
         <input type="tel" id="recoger"  class="form-control"
                oninput="cambioRecogida()"  
                placeholder="Teclee el lugar donde el chofer le recogerá">
-      </div>     
-      <div class="form-group">
-        <label for destino>Destino:</label>
-        <select id="destino" class="form-control" onchange="zonaSelected()"></select>
+      </div>  
+      <div class="row">
+        <div class="col-5">
+          <div class="form-group">
+            <label for destino>Destino:</label>
+            <select id="destino" class="form-control" onchange="zonaSelected()"></select>
+          </div>
+        </div>
+        <div class="col-7">
+          <div class="form-group">
+            <label for recogida>Recoger en:</label>
+            <select id="recogida" class="form-control" onchange="recogidaSelected()"></select>
+          </div>
+        </div>
       </div>
       <div class="row">
         <div class="col-4">
