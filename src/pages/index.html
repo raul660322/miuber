@@ -122,6 +122,7 @@
       var tCliente = document.getElementById('telcliente')
       var misZonas = document.getElementById('destino');
       var misCities = document.getElementById('citycliente');
+      var misRecogidas = document.getElementById('recogida');
       var changed = false;
       var losCarros = [];
       var cityData;
@@ -268,6 +269,7 @@
         var idx = misCities.selectedIndex; 
         cityData = cities[idx]; 
         poblarZonas(cityData);
+        poblarRecogidas(cityData);
         setCookie('clientcityindex', idx, 9000) //Guardar ciudad
         changed = true;
         mostrarTransporte(false);
@@ -314,6 +316,17 @@
           }        
       }
       
+      function poblarRecogidas(cdata){
+          var cityZonas = cdata.data.zonas;
+          //Poblar lista de zonas
+          misRecogidas.innerHTML = "";
+          for (var zona of cityZonas){
+            var item = document.createElement('option');
+            item.text=zona.nombre;
+            item.value=zona.nombre;
+            misRecogidas.appendChild(item);
+          }        
+      }      
       //Poblar lista de ciudades
       for (i in cities){
         var item = document.createElement('option');
@@ -332,15 +345,24 @@
 
       //Poblar lista de zonas
       poblarZonas(cityData);
-      
       var actualZona = getCookie('zonacliente');
-      
       if (actualZona){
           var laZona = actualZona;
           misZonas.value = actualZona;
       } else {
           var laZona = misZonas.options[0].value;
       }
+      
+      //Poblar recogidas
+      poblarRecogidas(cityData)
+      var actualRecogidas = getCookie('recogidacliente');
+      if (actualRecogidas){
+          var laRecogida = actualRecogida;
+          misRecogidas.value = ctualRecogida;
+      } else {
+          var laRecogida = misRecogidas.options[1].value;
+          misRecogidas.selectedIndex = 1;
+      }      
       comenzar();
     </script>    
   </body>
