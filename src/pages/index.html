@@ -289,7 +289,11 @@
           satelite = haySat(1);
           socket.emit('conectado',{'rol':'cliente','nombre':nCliente.value,
                                 'telef':tCliente.value});
-      }   
+      }  
+      
+      function poblarZonas(data){
+        
+      }
       
       //Poblar lista de ciudades
       for (i in cities){
@@ -305,9 +309,11 @@
           misCities.selectedIndex = actualCityIdx;
       } else {
           cityData = cities[0];
-      }      //Poblar lista de zonas
-      
-      for (var zona of zonas){
+      } 
+
+      cityZonas = cityData.data.zonas;
+      //Poblar lista de zonas
+      for (var zona of cityZonas){
         var item = document.createElement('option');
         item.text=zona.nombre;
         item.value=zona.nombre;
