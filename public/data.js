@@ -22,6 +22,18 @@ var zonas = [
 ]
 
 var zonasHabana = [
+  {"nombre":"Parque Central","lat":23.0466831,"long":-81.583546},
+  {"nombre":"Parque de la Fraternidad","lat":23.0452484,"long":-81.5707942},
+  {"nombre":"Plaza Vieja","lat":23.0444105,"long":-81.5814311}, 
+  {"nombre":"Plaza de la Catedral","lat":23.0466831,"long":-81.583546},
+  {"nombre":"Terminal Omnibus","lat":23.0452484,"long":-81.5707942},
+  {"nombre":"Terminal Ferrocarril","lat":23.0444105,"long":-81.5814311},    
+  {"nombre":"Universidad","lat":23.0466831,"long":-81.583546},
+  {"nombre":"Coppelia","lat":23.0452484,"long":-81.5707942},
+  {"nombre":"Plaza Vieja","lat":23.0444105,"long":-81.5814311}, 
+  {"nombre":"Plaza de la Catedral","lat":23.0466831,"long":-81.583546},
+  {"nombre":"Terminal Omnibus","lat":23.0452484,"long":-81.5707942},
+  {"nombre":"Terminal Ferrocarril","lat":23.0444105,"long":-81.5814311},    
   
 ]
 
@@ -32,7 +44,15 @@ var zonasHolguin = [
   {"nombre":"Parque de las Flores","lat":23.0466831,"long":-81.583546},
   {"nombre":"Parque Martí","lat":23.0452484,"long":-81.5707942},
   {"nombre":"Terminal Ferrocarril","lat":23.0444105,"long":-81.5814311},  
-  
+  {"nombre":"Terminal Omnibus","lat":23.0466831,"long":-81.583546},
+  {"nombre":"Alcides Pino","lat":23.0452484,"long":-81.5707942},
+  {"nombre":"Reparto Luz","lat":23.0444105,"long":-81.5814311}, 
+  {"nombre":"Reparto Peralta","lat":23.0466831,"long":-81.583546},
+  {"nombre":"Reparto Zayas","lat":23.0452484,"long":-81.5707942},
+  {"nombre":"La Molienda","lat":23.0444105,"long":-81.5814311}, 
+  {"nombre":"Vista Alegre","lat":23.0466831,"long":-81.583546},
+  {"nombre":"Pueblo Nuevo","lat":23.0452484,"long":-81.5707942},
+  {"nombre":"Pedro Díaz Coello","lat":23.0444105,"long":-81.5814311},  
 ]
 
 var cities = [
