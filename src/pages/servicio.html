@@ -205,6 +205,9 @@
           x.innerHTML="Latitude: " + position.coords.latitude + 
           "<br>Longitude: " + position.coords.longitude;
           //Enviar posición al servidor
+          var locActual = [position.coords.longitude, position.coords.latitude];
+          var locCity = cityData.data.loc;
+          var distance = turf.distance(locActual, locCity);
           var elNombre = document.getElementById("nombre").value
           var elTelef = document.getElementById("telef").value
           socket.emit('posicion', {'nombre':elNombre,
