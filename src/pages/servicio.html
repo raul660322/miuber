@@ -205,13 +205,20 @@
           x.innerHTML="Latitude: " + position.coords.latitude + 
           "<br>Longitude: " + position.coords.longitude;
           //Enviar posición al servidor
-          var locActual = [position.coords.longitude, position.coords.latitude];
+          var locActual = [position.coords.longitude || 0, position.coords.latitude || 0];
           var locCity = cityData.data.loc;
           var distance = turf.distance(locActual, locCity);
+          console.log("actual: ",locActual, "city: ",locCity )
           if (distance > cityData.data.rango) {
             navigator.geolocation.clearWatch(watchId);
             alert ("Su ubicación actual no se encuentra en: " + cityData.nombre + ". Por favor " 
                    +"seleccione la ciudad donde se encuentra en este momento. Disculpe la molestia.");
+            document.getElementById("nombre").disabled=false;
+            document.getElementById("telef").disabled=false;
+            document.getElementById("citychof").disabled=false;
+            document.getElementById("comenzar").style.display='initial';
+            document.getElementById("detener").style.display='none';  
+            haySat(3);
             return
           }
           var elNombre = document.getElementById("nombre").value
