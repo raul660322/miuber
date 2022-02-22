@@ -208,6 +208,12 @@
           var locActual = [position.coords.longitude, position.coords.latitude];
           var locCity = cityData.data.loc;
           var distance = turf.distance(locActual, locCity);
+          if (distance > cityData.data.rango) {
+            navigator.geolocation.clearWatch(watchId);
+            alert ("Su ubicación actual no se encuentra en: " + cityData.nombre + ". Por favor " 
+                   +"seleccione la ciudad donde se encuentra en este momento. Disculpe la molestia.");
+            return
+          }
           var elNombre = document.getElementById("nombre").value
           var elTelef = document.getElementById("telef").value
           socket.emit('posicion', {'nombre':elNombre,
@@ -233,6 +239,7 @@
       function detener() {
         document.getElementById("nombre").disabled=false;
         document.getElementById("telef").disabled=false;
+        document.getElementById("citychof").disabled=false;
         document.getElementById("comenzar").style.display='initial';
         document.getElementById("detener").style.display='none';
         navigator.geolocation.clearWatch(watchId);
