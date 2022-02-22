@@ -386,6 +386,7 @@
       } else {
           var laRecogida = misRecogidas.options[1].value;
           misRecogidas.selectedIndex = 1;
+          setCookie('recogidacliente', laRecogida, 1) //Guardar el origen por 1 hora
       }      
       comenzar();
     </script>    
