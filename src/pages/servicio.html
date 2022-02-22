@@ -129,7 +129,7 @@
       }  
       
       //Verificar estado
-      estado = getCookie('estadochofer')
+      estado = getCookie('estadochofer') || "No disponible"
       document.getElementById("estado").innerHTML = estado
       document.getElementById("estado").style.color = (estado=="Disponible")?"green":"red"
       if (estado=="Disponible"){
