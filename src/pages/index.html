@@ -206,7 +206,10 @@
               if (distance > cityData.data.rango) {
                 texto = "los datos de su GPS indican que usted no se encuentra en " + cityData.nombre
                       + ". Por favor seleccione correctamente la ciudad donde usted "
-                      + "a qué lugar debe ir a recogerle. ¿Quiere seguir sin GPS?"
+                      + "se encuentra en este momento";
+                alert(texto);
+                document.getElementById("oferta").style.display = 'none'; 
+                return
               }  
           }
         }
