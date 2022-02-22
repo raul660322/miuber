@@ -73,7 +73,7 @@
       var nombre = getCookie('nombrechofer');
       //var telefono = url.searchParams.get("tch");
       var telefono = getCookie('telchofer');
-      var actualCityIdx = getCookie('')
+      var actualCityIdx = getCookie('chofercityindex');
       var tCliente = url.searchParams.get("tcl");
       var latitud = url.searchParams.get("lat");
       var longitud = url.searchParams.get("long");
@@ -117,10 +117,12 @@
           return
         }
         mapboxgl.accessToken = 'pk.eyJ1IjoicmF1bHNhbmNoZXpwZXJlejY2IiwiYSI6ImNreW9rZ3ZlbzAxMmMyd3AybmxtOXN5bXkifQ.FOexLz_l9hDR7nwEouFR_A';
+        var cityLoc = cities[actualCityIdx].data.loc;
         var map = new mapboxgl.Map({
           container: 'map',
           style: 'mapbox://styles/mapbox/streets-v11',
-          center: [-81.5665845, 23.047131], // starting position Matanzas
+          center: cityLoc,
+          //center: [-81.5665845, 23.047131], // starting position Matanzas
           zoom: 14 // starting zoom 
           
         });
