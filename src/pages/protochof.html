@@ -43,9 +43,9 @@
       <p id="latitud" style="display:none"></p>
       <p id="longitud" style="display:none"></p>
     </div>
-    
+    <p id="datoscli"> </p>
     <div id="chat_container">
-        <p id="datoscli"> </p>
+        
         <div id="chat" style="margin-bottom:10px; width:350px; height: 300px; overflow-y:scroll;"></div>
         <div>
             <input type="text" id="decir" style="width:290px; margin-bottom:10px;"
@@ -79,7 +79,7 @@
       var longitud = url.searchParams.get("long");
       var nCliente = url.searchParams.get("cliente");
       var destinoCliente = url.searchParams.get("dest");
-      var recogerCliente = url.searchParams("rec");
+      var recogerCliente = url.searchParams.get("rec");
       document.getElementById('chofer').innerHTML="Chofer: " + nombre;
       document.getElementById('latitud').innerHTML="Latitud: " + latitud;
       document.getElementById('longitud').innerHTML="Longitud: " + longitud;

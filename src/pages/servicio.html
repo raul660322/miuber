@@ -211,7 +211,8 @@
           var locCity = cityData.data.loc;
           var distance = turf.distance(locActual, locCity);
           console.log("actual: ",locActual, "city: ",locCity )
-          if (distance > cityData.data.rango) {
+          //if (distance > cityData.data.rango) {
+          if (false) {  
             navigator.geolocation.clearWatch(watchId);
             alert ("Su ubicación actual no se encuentra en: " + cityData.nombre + ". Por favor " 
                    +"seleccione la ciudad donde se encuentra en este momento. Disculpe la molestia.");
