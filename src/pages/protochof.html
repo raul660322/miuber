@@ -45,9 +45,7 @@
     </div>
     
     <div id="chat_container">
-        <p>
-          <strong>"Cliente: "</strong>
-        </p>
+        <p id="datoscli"> </p>
         <div id="chat" style="margin-bottom:10px; width:350px; height: 300px; overflow-y:scroll;"></div>
         <div>
             <input type="text" id="decir" style="width:290px; margin-bottom:10px;"
@@ -89,6 +87,10 @@
                                                   +" Recoger en: "+recogerCliente;
       var latCli="";
       var longCli="";
+      
+      var datosCli = document.getElementById('datoscli');
+      datosCli.innerHTML = "Cliente: " + nCliente + " Destino: " + destinoCliente
+        + " Recoger en: " + recogerCliente
       
       mensaje("Hola. Un saludo. ¿En qué puedo ayudarle?",
              telefono,tCliente,socket);
