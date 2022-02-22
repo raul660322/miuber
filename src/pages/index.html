@@ -125,6 +125,7 @@
       var misRecogidas = document.getElementById('recogida');
       var changed = false;
       var losCarros = [];
+      var actualCityIdx;
       var cityData;
       
       //Verificar nombre guardado
@@ -268,6 +269,7 @@
       function citySelected(){
         var idx = misCities.selectedIndex; 
         cityData = cities[idx]; 
+        actualCityIdx = idx;
         poblarZonas(cityData);
         poblarRecogidas(cityData);
         var laRecogida = misRecogidas.options[1].value;
@@ -343,11 +345,12 @@
         misCities.appendChild(item);
       } 
       //Ciudad actual
-      var actualCityIdx = getCookie('clientcityindex');
+      actualCityIdx = getCookie('clientcityindex');
       if (actualCityIdx){
           cityData = cities[actualCityIdx];
           misCities.selectedIndex = actualCityIdx;
       } else {
+          actualCityIdx = 0;
           cityData = cities[0];
       } 
 

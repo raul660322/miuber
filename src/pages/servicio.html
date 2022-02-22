@@ -110,7 +110,8 @@
       var video = document.querySelector("#video");
       //var click_button = document.querySelector("#click-photo");
       var canvas = document.querySelector("#canvas");
-      var stream;  
+      var stream; 
+      var actualCityIdx;
       var cityData;
       //Verificar nombre guardado
       document.getElementById("nombre").value = getCookie('nombrechofer')
@@ -169,11 +170,12 @@
         misCities.appendChild(item);
       } 
       //Ciudad actual
-      var actualCityIdx = getCookie('chofercityindex');
+      actualCityIdx = getCookie('chofercityindex');
       if (actualCityIdx){
           cityData = cities[actualCityIdx];
           misCities.selectedIndex = actualCityIdx;
       } else {
+          actualCityIdx = 0;
           cityData = cities[0];
       }  
       
@@ -227,6 +229,7 @@
             'tel':elTelef,                       
             'lat':position.coords.latitude,
             'long':position.coords.longitude,
+            'city':actualCityIdx,                       
             'foto':img.src                       
           });
           estado = "Disponible"
@@ -313,6 +316,7 @@
       function citySelected(){
         var idx = misCities.selectedIndex; 
         cityData = cities[idx]; 
+        actualCityIdx = idx;
         setCookie('chofercityindex', idx, 9000) //Guardar ciudad
       }
       
