@@ -116,7 +116,7 @@
       var socket = io();
       var satelite = false;
       var latCli = NaN;
-      var longCli =NaN;
+      var longCli = NaN;
       var messages = document.getElementById('messages');
       var nCliente = document.getElementById('nombrecliente')
       var tCliente = document.getElementById('telcliente')
@@ -195,6 +195,8 @@
             return
           } else {
             no_sat = true;
+          } else {
+            
           }
           //alert('Debe tener activado el GPS'); 
         }
@@ -270,6 +272,9 @@
         var idx = misCities.selectedIndex; 
         cityData = cities[idx]; 
         actualCityIdx = idx;
+        if (!isNaN(latCli)) {
+          
+        }
         poblarZonas(cityData);
         poblarRecogidas(cityData);
         var laRecogida = misRecogidas.options[1].value;
