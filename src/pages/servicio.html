@@ -82,7 +82,7 @@
         <div class="col-6">
           <div class="form-group">
             <label for citychof>Ciudad:</label>
-            <select id="citychof" class="form-control pull-right"
+            <select id="citychof" class="form-control"
                    onchange="citySelected()" placeholder="Ciudad" required>
             </select>  
           </div>
@@ -159,12 +159,31 @@
       };
       img.src = window.localStorage.getItem("foto"); 
       //----------------------------------------------------------
+      
+      //Poblar lista de ciudades
+      for (i in cities){
+        var item = document.createElement('option');
+        item.text=cities[i].nombre;
+        item.value=i;
+        misCities.appendChild(item);
+      } 
+      //Ciudad actual
+      var actualCityIdx = getCookie('chofercityindex');
+      if (actualCityIdx){
+          cityData = cities[actualCityIdx];
+          misCities.selectedIndex = actualCityIdx;
+      } else {
+          cityData = cities[0];
+      }  
+      
+      //----------------------------------------------------------
       function comenzar() {
         var elNombre = document.getElementById("nombre").value
         var elTelef = document.getElementById("telef").value
         if (elNombre && elTelef){
           document.getElementById("nombre").disabled=true;
           document.getElementById("telef").disabled=true;
+          document.getElementById("citychof").disabled=true;
           document.getElementById("comenzar").style.display='none';
           document.getElementById("detener").style.display='unset';
           setCookie('nombrechofer', elNombre, 9000) //Guardar nombre del chofer
