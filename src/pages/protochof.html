@@ -39,13 +39,12 @@
     </div>
     <div>
       <p id="chofer" style="display:none"></p>
-      <p id="cliente"></p>
+      <p id="cliente" style="display:none"></p>
       <p id="latitud" style="display:none"></p>
       <p id="longitud" style="display:none"></p>
     </div>
     <p id="datoscli"> </p>
     <div id="chat_container">
-        
         <div id="chat" style="margin-bottom:10px; width:350px; height: 300px; overflow-y:scroll;"></div>
         <div>
             <input type="text" id="decir" style="width:290px; margin-bottom:10px;"
@@ -74,6 +73,7 @@
       var nombre = getCookie('nombrechofer');
       //var telefono = url.searchParams.get("tch");
       var telefono = getCookie('telchofer');
+      var actualCityIdx = getCookie('')
       var tCliente = url.searchParams.get("tcl");
       var latitud = url.searchParams.get("lat");
       var longitud = url.searchParams.get("long");
@@ -89,8 +89,8 @@
       var longCli="";
       
       var datosCli = document.getElementById('datoscli');
-      datosCli.innerHTML = "Cliente: " + nCliente + " Destino: " + destinoCliente
-        + " Recoger en: " + recogerCliente
+      datosCli.innerHTML = "Cliente: " + nCliente + ", Destino: " + destinoCliente
+        + ", Recoger en: " + recogerCliente
       
       mensaje("Hola. Un saludo. ¿En qué puedo ayudarle?",
              telefono,tCliente,socket);
