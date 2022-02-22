@@ -195,13 +195,21 @@
             return
           } else {
             no_sat = true;
-          } else {
-            
           }
           //alert('Debe tener activado el GPS'); 
+        } else {
+          if (!isNaN(latCli)) {
+              var locActual = [longCli, latCli];
+              var locCity = cityData.data.loc;
+              var distance = turf.distance(locActual, locCity);
+              console.log("actual: ",locActual, "city: ",locCity )
+              if (distance > cityData.data.rango) {
+                texto = "los datos de su GPS indican que usted no se encuentra en " + cityData.nombre
+                      + ". Por favor seleccione correctamente la ciudad donde usted "
+                      + "a qué lugar debe ir a recogerle. ¿Quiere seguir sin GPS?"
+              }  
+          }
         }
-        
-        //populateCarros(losCarros);
         socket.emit('conectado',{'rol':'cliente','nombre':nCliente.value,
                                 'telef':tCliente.value});
       }
@@ -272,9 +280,6 @@
         var idx = misCities.selectedIndex; 
         cityData = cities[idx]; 
         actualCityIdx = idx;
-        if (!isNaN(latCli)) {
-          
-        }
         poblarZonas(cityData);
         poblarRecogidas(cityData);
         var laRecogida = misRecogidas.options[1].value;
