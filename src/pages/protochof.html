@@ -24,7 +24,8 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
-    ></script>    <script src="/socket.io/socket.io.js"></script>
+    ></script>    
+    <script src="/socket.io/socket.io.js"></script>
     <script src="code.js"></script>
   </head>
   <body>
@@ -44,6 +45,9 @@
     </div>
     
     <div id="chat_container">
+        <p>
+          <strong>"Cliente: "</strong>
+        </p>
         <div id="chat" style="margin-bottom:10px; width:350px; height: 300px; overflow-y:scroll;"></div>
         <div>
             <input type="text" id="decir" style="width:290px; margin-bottom:10px;"
@@ -81,7 +85,8 @@
       document.getElementById('chofer').innerHTML="Chofer: " + nombre;
       document.getElementById('latitud').innerHTML="Latitud: " + latitud;
       document.getElementById('longitud').innerHTML="Longitud: " + longitud;
-      document.getElementById('cliente').innerHTML="Cliente: " + nCliente+" Destino: "+ destinoCliente;
+      document.getElementById('cliente').innerHTML="Cliente: " + nCliente+" Destino: "+ destinoCliente
+                                                  +" Recoger en: "+recogerCliente;
       var latCli="";
       var longCli="";
       
