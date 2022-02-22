@@ -68,15 +68,26 @@
           </div>  
         </div>  
       <p id="demo"></p>
-      <div>
-        <strong>Estado: </strong>
-        <strong id="estado"></strong>
+      <div class="row">
+        <div class="col-5">
+          <div>
+            <strong>Estado: </strong>
+            <strong id="estado"></strong>
+          </div>
+          <div>
+            <button class="btn btn-success" id="comenzar" onclick="comenzar()">Activar</button>
+            <button class="btn btn-danger" id="detener" onclick="detener()">Detener</button>
+          </div> 
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for citychof>Ciudad:</label>
+            <select id="citychof" class="form-control pull-right"
+                   onchange="citySelected()" placeholder="Ciudad" required>
+            </select>  
+          </div>
+        </div>
       </div>
-      <div>
-        <button class="btn btn-success" id="comenzar" onclick="comenzar()">Activar</button>
-        <button class="btn btn-danger" id="detener" onclick="detener()">Detener</button>
-      </div>
-       
       <br>
       <div id="sound"></div>
       <div>
