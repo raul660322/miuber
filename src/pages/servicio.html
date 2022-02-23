@@ -193,7 +193,8 @@
           setCookie('telchofer', elTelef, 9000) //Guardar teléfono del chofer
           haySat(2);
           if (navigator.geolocation) {
-            watchId = navigator.geolocation.watchPosition(showPosition);
+            watchId = navigator.geolocation.watchPosition(showPosition,null,
+                                                          {maximumAge:10000});
 
           } else { 
             x.innerHTML = "Geolocation is not supported by this browser.";
