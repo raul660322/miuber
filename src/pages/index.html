@@ -96,7 +96,7 @@
         </div>
         <div class="col-8">
           <div class="form-check form-switch" style="margin-top:10px"> 
-            <input class="form-check-input" type="checkbox" id="cercano">
+            <input class="form-check-input" type="checkbox" id="cercano" disabled>
             <label class="form-check-label" for="cercano">Buscar sólo transporte cercano</label>
           </div>
         </div>
@@ -318,18 +318,21 @@
       }
 
       function showPosition(position) {
+          //El cliente pedirá al servidor la lista de carros cada DELAY_CARROS ms.
+          //-------------------------------------------------------------
           var newTime = new Date().getTime();
-          if (Math.abs(newTime-tiempo)<10000){
+          if (Math.abs(newTime-tiempo) < DELAY_CARROS){
             return
           }
-          tiempo = newTime;  
+          tiempo = newTime; 
+          //--------------------------------------------------------------
           latCli = position.coords.latitude;
           longCli = position.coords.longitude;
-          
+          var cercanoSwitch = document.getElementById('cercano');
           if (!isNaN(latCli)) {
-            
+             cercanoSwitch.disabled = false; 
           } else {
-            
+            cercanoSwitch.disabled = true;
           }
           satelite = haySat(1);
           socket.emit('conectado',{'rol':'cliente','nombre':nCliente.value,
