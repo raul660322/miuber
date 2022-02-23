@@ -325,6 +325,12 @@
           tiempo = newTime;  
           latCli = position.coords.latitude;
           longCli = position.coords.longitude;
+          
+          if (!isNaN(latCli)) {
+            
+          } else {
+            
+          }
           satelite = haySat(1);
           socket.emit('conectado',{'rol':'cliente','nombre':nCliente.value,
                                 'telef':tCliente.value});
