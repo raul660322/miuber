@@ -127,7 +127,8 @@
       var losCarros = [];
       var actualCityIdx;
       var cityData;
-      var tiempo = 0; 
+      var tiempo = 0;
+      var tiempo_receive = 0;
       //Verificar nombre guardado
       document.getElementById("nombrecliente").value = getCookie('nombrecliente')
       document.getElementById("telcliente").value = getCookie('telcliente')
@@ -135,17 +136,25 @@
       tCliente = document.getElementById('telcliente');
       socket.emit('conectado',{'rol':'cliente','nombre':getCookie('nombrecliente'),
                                 'telef':getCookie('telcliente')});
+      
       socket.on('carros', (listaDeCarros) =>{ 
-        if (tCliente.value && nCliente.value && (satelite || no_sat) && !changed){
-          populateCarros(listaDeCarros);
-          //mostrarTransporte(true);
-        } else {
-          mostrarTransporte(false);
-        }        
+          //El cliente actualizará  la lista de carros no antes de que 
+          // transcurran DELAY_CARRO_RECEIVE ms después de la última actualización.
+          //------------------------------------------------------------------------
+          var newTime = new Date().getTime();
+          if (Math.abs(newTime - tiempo_receive) < DELAY_CARRO_RECEIVE){
+            return
+          }
+          tiempo_receive = newTime; 
+          //------------------------------------------------------------------------
+          if (tCliente.value && nCliente.value && (satelite || no_sat) && !changed){
+            populateCarros(listaDeCarros);
+            //mostrarTransporte(true);
+          } else {
+            mostrarTransporte(false);
+          }        
       });
-      
-
-      
+        
       function buscar(){
         //comenzar();
         changed = false;
@@ -317,14 +326,18 @@
         }
       }
 
+      //Se ejecuta cade vez que el cliente cambia de posicián 
       function showPosition(position) {
-          //El cliente pedirá al servidor la lista de carros cada DELAY_CARROS ms.
+          //El cliente actualizará su posición y pedirá al servidor la lista
+          //de carros cada DELAY_CLIENTE ms.
           //-------------------------------------------------------------
           var newTime = new Date().getTime();
-          if (Math.abs(newTime-tiempo) < DELAY_CARROS){
+          if (Math.abs(newTime-tiempo) < DELAY_CLIENTE){
             return
           }
           tiempo = newTime; 
+          tiempo_receive = 0; //Después de actualizar la posición el
+          // cliente debe recibir inmediatamente la lista de carros
           //--------------------------------------------------------------
           latCli = position.coords.latitude;
           longCli = position.coords.longitude;
