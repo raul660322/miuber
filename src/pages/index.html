@@ -232,7 +232,6 @@
         }  
         messages.innerHTML=''
         console.log("La zona: ", laZona)
-        var arreglo=[];
         if (losCarros.length > 0) {
           for (var carro of listaDeCarros){
             var item = document.createElement('li'); 
@@ -244,11 +243,10 @@
                                   +"&tcl="+tCliente.value+"&tch="+carro.tel
                                   +"&latcli="+latCli+"&longcli="+longCli);         
              
-            seleccion.addEventListener('click', (e)=>{ agregar(e, carro.nombre,carro.foto)
-              //window.localStorage.setItem("fotochofer",carro.foto);
-              //alert("Seleccionado el servicio del chofer " + this.textContent);
+            seleccion.addEventListener('click', (e)=>{
+              window.localStorage.setItem("fotochofer",e.target.nextElementSibling.src);
+              alert("Seleccionado el servicio del chofer " + e.target.textContent);
             }, false); 
-            arreglo.push(seleccion);
             item.appendChild(seleccion);
             laFoto = document.createElement('img');
             //laFoto.alt = "N/F"
@@ -266,11 +264,6 @@
         } 
       }
       
-      function agregar(e,nombre,foto){
-              window.localStorage.setItem("fotochofer",foto);
-              console.log("esto:", e.target.nextElementSibiling);
-              alert("Seleccionado el servicio del chofer " + e.target.textContent);
-      }
       
       function mostrarTransporte(hayTransporte){
         if (hayTransporte=="si"){
