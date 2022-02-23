@@ -243,9 +243,9 @@
                                   +"&tcl="+tCliente.value+"&tch="+carro.tel
                                   +"&latcli="+latCli+"&longcli="+longCli);         
             //seleccion.addEventListener('click', linkClicked.bind(null,tCliente.value),false);  
-            seleccion.addEventListener('click', ()=>{
-              window.localStorage.setItem("fotochofer",carro.foto);
-              alert("Seleccionado el servicio del chofer " + this.textContent);
+            seleccion.addEventListener('click', ()=>{ agregar(carro.nombre,carro.foto)
+              //window.localStorage.setItem("fotochofer",carro.foto);
+              //alert("Seleccionado el servicio del chofer " + this.textContent);
             });  
             item.appendChild(seleccion);
             laFoto = document.createElement('img');
@@ -262,6 +262,11 @@
         } else {
           mostrarTransporte("no");
         } 
+      }
+      
+      function agregar(nombre,foto){
+              window.localStorage.setItem("fotochofer",foto);
+              alert("Seleccionado el servicio del chofer " + nombre);
       }
       
       function mostrarTransporte(hayTransporte){
