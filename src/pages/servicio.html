@@ -121,7 +121,7 @@
       //Verificar pago
       var tele = document.getElementById("telef").value
       var autorizadoHasta = getCookie('choferautorizadohasta');//Ver primero en cache
-      var tiempo = new Date().getTime(); 
+      var tiempo = 0; 
       if (autorizadoHasta & (autorizadoHasta == "a")) { //Poner tele en lugar de "a"
         
       } else {
@@ -207,7 +207,7 @@
 
       function showPosition(position) {
           var newTime = new Date().getTime();
-          if (newTime-tiempo<10000){
+          if (Math.abs(newTime-tiempo)<10000){
             return
           }
           tiempo = newTime;  
