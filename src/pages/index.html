@@ -247,7 +247,7 @@
             seleccion.addEventListener('click', ()=>{ agregar(carro.nombre,carro.foto)
               //window.localStorage.setItem("fotochofer",carro.foto);
               //alert("Seleccionado el servicio del chofer " + this.textContent);
-            }); 
+            }, false); 
             arreglo.push(seleccion);
             item.appendChild(seleccion);
             laFoto = document.createElement('img');
