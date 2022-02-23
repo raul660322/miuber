@@ -102,7 +102,7 @@ io.on('connection', (socket) => {
       socket.on('posicion', (pos) => {
        //Poner time stamp a la oferta del carro
        pos["time"] = new Date().getTime()
-       console.log('coordenadas: ',pos); 
+       console.log('coordenadas: ',pos.nombre); 
              
        //Obtener choferes
        const index = losCarros.findIndex(carro=>carro.tel==pos.tel)
