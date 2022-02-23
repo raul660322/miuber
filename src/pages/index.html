@@ -127,7 +127,7 @@
       var losCarros = [];
       var actualCityIdx;
       var cityData;
-      
+      var tiempo = new Date().getTime(); 
       //Verificar nombre guardado
       document.getElementById("nombrecliente").value = getCookie('nombrecliente')
       document.getElementById("telcliente").value = getCookie('telcliente')
@@ -249,7 +249,7 @@
             }, false); 
             item.appendChild(seleccion);
             laFoto = document.createElement('img');
-            //laFoto.alt = "N/F"
+            laFoto.alt = "N/F"
             laFoto.src = carro.foto;
             laFoto.style.height="50px";
             laFoto.style.width="40px";
@@ -320,8 +320,11 @@
       }
 
       function showPosition(position) {
-          //x.innerHTML="Latitude: " + position.coords.latitude + 
-          //"<br>Longitude: " + position.coords.longitude;
+          var newTime = new Date().getTime();
+          if (newTime-tiempo<10000){
+            return
+          }
+          tiempo = newTime;  
           latCli = position.coords.latitude;
           longCli = position.coords.longitude;
           satelite = haySat(1);
