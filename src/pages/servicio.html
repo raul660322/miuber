@@ -205,12 +205,18 @@
         }  
       }
 
-      function showPosition(position) {
+      //Se ejecuta cade vez que el chofer cambia de posición y el GPS actualiza
+      //los datos de geolocalización
+      function showPosition(position){
+          //El chofer emitirá su posición al servidor con un intervalo de al menos
+          //DELAY_CARROS ms.
+          //----------------------------------------------------------------------------
           var newTime = new Date().getTime();
-          if (Math.abs(newTime-tiempo)<10000){
+          if (Math.abs(newTime - tiempo) < DELAY_CARRO){
             return
           }
-          tiempo = newTime;  
+          tiempo = newTime; 
+          //----------------------------------------------------------------------------
           x.innerHTML="Latitude: " + position.coords.latitude + 
           "<br>Longitude: " + position.coords.longitude;
           //Enviar posición al servidor
