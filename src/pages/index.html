@@ -268,7 +268,7 @@
       
       function agregar(e,nombre,foto){
               window.localStorage.setItem("fotochofer",foto);
-              console.log("esto:", e.target);
+              console.log("esto:", e.target.nextElementSibiling);
               alert("Seleccionado el servicio del chofer " + e.target.textContent);
       }
       
