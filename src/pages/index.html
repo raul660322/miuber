@@ -251,7 +251,7 @@
             arreglo.push(seleccion);
             item.appendChild(seleccion);
             laFoto = document.createElement('img');
-            laFoto.alt = "Sin foto"
+            //laFoto.alt = "N/F"
             laFoto.src = carro.foto;
             laFoto.style.height="50px";
             laFoto.style.width="40px";
@@ -268,6 +268,7 @@
       
       function agregar(nombre,foto){
               window.localStorage.setItem("fotochofer",foto);
+              console.log("esto:", this);
               alert("Seleccionado el servicio del chofer " + this.textContent);
       }
       
