@@ -206,6 +206,11 @@
       }
 
       function showPosition(position) {
+          var newTime = new Date().getTime();
+          if (newTime-tiempo<10000){
+            return
+          }
+          tiempo = newTime;  
           x.innerHTML="Latitude: " + position.coords.latitude + 
           "<br>Longitude: " + position.coords.longitude;
           //Enviar posición al servidor
