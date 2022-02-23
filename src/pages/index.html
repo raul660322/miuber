@@ -312,7 +312,8 @@
       function comenzar() {
         satelite = haySat(2);
         if (navigator.geolocation) {
-          watchId = navigator.geolocation.watchPosition(showPosition);
+          watchId = navigator.geolocation.watchPosition(showPosition, null,
+                                                       {maximunAge:10000});
         } else { 
           x.innerHTML = "Geolocation is not supported by this browser.";
         }
