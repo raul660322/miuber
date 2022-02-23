@@ -218,8 +218,8 @@
       }
       
       function permitirCarro(carro) {
-        var lugarCarro = [carro.long , carro.lat];
-        var lugarCli = [longCli, latCli];
+        var lugarCarro = [carro.long || 0, carro.lat || 0];
+        var lugarCli = [longCli || 0, latCli || 0];
         var distance = turf.distance(lugarCarro, lugarCli);
         return ((actualCityIdx == carro.city) && (distance <= NEAR_RANGE));
       }
