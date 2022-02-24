@@ -233,6 +233,14 @@
         return ((actualCityIdx == carro.city) && (distance <= NEAR_RANGE));
       }
       
+      function orderByTime(a, b){
+        
+      }
+      
+      function orderByDistance(a, b){
+        
+      }
+      
       function populateCarros(listaDeCarros){
         if (document.getElementById('cercano').checked){
           losCarros = listaDeCarros.filter(carro=>permitirCarro(carro));
