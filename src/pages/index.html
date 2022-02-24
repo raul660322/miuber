@@ -234,11 +234,16 @@
       }
       
       function orderByTime(a, b){
-        
+        return b.time - a.time //De mayor a menor, el último sale primero
       }
       
       function orderByDistance(a, b){
-        
+        let lugarCarroA = [a.long || 0, a.lat || 0];
+        let lugarCarroB = [b.long || 0, b.lat || 0];
+        let lugarCli = [longCli || 0, latCli || 0];
+        let distanceA = turf.distance(lugarCarroA, lugarCli);
+        let distanceB = turf.distance(lugarCarroB, lugarCli);
+        return distanceA - distanceB //de menor a mayor, el más cercano sale primero 
       }
       
       function populateCarros(listaDeCarros){
